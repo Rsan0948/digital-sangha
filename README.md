@@ -9,8 +9,24 @@ Local AI companion for designing and running yoga flows. FastAPI + SQLite
 backend, Svelte + Vite frontend, optional Electron desktop shell. Cloud LLMs
 are optional; everything runs on your machine.
 
-<!-- Screenshot: pending. Currently a placeholder. -->
-<img alt="Digital Sangha screenshot" src="docs/images/screenshot.png" />
+<img alt="Digital Sangha — flow editor with AI assistant" src="docs/images/flow-editor.png" />
+
+<details>
+<summary>More screenshots</summary>
+
+### Home
+![Home](docs/images/home.png)
+
+### Library
+![Library](docs/images/library.png)
+
+### Chat
+![Chat](docs/images/chat.png)
+
+### Schedule
+![Schedule](docs/images/schedule.png)
+
+</details>
 
 ## Quick Start — Web App
 

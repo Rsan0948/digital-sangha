@@ -29,7 +29,7 @@ _SECURITY_HEADERS: tuple[tuple[bytes, bytes], ...] = (
     (
         b"content-security-policy",
         (
-            b"default-src 'self'; img-src 'self' data:; "
+            b"default-src 'self'; img-src 'self' data: https:; "
             b"style-src 'self' 'unsafe-inline'; script-src 'self'; "
             b"connect-src 'self' ws: wss:"
         ),
