@@ -28,6 +28,12 @@ are optional; everything runs on your machine.
 
 </details>
 
+## Highlights
+
+- **Production middleware stack.** Custom ASGI middleware for payload size limits (5 MB cap, env-configurable), default web-hardening headers (CSP, X-Frame-Options, Referrer-Policy, Permissions-Policy), and a stdlib token-bucket rate limiter on admin endpoints — no `slowapi` dep. See [`backend/main.py`](backend/main.py) and [`docs/architecture.md`](docs/architecture.md) §5.
+- **Schema discipline via alembic.** No `metadata.create_all` on startup. Every schema change is a versioned migration; `run_sangha.py` applies `alembic upgrade head` before launch unless explicitly skipped. Baseline at [`backend/migrations/versions/0001_initial_schema.py`](backend/migrations/versions/0001_initial_schema.py).
+- **Local-only threat model, made explicit.** Loopback bind by default, Spotify OAuth state CSRF validation, WebSocket origin allowlist, atomic Fernet key write under `umask(0o077)`, ZIP-slip-safe data import. Documented in [`SECURITY.md`](SECURITY.md) and [`docs/architecture.md`](docs/architecture.md) §4.
+
 ## Quick Start — Web App
 
 ```bash
@@ -64,9 +70,16 @@ Three ways, in priority order:
 The Fernet encryption key is auto-generated on first run and stored at
 `data/encryption.key` (gitignored). Do not commit it.
 
-## Optional Data Imports
+## Datasets
 
-Place datasets in `data/raw/`, then:
+The Library, Flow Editor, AI Assistant, and playlist generator all read from
+four reference datasets under `data/raw/` (poses, themes, sutras, Spotify
+tracks). None ship with the repo — bring your own. See
+[`docs/datasets.md`](docs/datasets.md) for schemas, public sources (Hugging
+Face datasets, public-domain sutra translations, etc.), and the licensing
+audit checklist.
+
+Quickstart once `data/raw/` is populated:
 
 ```bash
 python scripts/ingest_poses.py
@@ -78,9 +91,13 @@ python scripts/build_embeddings.py
 
 ## Architecture
 
-FastAPI backend with SQLite (via SQLModel) and a Chroma vector store. Svelte
-+ Vite frontend, with an optional Electron desktop shell. Everything runs
-locally; cloud LLM providers are opt-in via the configuration above.
+FastAPI backend with SQLite (via SQLModel, alembic-migrated) and a Chroma
+vector store. Svelte + Vite frontend, with an optional Electron desktop
+shell. Everything runs locally; cloud LLM providers are opt-in via the
+configuration above.
+
+For the full topology, data flow, storage layout, security model, and key
+design decisions, see [`docs/architecture.md`](docs/architecture.md).
 
 ## Releases
 
