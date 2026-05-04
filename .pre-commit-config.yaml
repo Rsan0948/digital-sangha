@@ -1,0 +1,42 @@
+# Run with: pre-commit install (one-time) then `pre-commit run --all-files`.
+# CI does NOT run pre-commit; it runs ruff + eslint + prettier directly. The
+# hooks below are the contributor-side equivalent.
+#
+# Note: hooks only see the staged delta on normal `git commit` runs.
+# `pre-commit run --all-files` walks the whole tree and may surface
+# legacy whitespace/format deltas in older files; fix or stage as needed.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+        exclude: ^backend/migrations/script\.py\.mako$
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.7.4
+    hooks:
+      - id: ruff
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier (frontend/src)
+        # Use the project-local prettier from frontend/node_modules; the
+        # mirrors-prettier hook cannot resolve our prettier-plugin-svelte
+        # config because it runs prettier in an isolated env.
+        language: system
+        entry: bash -c 'cd frontend && npx --no -- prettier --check src'
+        pass_filenames: false
+        files: ^frontend/src/.*\.(ts|svelte|css|json)$
+
+      - id: eslint
+        name: eslint (frontend/src)
+        # Same reason as prettier: use the project-local eslint with our flat
+        # config, plugins, and parser instead of mirrors-eslint's isolated env.
+        language: system
+        entry: bash -c 'cd frontend && npx --no -- eslint src'
+        pass_filenames: false
+        files: ^frontend/src/.*\.(ts|svelte)$

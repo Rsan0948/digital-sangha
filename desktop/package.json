@@ -1,0 +1,45 @@
+{
+  "name": "digital-sangha-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desktop shell for Digital Sangha",
+  "main": "main.cjs",
+  "scripts": {
+    "build:frontend": "cd ../frontend && npm run build",
+    "dev": "npm run build:frontend && electron .",
+    "start": "npm run build:frontend && electron .",
+    "dist:mac": "npm run build:frontend && electron-builder --mac",
+    "dist:win": "npm run build:frontend && electron-builder --win",
+    "dist:linux": "npm run build:frontend && electron-builder --linux",
+    "dist": "npm run build:frontend && electron-builder -mwl"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.yoga.digitalsangha",
+    "productName": "Digital Sangha",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "main.cjs",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../frontend/dist",
+        "to": "frontend/dist"
+      },
+      {
+        "from": "../backend",
+        "to": "backend",
+        "filter": [
+          "**/*",
+          "!__pycache__/**"
+        ]
+      }
+    ]
+  }
+}

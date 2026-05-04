@@ -1,0 +1,2942 @@
+[
+    {
+      "sutra_id": "1.1",
+      "book": 1,
+      "verse": 1,
+      "transliteration": "atha yogānuśāsanam",
+      "translation": "Now I give the explanation of yoga and its practice.",
+      "keywords": [
+        "atha",
+        "yogānuśāsanam",
+        "now",
+        "give",
+        "explanation",
+        "yoga"
+      ]
+    },
+    {
+      "sutra_id": "1.2",
+      "book": 1,
+      "verse": 2,
+      "transliteration": "yogaḥ cittavṛtti nirodhaḥ",
+      "translation": "The skill of yoga is demonstrated by the conscious non-operation of the vibrational modes of the mento- emotional energy.",
+      "keywords": [
+        "yogaḥ",
+        "cittavṛtti",
+        "nirodhaḥ",
+        "skill",
+        "yoga",
+        "demonstrated"
+      ]
+    },
+    {
+      "sutra_id": "1.3",
+      "book": 1,
+      "verse": 3,
+      "transliteration": "tadā draṣṭuḥ svarūpe avasthānam",
+      "translation": "Then the perceiver is situated in his own form.",
+      "keywords": [
+        "tadā",
+        "draṣṭuḥ",
+        "svarūpe",
+        "avasthānam",
+        "then",
+        "perceiver"
+      ]
+    },
+    {
+      "sutra_id": "1.4",
+      "book": 1,
+      "verse": 4,
+      "transliteration": "vṛtti sārūpyam itaratra",
+      "translation": "At other times, there is conformity with the mento-emotional energy.",
+      "keywords": [
+        "vṛtti",
+        "sārūpyam",
+        "itaratra",
+        "other",
+        "times",
+        "conformity"
+      ]
+    },
+    {
+      "sutra_id": "1.5",
+      "book": 1,
+      "verse": 5,
+      "transliteration": "vṛttayaḥ pañcatayyaḥ kliṣṭā akliṣṭāḥ",
+      "translation": "The vibrations in the mento-emotional energy are five-fold being agonizing or none-troublesome.",
+      "keywords": [
+        "vṛttayaḥ",
+        "pañcatayyaḥ",
+        "kliṣṭā",
+        "akliṣṭāḥ",
+        "vibrations",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "1.6",
+      "book": 1,
+      "verse": 6,
+      "transliteration": "pramāṇa viparyaya vikalpa nidrā smṛtayaḥ",
+      "translation": "They are correct perception, incorrect perception, imagination, sleep and memory.",
+      "keywords": [
+        "pramāṇa",
+        "viparyaya",
+        "vikalpa",
+        "nidrā",
+        "smṛtayaḥ",
+        "correct"
+      ]
+    },
+    {
+      "sutra_id": "1.7",
+      "book": 1,
+      "verse": 7,
+      "transliteration": "pratyakṣa anumāna āgamāḥ pramāṇāni",
+      "translation": "Correct perception may be acquired directly, by correct analysis or by correct reference.",
+      "keywords": [
+        "pratyakṣa",
+        "anumāna",
+        "āgamāḥ",
+        "pramāṇāni",
+        "correct",
+        "perception"
+      ]
+    },
+    {
+      "sutra_id": "1.8",
+      "book": 1,
+      "verse": 8,
+      "transliteration": "viparyayaḥ mithyājñānam atadrūpa pratiṣṭham",
+      "translation": "Incorrect perception is based on false information and on perception of what is not the true form.",
+      "keywords": [
+        "viparyayaḥ",
+        "mithyājñānam",
+        "atadrūpa",
+        "pratiṣṭham",
+        "incorrect",
+        "perception"
+      ]
+    },
+    {
+      "sutra_id": "1.9",
+      "book": 1,
+      "verse": 9,
+      "transliteration": "śabdajñāna anupātī vastuśūnyaḥ vikalpaḥ",
+      "translation": "Verbal or written information which is followed by concepts which are devoid of reality, is imagination.",
+      "keywords": [
+        "śabdajñāna",
+        "anupātī",
+        "vastuśūnyaḥ",
+        "vikalpaḥ",
+        "verbal",
+        "written"
+      ]
+    },
+    {
+      "sutra_id": "1.10",
+      "book": 1,
+      "verse": 10,
+      "transliteration": "abhāva pratyaya ālambanā vṛttiḥ nidrā",
+      "translation": "Sleep is the vibrationial mode which is supported by the absence of objective awareness.",
+      "keywords": [
+        "abhāva",
+        "pratyaya",
+        "ālambanā",
+        "vṛttiḥ",
+        "nidrā",
+        "sleep"
+      ]
+    },
+    {
+      "sutra_id": "1.11",
+      "book": 1,
+      "verse": 11,
+      "transliteration": "anubhūta viṣaya asaṁpramoṣaḥ smṛtiḥ",
+      "translation": "Memory is the retained impression of experienced objects.",
+      "keywords": [
+        "anubhūta",
+        "viṣaya",
+        "asaṁpramoṣaḥ",
+        "smṛtiḥ",
+        "memory",
+        "retained"
+      ]
+    },
+    {
+      "sutra_id": "1.12",
+      "book": 1,
+      "verse": 12,
+      "transliteration": "abhyāsa vairāgyābhyāṁ tannirodhaḥ",
+      "translation": "That non-operation of the vibrational modes is achieved by effective practice in not having an interest in the very same operations.",
+      "keywords": [
+        "abhyāsa",
+        "vairāgyābhyāṁ",
+        "tannirodhaḥ",
+        "non",
+        "operation",
+        "vibrational"
+      ]
+    },
+    {
+      "sutra_id": "1.13",
+      "book": 1,
+      "verse": 13,
+      "transliteration": "tatra sthitau yatnaḥ abhyāsaḥ",
+      "translation": "In that case, practice is the persistent endeavor (to cultivate that lack of interest).",
+      "keywords": [
+        "tatra",
+        "sthitau",
+        "yatnaḥ",
+        "abhyāsaḥ",
+        "case",
+        "practice"
+      ]
+    },
+    {
+      "sutra_id": "1.14",
+      "book": 1,
+      "verse": 14,
+      "transliteration": "sa tu dīrghakāla nairantarya",
+      "translation": "satkāra āsevitaḥ dṛḍhabhūmiḥ But that is attained on the firm basis of a continuous reverential sustained practice which is executed for a long time.",
+      "keywords": [
+        "sa",
+        "tu",
+        "dīrghakāla",
+        "nairantarya",
+        "satkāra",
+        "āsevitaḥ"
+      ]
+    },
+    {
+      "sutra_id": "1.15",
+      "book": 1,
+      "verse": 15,
+      "transliteration": "dṛṣṭa ānuśravika viṣaya vitṛṣṇasya",
+      "translation": "vaśīkārasaṁjñā vairāgyam The non-interest in the operations of the mento-emotional energy is achieved by one who has perfect mastery in consciousness and who does not crave for what is perceived or what is heard of in the mundane existence.",
+      "keywords": [
+        "dṛṣṭa",
+        "ānuśravika",
+        "viṣaya",
+        "vitṛṣṇasya",
+        "vaśīkārasaṁjñā",
+        "vairāgyam"
+      ]
+    },
+    {
+      "sutra_id": "1.16",
+      "book": 1,
+      "verse": 16,
+      "transliteration": "tatparaṁ puruṣakhyāteḥ guṇavaitṛṣṇyam",
+      "translation": "That highest non-interest occurs when there is freedom from desire for the features of material nature and thorough awareness of the spiritual person.",
+      "keywords": [
+        "tatparaṁ",
+        "puruṣakhyāteḥ",
+        "guṇavaitṛṣṇyam",
+        "highest",
+        "non",
+        "interest"
+      ]
+    },
+    {
+      "sutra_id": "1.17",
+      "book": 1,
+      "verse": 17,
+      "transliteration": "vitarka vicāra ānanda asmitārūpa anugamāt saṁprajñātaḥ",
+      "translation": "The observational linkage of the attention to a higher concentration force occurs with analysis, reflection and introspective happiness or with focus on self-consciousness.",
+      "keywords": [
+        "vitarka",
+        "vicāra",
+        "ānanda",
+        "asmitārūpa",
+        "anugamāt",
+        "saṁprajñātaḥ"
+      ]
+    },
+    {
+      "sutra_id": "1.18",
+      "book": 1,
+      "verse": 18,
+      "transliteration": "virāmapratyaya abhyāsapūrvaḥ saṁskāraśeṣaḥ anyaḥ",
+      "translation": "The other state is the complete departure from the level where the remaining impressions lie in the mento-emotional energy.",
+      "keywords": [
+        "virāmapratyaya",
+        "abhyāsapūrvaḥ",
+        "saṁskāraśeṣaḥ",
+        "anyaḥ",
+        "other",
+        "state"
+      ]
+    },
+    {
+      "sutra_id": "1.19",
+      "book": 1,
+      "verse": 19,
+      "transliteration": "bhavapratyayaḥ videha prakṛtilayānām",
+      "translation": "Of those who are diffused into subtle material nature and those who existing in a bodiless state, their psychology has that content.",
+      "keywords": [
+        "bhavapratyayaḥ",
+        "videha",
+        "prakṛtilayānām",
+        "diffused",
+        "subtle",
+        "material"
+      ]
+    },
+    {
+      "sutra_id": "1.20",
+      "book": 1,
+      "verse": 20,
+      "transliteration": "śraddhā vīrya smṛti samādhiprajñā pūrvakaḥ itareṣām",
+      "translation": "For others, confidence, stamina, introspective memory, the continuous effortless linkage of the attention to a higher concentration force, and profound insight, all being previously mastered, serves as the cause.",
+      "keywords": [
+        "śraddhā",
+        "vīrya",
+        "smṛti",
+        "samādhiprajñā",
+        "pūrvakaḥ",
+        "itareṣām"
+      ]
+    },
+    {
+      "sutra_id": "1.21",
+      "book": 1,
+      "verse": 21,
+      "transliteration": "tīvrasaṁvegānām āsannaḥ",
+      "translation": "For those who practice forcefully in a very intense way, the skill of yoga will be achieved very soon.",
+      "keywords": [
+        "tīvrasaṁvegānām",
+        "āsannaḥ",
+        "practice",
+        "forcefully",
+        "very",
+        "intense"
+      ]
+    },
+    {
+      "sutra_id": "1.22",
+      "book": 1,
+      "verse": 22,
+      "transliteration": "mṛdu madhya adhimātratvāt tataḥ api viśeṣaḥ",
+      "translation": "Then there is even more ratings, according to intense, mediocre, or slight practice.",
+      "keywords": [
+        "mṛdu",
+        "madhya",
+        "adhimātratvāt",
+        "tataḥ",
+        "api",
+        "viśeṣaḥ"
+      ]
+    },
+    {
+      "sutra_id": "1.23",
+      "book": 1,
+      "verse": 23,
+      "transliteration": "Īśvara praṇidhānāt vā",
+      "translation": "Or by the method of profound religious meditation upon the Supreme Lord.",
+      "keywords": [
+        "īśvara",
+        "praṇidhānāt",
+        "vā",
+        "method",
+        "profound",
+        "religious"
+      ]
+    },
+    {
+      "sutra_id": "1.24",
+      "book": 1,
+      "verse": 24,
+      "transliteration": "kleśa karma vipāka āśayaiḥ",
+      "translation": "aparāmṛṣṭaḥ puruṣaviśeṣaḥ Īśvaraḥ The Supreme Lord is that special person who is not affected by troubles, actions, developments or by subconscious motivations.",
+      "keywords": [
+        "kleśa",
+        "karma",
+        "vipāka",
+        "āśayaiḥ",
+        "aparāmṛṣṭaḥ",
+        "puruṣaviśeṣaḥ"
+      ]
+    },
+    {
+      "sutra_id": "1.25",
+      "book": 1,
+      "verse": 25,
+      "transliteration": "tatra niratiśayaṁ sarvajñabījam",
+      "translation": "There, in Him, is found the unsurpassed origin of all knowledge.",
+      "keywords": [
+        "tatra",
+        "niratiśayaṁ",
+        "sarvajñabījam",
+        "him",
+        "found",
+        "unsurpassed"
+      ]
+    },
+    {
+      "sutra_id": "1.26",
+      "book": 1,
+      "verse": 26,
+      "transliteration": "sa eṣaḥ pūrveṣām api guruḥ kālena anavacchedāt",
+      "translation": "He, this particular person, being unconditioned by time is the guru even of the ancient teachers, the authorities from before.",
+      "keywords": [
+        "sa",
+        "eṣaḥ",
+        "pūrveṣām",
+        "api",
+        "guruḥ",
+        "kālena"
+      ]
+    },
+    {
+      "sutra_id": "1.27",
+      "book": 1,
+      "verse": 27,
+      "transliteration": "tasya vācakaḥ praṇavaḥ",
+      "translation": "Of Him, the sacred syllable Āuṁ (Om) is the designation.",
+      "keywords": [
+        "tasya",
+        "vācakaḥ",
+        "praṇavaḥ",
+        "him",
+        "sacred",
+        "syllable"
+      ]
+    },
+    {
+      "sutra_id": "1.28",
+      "book": 1,
+      "verse": 28,
+      "transliteration": "tajjapaḥ tadarthabhāvanam",
+      "translation": "That sound is repeated, murmured constantly for realizing its meaning.",
+      "keywords": [
+        "tajjapaḥ",
+        "tadarthabhāvanam",
+        "sound",
+        "repeated",
+        "murmured",
+        "constantly"
+      ]
+    },
+    {
+      "sutra_id": "1.29",
+      "book": 1,
+      "verse": 29,
+      "transliteration": "tataḥ pratyakcetana adhigamaḥ api antarāya abhāvaḥ ca",
+      "translation": "As a result there is inwardness of the sense consciousness and the disappearance of obstacles to progress.",
+      "keywords": [
+        "tataḥ",
+        "pratyakcetana",
+        "adhigamaḥ",
+        "api",
+        "antarāya",
+        "abhāvaḥ"
+      ]
+    },
+    {
+      "sutra_id": "1.30",
+      "book": 1,
+      "verse": 30,
+      "transliteration": "dzRnalBxUimkTvanviSwtTvain icÄiv]epaSte=Ntraya>",
+      "translation": "vyādhi styāna saṁśaya pramāda ālasya avirati bhrāntidarśana alabdhabhūmikatva anavasthitatvāni cittavikṣepaḥ te antarāyāḥ These obstacles are disease, idleness, doubt, inattentiveness, lack of energy and proneness to sensuality, mistaken views, not being able to maintain the progress attained, unsteadiness in progression, scattered mental and emotional energy.",
+      "keywords": [
+        "dzrnalbxuimktvanviswttvain",
+        "icäiv",
+        "epaste",
+        "ntraya",
+        "vyādhi",
+        "styāna"
+      ]
+    },
+    {
+      "sutra_id": "1.31",
+      "book": 1,
+      "verse": 31,
+      "transliteration": "duḥkha daurmanasya aṅgamejayatva",
+      "translation": "śvāsapraśvāsāḥ vikṣepa sahabhuvaḥ Distress, depression, nervousness and labored breathing are the symptoms of a distracted state of mind.",
+      "keywords": [
+        "duḥkha",
+        "daurmanasya",
+        "aṅgamejayatva",
+        "śvāsapraśvāsāḥ",
+        "vikṣepa",
+        "sahabhuvaḥ"
+      ]
+    },
+    {
+      "sutra_id": "1.32",
+      "book": 1,
+      "verse": 32,
+      "transliteration": "tatpratiṣedhārtham ekatattva abhyāsaḥ",
+      "translation": "For the removal of the obstacles, there should be the practice of a standard method used in the pursuit of the reality.",
+      "keywords": [
+        "tatpratiṣedhārtham",
+        "ekatattva",
+        "abhyāsaḥ",
+        "removal",
+        "obstacles",
+        "practice"
+      ]
+    },
+    {
+      "sutra_id": "1.33",
+      "book": 1,
+      "verse": 33,
+      "transliteration": "maitrī karuṇā muditā upekṣaṇam",
+      "translation": "sukha duḥkha puṇya apuṇya viṣayāṇāṁ bhāvanātaḥ cittaprasādanam The abstract meditation resulting from the serenity of the mento-emotional energy, comes about by friendliness, compassion, cheerfulness and non-responsiveness to happiness, distress, virtue and vice;",
+      "keywords": [
+        "maitrī",
+        "karuṇā",
+        "muditā",
+        "upekṣaṇam",
+        "sukha",
+        "duḥkha"
+      ]
+    },
+    {
+      "sutra_id": "1.34",
+      "book": 1,
+      "verse": 34,
+      "transliteration": "pracchardana vidhāraṇābhyāṁ vā prāṇasya",
+      "translation": "or by regulating the exhalation and inhalation of the vital energy;",
+      "keywords": [
+        "pracchardana",
+        "vidhāraṇābhyāṁ",
+        "vā",
+        "prāṇasya",
+        "regulating",
+        "exhalation"
+      ]
+    },
+    {
+      "sutra_id": "1.35",
+      "book": 1,
+      "verse": 35,
+      "transliteration": "viṣayavatī vā pravṛttiḥ utpannā manasaḥ sthiti nibandhanī",
+      "translation": "or by fusion and steadiness of the mind which is produced by the operation of the mento-emotional energy towards an object which is different to, but similar to a normal thing;",
+      "keywords": [
+        "viṣayavatī",
+        "vā",
+        "pravṛttiḥ",
+        "utpannā",
+        "manasaḥ",
+        "sthiti"
+      ]
+    },
+    {
+      "sutra_id": "1.36",
+      "book": 1,
+      "verse": 36,
+      "transliteration": "viśokāh vā jyotiṣmatī",
+      "translation": "or by sorrow-less and spiritually-luminous states;",
+      "keywords": [
+        "viśokāh",
+        "vā",
+        "jyotiṣmatī",
+        "sorrow",
+        "less",
+        "spiritually"
+      ]
+    },
+    {
+      "sutra_id": "1.37",
+      "book": 1,
+      "verse": 37,
+      "transliteration": "vītarāga viṣayaṁ vā cittam",
+      "translation": "or by fixing the mento-emotional energy on someone who is without craving;",
+      "keywords": [
+        "vītarāga",
+        "viṣayaṁ",
+        "vā",
+        "cittam",
+        "fixing",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "1.38",
+      "book": 1,
+      "verse": 38,
+      "transliteration": "svapna nidrā jñāna ālambanaṁ vā",
+      "translation": "or by taking recourse to dream or dreamless sleep.",
+      "keywords": [
+        "svapna",
+        "nidrā",
+        "jñāna",
+        "ālambanaṁ",
+        "vā",
+        "taking"
+      ]
+    },
+    {
+      "sutra_id": "1.39",
+      "book": 1,
+      "verse": 39,
+      "transliteration": "yathābhimata dhyānāt vā",
+      "translation": "Or it can be achieved from the effortless linkage of the mind to a higher concentration force which was dearly desired.",
+      "keywords": [
+        "yathābhimata",
+        "dhyānāt",
+        "vā",
+        "achieved",
+        "effortless",
+        "linkage"
+      ]
+    },
+    {
+      "sutra_id": "1.40",
+      "book": 1,
+      "verse": 40,
+      "transliteration": "paramāṇu paramamahattvāntaḥ asya vaśīkāraḥ",
+      "translation": "The mastery of his psyche results in control of his relationship to the smallest atom or to cosmic proportions.",
+      "keywords": [
+        "paramāṇu",
+        "paramamahattvāntaḥ",
+        "asya",
+        "vaśīkāraḥ",
+        "mastery",
+        "psyche"
+      ]
+    },
+    {
+      "sutra_id": "1.41",
+      "book": 1,
+      "verse": 41,
+      "transliteration": "kṣīṇavṛtteḥ abhijātasya iva maṇeḥ grahītṛ",
+      "translation": "grahaṇa grāhyeṣu tatstha tadañjanatā samāpattiḥ In regards to the great reduction of the mento-emotional operations, there is fusion of the perceiver, the flow of perceptions and what is perceived, just like the absorption of a transparent jewel.",
+      "keywords": [
+        "kṣīṇavṛtteḥ",
+        "abhijātasya",
+        "iva",
+        "maṇeḥ",
+        "grahītṛ",
+        "grahaṇa"
+      ]
+    },
+    {
+      "sutra_id": "1.42",
+      "book": 1,
+      "verse": 42,
+      "transliteration": "tatra śabda artha jñāna vikalpaiḥ",
+      "translation": "saṅkīrṇā savitarkā samāpattiḥ In that case, the deliberate linkage of the mento-emotional energy to a higher concentrating force occurs when a word, its meaning and the knowledge of the object alternate within the mind, blending as it were.",
+      "keywords": [
+        "tatra",
+        "śabda",
+        "artha",
+        "jñāna",
+        "vikalpaiḥ",
+        "saṅkīrṇā"
+      ]
+    },
+    {
+      "sutra_id": "1.43",
+      "book": 1,
+      "verse": 43,
+      "transliteration": "smṛtipariśuddhau svarūpaśūnya iva",
+      "translation": "arthamātranirbhāsā nirvitarka Non-analytical linkage of his attention to a higher concentration force occurs when the memory is completely purified and the essential inquiring nature disappears as it were, such that the value of that higher force shines through.",
+      "keywords": [
+        "smṛtipariśuddhau",
+        "svarūpaśūnya",
+        "iva",
+        "arthamātranirbhāsā",
+        "nirvitarka",
+        "non"
+      ]
+    },
+    {
+      "sutra_id": "1.44",
+      "book": 1,
+      "verse": 44,
+      "transliteration": "etayaiva savicāra nirvicāra ca sūkṣmaviṣayā vyākhyātā",
+      "translation": "By this, the investigative and non-investigative linkage of one’s attention to a higher concentration force consisting of subtler objects, was explained.",
+      "keywords": [
+        "etayaiva",
+        "savicāra",
+        "nirvicāra",
+        "ca",
+        "sūkṣmaviṣayā",
+        "vyākhyātā"
+      ]
+    },
+    {
+      "sutra_id": "1.45",
+      "book": 1,
+      "verse": 45,
+      "transliteration": "sūkṣmaviṣayatvaṁ ca aliṅga paryavasānam",
+      "translation": "The insight into the subtle nature of gross objects terminates when one becomes linked to the higher concentration force which has no characteristics.",
+      "keywords": [
+        "sūkṣmaviṣayatvaṁ",
+        "ca",
+        "aliṅga",
+        "paryavasānam",
+        "insight",
+        "subtle"
+      ]
+    },
+    {
+      "sutra_id": "1.46",
+      "book": 1,
+      "verse": 46,
+      "transliteration": "tā eva sabījaḥ samādhiḥ",
+      "translation": "The previous descriptions concern the effortless and continuous linkage of the attention to a higher concentration force, as motivated by the mento-emotional energy.",
+      "keywords": [
+        "tā",
+        "eva",
+        "sabījaḥ",
+        "samādhiḥ",
+        "previous",
+        "descriptions"
+      ]
+    },
+    {
+      "sutra_id": "1.47",
+      "book": 1,
+      "verse": 47,
+      "transliteration": "nirvicāra vaiśāradye adhyātmaprasādaḥ",
+      "translation": "On gaining competence in the non-investigative linkage of one’s attention to the higher concentration force, one experiences the clarity and serenity which results from the linkage of the Supreme Soul and the limited one.",
+      "keywords": [
+        "nirvicāra",
+        "vaiśāradye",
+        "adhyātmaprasādaḥ",
+        "gaining",
+        "competence",
+        "non"
+      ]
+    },
+    {
+      "sutra_id": "1.48",
+      "book": 1,
+      "verse": 48,
+      "transliteration": "ṛtaṁbharā tatra prajñā",
+      "translation": "There with that competence, the yogin develops the reality-perceptive insight.",
+      "keywords": [
+        "ṛtaṁbharā",
+        "tatra",
+        "prajñā",
+        "competence",
+        "yogin",
+        "develops"
+      ]
+    },
+    {
+      "sutra_id": "1.49",
+      "book": 1,
+      "verse": 49,
+      "transliteration": "śruta anumāna prajñābhyām anyaviṣayā viśeṣārthatvāt",
+      "translation": "It is different from the two methods of insight which are based on what is heard and what is reasoned out, because that is limited to a particular aspect of an object.",
+      "keywords": [
+        "śruta",
+        "anumāna",
+        "prajñābhyām",
+        "anyaviṣayā",
+        "viśeṣārthatvāt",
+        "different"
+      ]
+    },
+    {
+      "sutra_id": "1.50",
+      "book": 1,
+      "verse": 50,
+      "transliteration": "tajjaḥ saṁskāraḥ anyasaṁskāra pratibandhī",
+      "translation": "That impression which is produced from the reality-perceptive insight, acts as the preventer of the other impressions.",
+      "keywords": [
+        "tajjaḥ",
+        "saṁskāraḥ",
+        "anyasaṁskāra",
+        "pratibandhī",
+        "impression",
+        "produced"
+      ]
+    },
+    {
+      "sutra_id": "1.51",
+      "book": 1,
+      "verse": 51,
+      "transliteration": "tasyāpi nirodhe sarvanirodhāt nirbījaḥ samādhiḥ",
+      "translation": "The continuous effortless linkage of the attention to the higher concentration force which is not motivated by this mento-emotional energy, occurs when there is a non-operation, even of that preventative impression which caused the suppression of all other lower memories",
+      "keywords": [
+        "tasyāpi",
+        "nirodhe",
+        "sarvanirodhāt",
+        "nirbījaḥ",
+        "samādhiḥ",
+        "continuous"
+      ]
+    },
+    {
+      "sutra_id": "2.1",
+      "book": 2,
+      "verse": 1,
+      "transliteration": "tapaḥ svādhyāya Īśvarapraṇidhānāni kriyāyogaḥ",
+      "translation": "Austerity, study of the psyche, profound religious meditation on the Supreme Lord is the dynamic kriya yoga practice.",
+      "keywords": [
+        "tapaḥ",
+        "svādhyāya",
+        "īśvarapraṇidhānāni",
+        "kriyāyogaḥ",
+        "austerity",
+        "study"
+      ]
+    },
+    {
+      "sutra_id": "2.2",
+      "book": 2,
+      "verse": 2,
+      "transliteration": "samādhi bhāvanārthaḥ kleśa tanūkaraṇārthaś ca",
+      "translation": "It is for the purpose of producing continuous effortless linkage of the attention to a higher concentration force and for causing the reduction of the mental and emotional afflictions.",
+      "keywords": [
+        "samādhi",
+        "bhāvanārthaḥ",
+        "kleśa",
+        "tanūkaraṇārthaś",
+        "ca",
+        "purpose"
+      ]
+    },
+    {
+      "sutra_id": "2.3",
+      "book": 2,
+      "verse": 3,
+      "transliteration": "avidyā asmitā rāga dveṣa abhiniveśaḥ pañca kleśāḥ",
+      "translation": "The mental and emotional afflictions are spiritual ignorance, misplaced identity, emotional attachment, impulsive-emotional disaffection and the strong focus on mundane existence, which is due to an instinctive fear of death.",
+      "keywords": [
+        "avidyā",
+        "asmitā",
+        "rāga",
+        "dveṣa",
+        "abhiniveśaḥ",
+        "pañca"
+      ]
+    },
+    {
+      "sutra_id": "2.4",
+      "book": 2,
+      "verse": 4,
+      "transliteration": "avidyā kṣetram uttareṣāṁ",
+      "translation": "prasupta tanu vicchina udārāṇām Spiritual ignorance is the existential environment for the other afflictions, in their dormant, reduced, periodic or expanded stages.",
+      "keywords": [
+        "avidyā",
+        "kṣetram",
+        "uttareṣāṁ",
+        "prasupta",
+        "tanu",
+        "vicchina"
+      ]
+    },
+    {
+      "sutra_id": "2.5",
+      "book": 2,
+      "verse": 5,
+      "transliteration": "anitya aśuci duḥka anātmasu nitya śuci",
+      "translation": "sukha ātma khyātiḥ avidyā Spiritual ignorance is exhibited when what is temporary, impure, distressful and mundane, is identified as being eternal, pure, joyful and spiritual respectively.",
+      "keywords": [
+        "anitya",
+        "aśuci",
+        "duḥka",
+        "anātmasu",
+        "nitya",
+        "śuci"
+      ]
+    },
+    {
+      "sutra_id": "2.6",
+      "book": 2,
+      "verse": 6,
+      "transliteration": "dṛg darśanaśaktyoḥ ekātmatā iva asmitā",
+      "translation": "Mistaken identity occurs when the supernatural vision and what is seen through it seems to be identical.",
+      "keywords": [
+        "dṛg",
+        "darśanaśaktyoḥ",
+        "ekātmatā",
+        "iva",
+        "asmitā",
+        "mistaken"
+      ]
+    },
+    {
+      "sutra_id": "2.7",
+      "book": 2,
+      "verse": 7,
+      "transliteration": "sukha anuśayī rāgaḥ",
+      "translation": "Craving results from a devoted attachment to happiness.",
+      "keywords": [
+        "sukha",
+        "anuśayī",
+        "rāgaḥ",
+        "craving",
+        "results",
+        "devoted"
+      ]
+    },
+    {
+      "sutra_id": "2.8",
+      "book": 2,
+      "verse": 8,
+      "transliteration": "duḥkha anuśayi dveṣaḥ",
+      "translation": "Impulsive emotional disaffection results from a devoted attachment to distress.",
+      "keywords": [
+        "duḥkha",
+        "anuśayi",
+        "dveṣaḥ",
+        "impulsive",
+        "emotional",
+        "disaffection"
+      ]
+    },
+    {
+      "sutra_id": "2.9",
+      "book": 2,
+      "verse": 9,
+      "transliteration": "svarasavāhī viduṣaḥ ’pi tatha rūḍho ‘bhiniveśaḥ",
+      "translation": "As it is, the strong focus on mundane existence, which is due to the instinctive fear of death, and which is sustained by its own potencies, which operates for self preservation, is developed even in the wise man.",
+      "keywords": [
+        "svarasavāhī",
+        "viduṣaḥ",
+        "pi",
+        "tatha",
+        "rūḍho",
+        "bhiniveśaḥ"
+      ]
+    },
+    {
+      "sutra_id": "2.10",
+      "book": 2,
+      "verse": 10,
+      "transliteration": "te pratiprasavaheyāḥ sūkṣmāḥ",
+      "translation": "These subtle motivations are to be abandoned by reverting their expressions backwards.",
+      "keywords": [
+        "te",
+        "pratiprasavaheyāḥ",
+        "sūkṣmāḥ",
+        "subtle",
+        "motivations",
+        "abandoned"
+      ]
+    },
+    {
+      "sutra_id": "2.11",
+      "book": 2,
+      "verse": 11,
+      "transliteration": "dhyānaheyāḥ tadvṛttayaḥ",
+      "translation": "Their vibrational modes are to be abandoned or ceased by the effortless linkage of the attention to a higher concentration force or person.",
+      "keywords": [
+        "dhyānaheyāḥ",
+        "tadvṛttayaḥ",
+        "vibrational",
+        "modes",
+        "abandoned",
+        "ceased"
+      ]
+    },
+    {
+      "sutra_id": "2.12",
+      "book": 2,
+      "verse": 12,
+      "transliteration": "kleśamūlaḥ karmāśayaḥ dṛṣṭa adṛṣṭa janma vedanīyaḥ",
+      "translation": "The psychological storage of the impressions left by performance of cultural activities which is itself the cause of the mental and emotional distress, is experienced in realized and non-realized births.",
+      "keywords": [
+        "kleśamūlaḥ",
+        "karmāśayaḥ",
+        "dṛṣṭa",
+        "adṛṣṭa",
+        "janma",
+        "vedanīyaḥ"
+      ]
+    },
+    {
+      "sutra_id": "2.13",
+      "book": 2,
+      "verse": 13,
+      "transliteration": "R a>",
+      "translation": "sati mūle tadvipākaḥ jāti āyuḥ bhogāḥ In the case aforementioned, there exists the resulting effects which manifest as a particular species of life with certain duration of body and type of experiences gained in that form.",
+      "keywords": [
+        "sati",
+        "mūle",
+        "tadvipākaḥ",
+        "jāti",
+        "āyuḥ",
+        "bhogāḥ"
+      ]
+    },
+    {
+      "sutra_id": "2.14",
+      "book": 2,
+      "verse": 14,
+      "transliteration": "te hlāda paritāpa phalāḥ puṇya apuṇya hetutvāt",
+      "translation": "They produce happiness and distress as results, on the basis of merit and demerits.",
+      "keywords": [
+        "te",
+        "hlāda",
+        "paritāpa",
+        "phalāḥ",
+        "puṇya",
+        "apuṇya"
+      ]
+    },
+    {
+      "sutra_id": "2.15",
+      "book": 2,
+      "verse": 15,
+      "transliteration": "pariṇāma tāpa saṁskāra duḥkaiḥ guṇavṛtti",
+      "translation": "virodhāt ca duḥkham eva sarvaṁ vivekinaḥ The discriminating person knows that all conditions are distressful because of circumstantial changes, strenuous endeavor, impulsive motivations, clashing aspects and the vibrational modes of the mento-emotional energy.",
+      "keywords": [
+        "pariṇāma",
+        "tāpa",
+        "saṁskāra",
+        "duḥkaiḥ",
+        "guṇavṛtti",
+        "virodhāt"
+      ]
+    },
+    {
+      "sutra_id": "2.16",
+      "book": 2,
+      "verse": 16,
+      "transliteration": "heyaṁ duḥkham anāgatam",
+      "translation": "Distress which is not manifested is to be avoided.",
+      "keywords": [
+        "heyaṁ",
+        "duḥkham",
+        "anāgatam",
+        "distress",
+        "manifested",
+        "avoided"
+      ]
+    },
+    {
+      "sutra_id": "2.17",
+      "book": 2,
+      "verse": 17,
+      "transliteration": "draṣṭṛdṛśyayoḥ saṁyogo heyahetuḥ",
+      "translation": "The cause which is to be avoided is the indiscriminate association of the observer and what is perceived.",
+      "keywords": [
+        "draṣṭṛdṛśyayoḥ",
+        "saṁyogo",
+        "heyahetuḥ",
+        "cause",
+        "avoided",
+        "indiscriminate"
+      ]
+    },
+    {
+      "sutra_id": "2.18",
+      "book": 2,
+      "verse": 18,
+      "transliteration": "prakāśa kriyā sthiti śīlaṁ bhūtendriyātmakaṁ bhogāpavargārthaṁ",
+      "translation": "dṛśyam What is perceived is of the nature of the mundane elements and the sense organs and is formed in clear perception, action or stability. Its purpose is to give experience or to allow liberation.",
+      "keywords": [
+        "prakāśa",
+        "kriyā",
+        "sthiti",
+        "śīlaṁ",
+        "bhūtendriyātmakaṁ",
+        "bhogāpavargārthaṁ"
+      ]
+    },
+    {
+      "sutra_id": "2.19",
+      "book": 2,
+      "verse": 19,
+      "transliteration": "viśeṣa aviśeṣa liṅgamātra aliṅgāni guṇaparvāṇi",
+      "translation": "The phases of the influences of material nature are those which are specific, regular, indicated or not indicated.",
+      "keywords": [
+        "viśeṣa",
+        "aviśeṣa",
+        "liṅgamātra",
+        "aliṅgāni",
+        "guṇaparvāṇi",
+        "phases"
+      ]
+    },
+    {
+      "sutra_id": "2.20",
+      "book": 2,
+      "verse": 20,
+      "transliteration": "draṣṭā dṛśimātraḥ śuddhaḥ api pratyayānupaśyaḥ",
+      "translation": "The perceiver is the pure extent of his consciousness but his conviction is patterned by what is perceived.",
+      "keywords": [
+        "draṣṭā",
+        "dṛśimātraḥ",
+        "śuddhaḥ",
+        "api",
+        "pratyayānupaśyaḥ",
+        "perceiver"
+      ]
+    },
+    {
+      "sutra_id": "2.21",
+      "book": 2,
+      "verse": 21,
+      "transliteration": "tadarthaḥ eva dṛśyasya ātma",
+      "translation": "The individual spirit who is involved in what is seen, exists here for that purpose only.",
+      "keywords": [
+        "tadarthaḥ",
+        "eva",
+        "dṛśyasya",
+        "ātma",
+        "individual",
+        "spirit"
+      ]
+    },
+    {
+      "sutra_id": "2.22",
+      "book": 2,
+      "verse": 22,
+      "transliteration": "kṛtārthaṁ prati naṣṭam api",
+      "translation": "anaṣṭaṁ tadanya sādhāraṇatvāt It is not effective for one to whom its purpose is fulfilled but it has a common effect on the others.",
+      "keywords": [
+        "kṛtārthaṁ",
+        "prati",
+        "naṣṭam",
+        "api",
+        "anaṣṭaṁ",
+        "tadanya"
+      ]
+    },
+    {
+      "sutra_id": "2.23",
+      "book": 2,
+      "verse": 23,
+      "transliteration": "sva svāmiśaktyoḥ svarūpa upalabdhi hetuḥ saṁyogaḥ",
+      "translation": "There is a reason for the conjunction of the individual self and his psychological energies. It is for obtaining the experience of his own form.",
+      "keywords": [
+        "sva",
+        "svāmiśaktyoḥ",
+        "svarūpa",
+        "upalabdhi",
+        "hetuḥ",
+        "saṁyogaḥ"
+      ]
+    },
+    {
+      "sutra_id": "2.24",
+      "book": 2,
+      "verse": 24,
+      "transliteration": "tasya hetuḥ avidyā",
+      "translation": "The cause of the conjunction is spiritual ignorance.",
+      "keywords": [
+        "tasya",
+        "hetuḥ",
+        "avidyā",
+        "cause",
+        "conjunction",
+        "spiritual"
+      ]
+    },
+    {
+      "sutra_id": "2.25",
+      "book": 2,
+      "verse": 25,
+      "transliteration": "tad abhāvāt saṁyogā abhāvaḥ hānaṁ taddṛśeḥ kaivalyam",
+      "translation": "The elimination of the conjunction which results from the elimination of that spiritual ignorance is the withdrawal that is the total separation of the perceiver from the mundane psychology.",
+      "keywords": [
+        "tad",
+        "abhāvāt",
+        "saṁyogā",
+        "abhāvaḥ",
+        "hānaṁ",
+        "taddṛśeḥ"
+      ]
+    },
+    {
+      "sutra_id": "2.26",
+      "book": 2,
+      "verse": 26,
+      "transliteration": "vivekakhyātiḥ aviplavā hānopāyaḥ",
+      "translation": "The method for avoiding that spiritual ignorance is the establishment of continuous discriminative insight.",
+      "keywords": [
+        "vivekakhyātiḥ",
+        "aviplavā",
+        "hānopāyaḥ",
+        "method",
+        "avoiding",
+        "spiritual"
+      ]
+    },
+    {
+      "sutra_id": "2.27",
+      "book": 2,
+      "verse": 27,
+      "transliteration": "tasya saptadhā prāntabhūmiḥ prajñā",
+      "translation": "Concerning the development of his discriminative insight, there are seven stages.",
+      "keywords": [
+        "tasya",
+        "saptadhā",
+        "prāntabhūmiḥ",
+        "prajñā",
+        "concerning",
+        "development"
+      ]
+    },
+    {
+      "sutra_id": "2.28",
+      "book": 2,
+      "verse": 28,
+      "transliteration": "yogā ṅgānuṣṭhānāt aśuddhikṣaye",
+      "translation": "jñānadīptiḥ āvivekakhyāteḥ From the consistent practice of the parts of the yoga process, on the elimination of the impurity, the radiant organ of perception becomes manifest, until there is steady discriminative insight.",
+      "keywords": [
+        "yogā",
+        "ṅgānuṣṭhānāt",
+        "aśuddhikṣaye",
+        "jñānadīptiḥ",
+        "āvivekakhyāteḥ",
+        "consistent"
+      ]
+    },
+    {
+      "sutra_id": "2.29",
+      "book": 2,
+      "verse": 29,
+      "transliteration": "yama niyama āsana prāṇāyāma pratyāhāra",
+      "translation": "dhāraṇā dhyāna samādhayaḥ aṣṭau aṅgāni Moral restrains, recommended behaviors, body posture, breath enrichment, sensual energy withdrawal, linking of the attention to higher concentration forces or persons, effortless linkage of the attention to higher concentration forces or persons, continuous effortless linkage of the attention to higher concentration forces or persons, are the eight parts of the yoga system.",
+      "keywords": [
+        "yama",
+        "niyama",
+        "āsana",
+        "prāṇāyāma",
+        "pratyāhāra",
+        "dhāraṇā"
+      ]
+    },
+    {
+      "sutra_id": "2.30",
+      "book": 2,
+      "verse": 30,
+      "transliteration": "ahiṁsā satya asteya brahmacarya aparigrahāḥ yamāḥ",
+      "translation": "Non-violence, realism, non-stealing, sexual non-expressiveness which results in the perception of spirituality (brahman) and non-possessiveness, are the moral restraints.",
+      "keywords": [
+        "ahiṁsā",
+        "satya",
+        "asteya",
+        "brahmacarya",
+        "aparigrahāḥ",
+        "yamāḥ"
+      ]
+    },
+    {
+      "sutra_id": "2.31",
+      "book": 2,
+      "verse": 31,
+      "transliteration": "jāti deśa kāla samaya anavacchinnāḥ",
+      "translation": "sārvabhaumāḥ mahāvratam Those moral restraints are not to be adjusted by the status, location, time and condition. They are related to all stages of yoga, being the great commitment.",
+      "keywords": [
+        "jāti",
+        "deśa",
+        "kāla",
+        "samaya",
+        "anavacchinnāḥ",
+        "sārvabhaumāḥ"
+      ]
+    },
+    {
+      "sutra_id": "2.32",
+      "book": 2,
+      "verse": 32,
+      "transliteration": "śauca saṅtoṣa tapaḥ svādhyāya īśvarapraṇidhānāni niyamāḥ",
+      "translation": "Purification, contentment, austerity and profound religious meditation on the Supreme Lord are the recommended behaviors.",
+      "keywords": [
+        "śauca",
+        "saṅtoṣa",
+        "tapaḥ",
+        "svādhyāya",
+        "īśvarapraṇidhānāni",
+        "niyamāḥ"
+      ]
+    },
+    {
+      "sutra_id": "2.33",
+      "book": 2,
+      "verse": 33,
+      "transliteration": "vitarkabādhane pratipakṣabhāvanam",
+      "translation": "In the case of the annoyance produced by doubts, one should conceive of what is opposite.",
+      "keywords": [
+        "vitarkabādhane",
+        "pratipakṣabhāvanam",
+        "case",
+        "annoyance",
+        "produced",
+        "doubts"
+      ]
+    },
+    {
+      "sutra_id": "2.34",
+      "book": 2,
+      "verse": 34,
+      "transliteration": "m&ÊmXyaixmaÇaÊ>oa}ananNt)la #it àitp]Éavnm!",
+      "translation": "vitarkaḥ hiṁsādayaḥ kṛta kārita anumoditāḥ lobha krodha moha pūrvakaḥ mṛdu madhya adhimātraḥ duḥkha ajñāna anantaphalāḥ iti pratipakṣabhāvanam Doubts which produce violence and related actions, which are performed, caused to be done or endorsed, and which are caused by greed, anger and delusion, even if minor, mediocre or substantial, cause endless distress and spiritual ignorance as the results. Therefore, one should consider the opposite features.",
+      "keywords": [
+        "êmxyaixmaçaê",
+        "oa",
+        "anannt",
+        "la",
+        "àitp",
+        "éavnm"
+      ]
+    },
+    {
+      "sutra_id": "2.35",
+      "book": 2,
+      "verse": 35,
+      "transliteration": "ahiṁsāpratiṣṭhāyāṁ tatsannidhau vairatyāgaḥ",
+      "translation": "On being firmly established in non-violence, the abandonment of hostility occurs in his presence.",
+      "keywords": [
+        "ahiṁsāpratiṣṭhāyāṁ",
+        "tatsannidhau",
+        "vairatyāgaḥ",
+        "firmly",
+        "established",
+        "non"
+      ]
+    },
+    {
+      "sutra_id": "2.36",
+      "book": 2,
+      "verse": 36,
+      "transliteration": "satyapratiṣṭhāyāṁ kriyāphalāśrayatvam",
+      "translation": "On being established in realism, his actions serve as a basis for results.",
+      "keywords": [
+        "satyapratiṣṭhāyāṁ",
+        "kriyāphalāśrayatvam",
+        "established",
+        "realism",
+        "actions",
+        "serve"
+      ]
+    },
+    {
+      "sutra_id": "2.37",
+      "book": 2,
+      "verse": 37,
+      "transliteration": "asteyapratiṣṭhāyāṁ sarvaratnopasthānam",
+      "translation": "On being firmly established in non-sealing, all precious things wait to serve a yogin.",
+      "keywords": [
+        "asteyapratiṣṭhāyāṁ",
+        "sarvaratnopasthānam",
+        "firmly",
+        "established",
+        "non",
+        "sealing"
+      ]
+    },
+    {
+      "sutra_id": "2.38",
+      "book": 2,
+      "verse": 38,
+      "transliteration": "brahmacaryapratiṣṭhāyāṁ vīryalābhaḥ",
+      "translation": "On being firmly established in the sexual non-expressiveness, which results in the perception of spirituality, vigor is gained.",
+      "keywords": [
+        "brahmacaryapratiṣṭhāyāṁ",
+        "vīryalābhaḥ",
+        "firmly",
+        "established",
+        "sexual",
+        "non"
+      ]
+    },
+    {
+      "sutra_id": "2.39",
+      "book": 2,
+      "verse": 39,
+      "transliteration": "aparigrahasthairye janmakathaṁtā saṁbodhaḥ",
+      "translation": "In being consistent in non possessiveness, there is manifested the reason and the correct perception regarding one’s birth.",
+      "keywords": [
+        "aparigrahasthairye",
+        "janmakathaṁtā",
+        "saṁbodhaḥ",
+        "consistent",
+        "non",
+        "possessiveness"
+      ]
+    },
+    {
+      "sutra_id": "2.40",
+      "book": 2,
+      "verse": 40,
+      "transliteration": "śaucāt svāṅgajugupsā paraiḥ asaṁsargaḥ",
+      "translation": "From purification comes a disgust for one’s own body and a lack of desire to associate with others.",
+      "keywords": [
+        "śaucāt",
+        "svāṅgajugupsā",
+        "paraiḥ",
+        "asaṁsargaḥ",
+        "purification",
+        "comes"
+      ]
+    },
+    {
+      "sutra_id": "2.41",
+      "book": 2,
+      "verse": 41,
+      "transliteration": "sattvaśuddhi saumanasya ekāgra indriyajaya",
+      "translation": "ātmadarśana yogyatvāni ca Purification of the psyche results in benevolence, the ability to link the attention to one concentration force or person, conquest of the sensual energy, vision of the spirit and fitness for abstract meditation.",
+      "keywords": [
+        "sattvaśuddhi",
+        "saumanasya",
+        "ekāgra",
+        "indriyajaya",
+        "ātmadarśana",
+        "yogyatvāni"
+      ]
+    },
+    {
+      "sutra_id": "2.42",
+      "book": 2,
+      "verse": 42,
+      "transliteration": "saṅtoṣāt anuttamaḥ sukhalābhaḥ",
+      "translation": "From contentment, the very best in happiness is obtained.",
+      "keywords": [
+        "saṅtoṣāt",
+        "anuttamaḥ",
+        "sukhalābhaḥ",
+        "contentment",
+        "very",
+        "best"
+      ]
+    },
+    {
+      "sutra_id": "2.43",
+      "book": 2,
+      "verse": 43,
+      "transliteration": "kāya indriya siddhiḥ aśuddhikṣayāt tapasaḥ",
+      "translation": "Austerity, resulting in the elimination of impurity produces perfection of the body and sensual energy.",
+      "keywords": [
+        "kāya",
+        "indriya",
+        "siddhiḥ",
+        "aśuddhikṣayāt",
+        "tapasaḥ",
+        "austerity"
+      ]
+    },
+    {
+      "sutra_id": "2.44",
+      "book": 2,
+      "verse": 44,
+      "transliteration": "svādhyāyāt iṣṭadevatā saṁprayogaḥ",
+      "translation": "From study of the psyche, comes intimate contact with the cherished divine being.",
+      "keywords": [
+        "svādhyāyāt",
+        "iṣṭadevatā",
+        "saṁprayogaḥ",
+        "study",
+        "psyche",
+        "comes"
+      ]
+    },
+    {
+      "sutra_id": "2.45",
+      "book": 2,
+      "verse": 45,
+      "transliteration": "samādhisiddhiḥ īśvarapraṇidhānāt",
+      "translation": "From the profound religious meditation upon the Supreme Lord comes the perfection of continuous effortless linkage of the attention to that Divinity.",
+      "keywords": [
+        "samādhisiddhiḥ",
+        "īśvarapraṇidhānāt",
+        "profound",
+        "religious",
+        "meditation",
+        "upon"
+      ]
+    },
+    {
+      "sutra_id": "2.46",
+      "book": 2,
+      "verse": 46,
+      "transliteration": "sthira sukham āsanam",
+      "translation": "The posture should be steady and comfortable.",
+      "keywords": [
+        "sthira",
+        "sukham",
+        "āsanam",
+        "posture",
+        "steady",
+        "comfortable"
+      ]
+    },
+    {
+      "sutra_id": "2.47",
+      "book": 2,
+      "verse": 47,
+      "transliteration": "prayatna śaithilya ananta samāpattibhyām",
+      "translation": "It results in relaxation of effort and the meeting with the infinite.",
+      "keywords": [
+        "prayatna",
+        "śaithilya",
+        "ananta",
+        "samāpattibhyām",
+        "results",
+        "relaxation"
+      ]
+    },
+    {
+      "sutra_id": "2.48",
+      "book": 2,
+      "verse": 48,
+      "transliteration": "tataḥ dvandvāḥ anabhighātaḥ",
+      "translation": "From then on, there are no botherations from the dualities like happiness and distress, heat and cold.",
+      "keywords": [
+        "tataḥ",
+        "dvandvāḥ",
+        "anabhighātaḥ",
+        "then",
+        "no",
+        "botherations"
+      ]
+    },
+    {
+      "sutra_id": "2.49",
+      "book": 2,
+      "verse": 49,
+      "transliteration": "tasmin satiśvāsa praśvāsayoḥ gativicchedaḥ prāṇāyāmaḥ",
+      "translation": "Once this is accomplished, breath regulation, which is the separation of the flow of inhalation and exhalation, is attained.",
+      "keywords": [
+        "tasmin",
+        "satiśvāsa",
+        "praśvāsayoḥ",
+        "gativicchedaḥ",
+        "prāṇāyāmaḥ",
+        "once"
+      ]
+    },
+    {
+      "sutra_id": "2.50",
+      "book": 2,
+      "verse": 50,
+      "transliteration": "bāhya ābhyantara stambha vṛttiḥ deśa kāla",
+      "translation": "saṁkhyābhiḥ paridṛṣṭah dīrgha sūkṣmaḥ It has internal, external and restrictive operations, which are regulated according to the place, time and accounting, being prolonged or hardly noticed.",
+      "keywords": [
+        "bāhya",
+        "ābhyantara",
+        "stambha",
+        "vṛttiḥ",
+        "deśa",
+        "kāla"
+      ]
+    },
+    {
+      "sutra_id": "2.51",
+      "book": 2,
+      "verse": 51,
+      "transliteration": "bāhya ābhyantara viṣaya ākṣepī caturthaḥ",
+      "translation": "That which transcends the objective external and internal breath regulation is the fourth type of pranayama.",
+      "keywords": [
+        "bāhya",
+        "ābhyantara",
+        "viṣaya",
+        "ākṣepī",
+        "caturthaḥ",
+        "transcends"
+      ]
+    },
+    {
+      "sutra_id": "2.52",
+      "book": 2,
+      "verse": 52,
+      "transliteration": "tataḥ kṣīyate prakāśa āvaraṇam",
+      "translation": "From that is dissipated, the mental darkness which veils the light,",
+      "keywords": [
+        "tataḥ",
+        "kṣīyate",
+        "prakāśa",
+        "āvaraṇam",
+        "dissipated",
+        "mental"
+      ]
+    },
+    {
+      "sutra_id": "2.53",
+      "book": 2,
+      "verse": 53,
+      "transliteration": "dhāraṇāsu ca yogyatā manasaḥ",
+      "translation": "... and from that, is attained the state of the mind for linking the attention to a higher concentration force or person.",
+      "keywords": [
+        "dhāraṇāsu",
+        "ca",
+        "yogyatā",
+        "manasaḥ",
+        "attained",
+        "state"
+      ]
+    },
+    {
+      "sutra_id": "2.54",
+      "book": 2,
+      "verse": 54,
+      "transliteration": "svaviṣaya asaṁprayoge cittasya svarūpāanukāraḥ",
+      "translation": "iva indriyāṇāṁ pratyāhāraḥ The withdrawal of the senses is as it were, their assumption of the form of mento-emotional energy when not contacting their own objects of perception.",
+      "keywords": [
+        "svaviṣaya",
+        "asaṁprayoge",
+        "cittasya",
+        "svarūpāanukāraḥ",
+        "iva",
+        "indriyāṇāṁ"
+      ]
+    },
+    {
+      "sutra_id": "2.55",
+      "book": 2,
+      "verse": 55,
+      "transliteration": "tataḥ paramā vaśyatā indriyāṇām",
+      "translation": "From that accomplishment, comes the highest degree of control of the senses.",
+      "keywords": [
+        "tataḥ",
+        "paramā",
+        "vaśyatā",
+        "indriyāṇām",
+        "accomplishment",
+        "comes"
+      ]
+    },
+    {
+      "sutra_id": "3.1",
+      "book": 3,
+      "verse": 1,
+      "transliteration": "deśa bandhaḥ cittasya dhāraṇā",
+      "translation": "Linking of the attention to a concentration force or person, involves a restricted location in the mento-emotional energy.",
+      "keywords": [
+        "deśa",
+        "bandhaḥ",
+        "cittasya",
+        "dhāraṇā",
+        "linking",
+        "attention"
+      ]
+    },
+    {
+      "sutra_id": "3.2",
+      "book": 3,
+      "verse": 2,
+      "transliteration": "tatra pratyaya ekatānatā dhyānam",
+      "translation": "When in that location, there is one continuous threadlike flow of one’s instinctive interest that is the effortless linking of the attention to a higher concentration force or person.",
+      "keywords": [
+        "tatra",
+        "pratyaya",
+        "ekatānatā",
+        "dhyānam",
+        "when",
+        "location"
+      ]
+    },
+    {
+      "sutra_id": "3.3",
+      "book": 3,
+      "verse": 3,
+      "transliteration": "tadeva arthamātranirbhāsaṁ",
+      "translation": "svarūpaśūnyam iva samādhiḥ That same effortless linkage of the attention when experienced as illumination of the higher concentration force or person, while the yogi feels as if devoid of himself, is samadhi or continuous effortless linkage of his attention to the special person, object, or force.",
+      "keywords": [
+        "tadeva",
+        "arthamātranirbhāsaṁ",
+        "svarūpaśūnyam",
+        "iva",
+        "samādhiḥ",
+        "same"
+      ]
+    },
+    {
+      "sutra_id": "3.4",
+      "book": 3,
+      "verse": 4,
+      "transliteration": "trayam ekatra saṁyamaḥ",
+      "translation": "The three as one practice is the complete restraint.",
+      "keywords": [
+        "trayam",
+        "ekatra",
+        "saṁyamaḥ",
+        "practice",
+        "complete",
+        "restraint"
+      ]
+    },
+    {
+      "sutra_id": "3.5",
+      "book": 3,
+      "verse": 5,
+      "transliteration": "tajjayāt prajñālokaḥ",
+      "translation": "From the mastery of that complete restraint of the mento-emotional energy, one develops the illuminating insight.",
+      "keywords": [
+        "tajjayāt",
+        "prajñālokaḥ",
+        "mastery",
+        "complete",
+        "restraint",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "3.6",
+      "book": 3,
+      "verse": 6,
+      "transliteration": "tasya bhūmiṣu viniyogaḥ",
+      "translation": "The practice of this complete restraint occurs in stages.",
+      "keywords": [
+        "tasya",
+        "bhūmiṣu",
+        "viniyogaḥ",
+        "practice",
+        "complete",
+        "restraint"
+      ]
+    },
+    {
+      "sutra_id": "3.7",
+      "book": 3,
+      "verse": 7,
+      "transliteration": "trayam antaraṅgaṁ pūrvebhyaḥ",
+      "translation": "In reference to the preliminary stages of yoga, these three higher states concern the psychological organs.",
+      "keywords": [
+        "trayam",
+        "antaraṅgaṁ",
+        "pūrvebhyaḥ",
+        "reference",
+        "preliminary",
+        "stages"
+      ]
+    },
+    {
+      "sutra_id": "3.8",
+      "book": 3,
+      "verse": 8,
+      "transliteration": "tadapi bahiraṅgaṁ nirbījasya",
+      "translation": "But even that initial mastership of the three higher stages of yoga, is external in reference to meditation, which is not motivated by the mento-emotional energy.",
+      "keywords": [
+        "tadapi",
+        "bahiraṅgaṁ",
+        "nirbījasya",
+        "even",
+        "initial",
+        "mastership"
+      ]
+    },
+    {
+      "sutra_id": "3.9",
+      "book": 3,
+      "verse": 9,
+      "transliteration": "vyutthāna nirodha saṁskārayoḥ",
+      "translation": "abhibhava prādurbhāvau nirodhakṣaṇa cittānvayaḥ nirodhapariṇāmaḥ When the connection with the mento-emotional energy momentarily ceases during the manifestation and disappearance phases when there is expression or suppression of the impressions, that is the restraint of the transforming mento-emotional energy.",
+      "keywords": [
+        "vyutthāna",
+        "nirodha",
+        "saṁskārayoḥ",
+        "abhibhava",
+        "prādurbhāvau",
+        "nirodhakṣaṇa"
+      ]
+    },
+    {
+      "sutra_id": "3.10",
+      "book": 3,
+      "verse": 10,
+      "transliteration": "tasya praśāntavāhita saṁskārāt",
+      "translation": "Concerning this practice of restraint, the impressions derived cause a flow of spiritual peace.",
+      "keywords": [
+        "tasya",
+        "praśāntavāhita",
+        "saṁskārāt",
+        "concerning",
+        "practice",
+        "restraint"
+      ]
+    },
+    {
+      "sutra_id": "3.11",
+      "book": 3,
+      "verse": 11,
+      "transliteration": "sarvārthatā ekāgratayoḥ kṣaya udayau",
+      "translation": "cittasya samādhipariṇāmaḥ The decrease of varying objectives in the mento-emotional energy and the increase of the one aspect within it, is the change noticed in the practice of continuous effortless linking of the attention to higher concentration forces, objects or persons.",
+      "keywords": [
+        "sarvārthatā",
+        "ekāgratayoḥ",
+        "kṣaya",
+        "udayau",
+        "cittasya",
+        "samādhipariṇāmaḥ"
+      ]
+    },
+    {
+      "sutra_id": "3.12",
+      "book": 3,
+      "verse": 12,
+      "transliteration": "tataḥ punaḥśānta uditau tulya",
+      "translation": "pratyayau cittasya ekāgratāpariṇāmaḥ Then again, when the mind’s content is the same as it was when it is subsiding and when it is emerging, that is the transformation called “having one aspect in front of, or before the attention”.",
+      "keywords": [
+        "tataḥ",
+        "punaḥśānta",
+        "uditau",
+        "tulya",
+        "pratyayau",
+        "cittasya"
+      ]
+    },
+    {
+      "sutra_id": "3.13",
+      "book": 3,
+      "verse": 13,
+      "transliteration": "etena bhūtendriyeṣu dharma lakṣaṇa",
+      "translation": "avasthā pariṇāmāḥ vyākhyātāḥ By this description of changes, quality and shape, the changing conditions of the various states of matter as well as those of the sensual energy, was described.",
+      "keywords": [
+        "etena",
+        "bhūtendriyeṣu",
+        "dharma",
+        "lakṣaṇa",
+        "avasthā",
+        "pariṇāmāḥ"
+      ]
+    },
+    {
+      "sutra_id": "3.14",
+      "book": 3,
+      "verse": 14,
+      "transliteration": "śānta udita avyapadeśya dharma anupātī dharmī",
+      "translation": "When the collapsed, emergent and latent forces reach full retrogression, that is the most basic condition.",
+      "keywords": [
+        "śānta",
+        "udita",
+        "avyapadeśya",
+        "dharma",
+        "anupātī",
+        "dharmī"
+      ]
+    },
+    {
+      "sutra_id": "3.15",
+      "book": 3,
+      "verse": 15,
+      "transliteration": "karma anyatvaṁ pariṇāma anyatve hetuḥ",
+      "translation": "The cause of a difference in the transformation is the difference in the sequential changes.",
+      "keywords": [
+        "karma",
+        "anyatvaṁ",
+        "pariṇāma",
+        "anyatve",
+        "hetuḥ",
+        "cause"
+      ]
+    },
+    {
+      "sutra_id": "3.16",
+      "book": 3,
+      "verse": 16,
+      "transliteration": "pariṇāmatraya saṁyamāt atīta anāgatajñānam",
+      "translation": "From the complete restraint of the mento-emotional energy in terms of the three-fold transformations within it, the yogi gets information about the past and future.",
+      "keywords": [
+        "pariṇāmatraya",
+        "saṁyamāt",
+        "atīta",
+        "anāgatajñānam",
+        "complete",
+        "restraint"
+      ]
+    },
+    {
+      "sutra_id": "3.17",
+      "book": 3,
+      "verse": 17,
+      "transliteration": "s»rStTàivÉags<ymaTsvRÉUtét}anm!",
+      "translation": "śabda artha pratyayānām itaretarādhyāsāt saṅkaraḥ tatpravibhāga saṁyamāt sarvabhūta rutajñānam From the complete restraint of the mento-emotional energy in relation to mental clarity, regarding the intermixture resulting from the superimposition one for the other, of sound, it’s meaning and the related mentality, knowledge about the language of all creatures is gained.",
+      "keywords": [
+        "rsttàivéags",
+        "ymatsvréutét",
+        "anm",
+        "śabda",
+        "artha",
+        "pratyayānām"
+      ]
+    },
+    {
+      "sutra_id": "3.18",
+      "book": 3,
+      "verse": 18,
+      "transliteration": "saṁskāra sākṣātkaraṇāt pūrvajātijñānam",
+      "translation": "From direct intuitive perception of the subtle impressions stored in the memory, the yogi gains knowledge of previous lives.",
+      "keywords": [
+        "saṁskāra",
+        "sākṣātkaraṇāt",
+        "pūrvajātijñānam",
+        "direct",
+        "intuitive",
+        "perception"
+      ]
+    },
+    {
+      "sutra_id": "3.19",
+      "book": 3,
+      "verse": 19,
+      "transliteration": "pratyayasya paracittajñānam",
+      "translation": "A yogi can know the contents of the mental and emotional energy in the mind of others.",
+      "keywords": [
+        "pratyayasya",
+        "paracittajñānam",
+        "yogi",
+        "know",
+        "contents",
+        "mental"
+      ]
+    },
+    {
+      "sutra_id": "3.20",
+      "book": 3,
+      "verse": 20,
+      "transliteration": "na ca tat sālambanaṁ tasya aviṣayī bhūtatvāt",
+      "translation": "And he does not check a factor which is the support of that content, for it is not the actual object in question.",
+      "keywords": [
+        "na",
+        "ca",
+        "tat",
+        "sālambanaṁ",
+        "tasya",
+        "aviṣayī"
+      ]
+    },
+    {
+      "sutra_id": "3.21",
+      "book": 3,
+      "verse": 21,
+      "transliteration": "kāya rūpa saṁyamāt tadgrāhyaśakti stambhe",
+      "translation": "cakṣuḥ prakāśa asaṁprayoge antardhānam From the complete restraint of the mento-emotional energy in relation to the shape of the body, on the suspension of the receptive energy, there is no contact between light and vision, which results in invisibility.",
+      "keywords": [
+        "kāya",
+        "rūpa",
+        "saṁyamāt",
+        "tadgrāhyaśakti",
+        "stambhe",
+        "cakṣuḥ"
+      ]
+    },
+    {
+      "sutra_id": "3.22",
+      "book": 3,
+      "verse": 22,
+      "transliteration": "एतेन शािद अधार्नम उम ्",
+      "translation": "etena śabdādi antardhānam uktam By this method, sound and the related sensual pursuits, may be restrained, which results in the related perceptibility.",
+      "keywords": [
+        "एत",
+        "नम",
+        "etena",
+        "śabdādi",
+        "antardhānam",
+        "uktam"
+      ]
+    },
+    {
+      "sutra_id": "3.23",
+      "book": 3,
+      "verse": 23,
+      "transliteration": "sopakrama— nirupakrama— ca karma",
+      "translation": "sopakramaṁ nirupakramaṁ ca karma tatsaṁyamādaparāntajñānamariṣṭebhyo vā Complete restraint of the mento-emotional energy in relation to current and destined cultural activities results in knowledge of entry into the hereafter. Or the same result is gained by the complete restraint in relation to portents.",
+      "keywords": [
+        "sopakrama",
+        "nirupakrama",
+        "ca",
+        "karma",
+        "sopakramaṁ",
+        "nirupakramaṁ"
+      ]
+    },
+    {
+      "sutra_id": "3.24",
+      "book": 3,
+      "verse": 24,
+      "transliteration": "maitryādiṣu balāni",
+      "translation": "By complete restraint of the mento-emotional energy in relation to friendliness he develops that very same power.",
+      "keywords": [
+        "maitryādiṣu",
+        "balāni",
+        "complete",
+        "restraint",
+        "mento",
+        "emotional"
+      ]
+    },
+    {
+      "sutra_id": "3.25",
+      "book": 3,
+      "verse": 25,
+      "transliteration": "baleṣu hasti balādīni",
+      "translation": "By complete restraint of the mento-emotional energy in relation to strength, the yogin acquires the strength of an elephant. The same applies to other aspects.",
+      "keywords": [
+        "baleṣu",
+        "hasti",
+        "balādīni",
+        "complete",
+        "restraint",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "3.26",
+      "book": 3,
+      "verse": 26,
+      "transliteration": "pravṛitti āloka nyāsāt sūkṣma vyavahita viprakṛṣṭajñānam",
+      "translation": "From the application of supernatural insight to the force producing cultural activities, a yogi gets information about what is subtle, concealed and what is remote from him.",
+      "keywords": [
+        "pravṛitti",
+        "āloka",
+        "nyāsāt",
+        "sūkṣma",
+        "vyavahita",
+        "viprakṛṣṭajñānam"
+      ]
+    },
+    {
+      "sutra_id": "3.27",
+      "book": 3,
+      "verse": 27,
+      "transliteration": "bhuvanajñānaṁ sūrye saṁyamāt",
+      "translation": "From the complete restraint of the mento-emotional energy in relation to the sun god or the sun planet, knowledge of the solar system is gained.",
+      "keywords": [
+        "bhuvanajñānaṁ",
+        "sūrye",
+        "saṁyamāt",
+        "complete",
+        "restraint",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "3.28",
+      "book": 3,
+      "verse": 28,
+      "transliteration": "candre tārāvyūhajñānam",
+      "translation": "By complete restraint of the mento-emotional energy, in reference to the moon or moon-god, the yogi gets knowledge about the system of stars.",
+      "keywords": [
+        "candre",
+        "tārāvyūhajñānam",
+        "complete",
+        "restraint",
+        "mento",
+        "emotional"
+      ]
+    },
+    {
+      "sutra_id": "3.29",
+      "book": 3,
+      "verse": 29,
+      "transliteration": "dhruve tadgatijñānam",
+      "translation": "By the complete restraint of the mento-emotional energy in relation to the Pole Star, a yogi can know of the course of planets and stars.",
+      "keywords": [
+        "dhruve",
+        "tadgatijñānam",
+        "complete",
+        "restraint",
+        "mento",
+        "emotional"
+      ]
+    },
+    {
+      "sutra_id": "3.30",
+      "book": 3,
+      "verse": 30,
+      "transliteration": "nābhicakre kāyavyūhajñānam",
+      "translation": "By complete restraint of the mento-emotional energy in relation to the focusing on the navel-energy-gyrating center, the yogi gets knowledge about the layout of his body.",
+      "keywords": [
+        "nābhicakre",
+        "kāyavyūhajñānam",
+        "complete",
+        "restraint",
+        "mento",
+        "emotional"
+      ]
+    },
+    {
+      "sutra_id": "3.31",
+      "book": 3,
+      "verse": 31,
+      "transliteration": "kaṇṭhakūpe kṣutpipāsā nivṛttiḥ",
+      "translation": "By the complete restraint of the mento-emotional energy in focusing on the gullet, a yogi causes the suppression of hunger and thirst.",
+      "keywords": [
+        "kaṇṭhakūpe",
+        "kṣutpipāsā",
+        "nivṛttiḥ",
+        "complete",
+        "restraint",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "3.32",
+      "book": 3,
+      "verse": 32,
+      "transliteration": "kūrmanāḍyāṃ sthairyam",
+      "translation": "By the complete restraint of the mento-emotional energy in focusing on the kurmanadi subtle nerve, a yogi acquires steadiness of his psyche.",
+      "keywords": [
+        "kūrmanāḍyāṃ",
+        "sthairyam",
+        "complete",
+        "restraint",
+        "mento",
+        "emotional"
+      ]
+    },
+    {
+      "sutra_id": "3.33",
+      "book": 3,
+      "verse": 33,
+      "transliteration": "mūrdhajyotiṣi siddhadarśanam",
+      "translation": "By the complete restraint of the mento-emotional energy as it is focused on the shinning light in the head of the subtle body, a yogi gets views of the perfected beings.",
+      "keywords": [
+        "mūrdhajyotiṣi",
+        "siddhadarśanam",
+        "complete",
+        "restraint",
+        "mento",
+        "emotional"
+      ]
+    },
+    {
+      "sutra_id": "3.34",
+      "book": 3,
+      "verse": 34,
+      "transliteration": "prātibhāt vā sarvam",
+      "translation": "By complete restraint of the mento-emotional energy while focusing on the shining organ of divination in the head of the subtle body, the yogin gets the ability to know all reality.",
+      "keywords": [
+        "prātibhāt",
+        "vā",
+        "sarvam",
+        "complete",
+        "restraint",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "3.35",
+      "book": 3,
+      "verse": 35,
+      "transliteration": "hṛdaye cittasaṃvit",
+      "translation": "By the complete restraint of the mento-emotional energy as it is focused on the causal body in the vicinity of the chest, the yogi gets thorough insight into the cause of the mental and emotional energy.",
+      "keywords": [
+        "hṛdaye",
+        "cittasaṃvit",
+        "complete",
+        "restraint",
+        "mento",
+        "emotional"
+      ]
+    },
+    {
+      "sutra_id": "3.36",
+      "book": 3,
+      "verse": 36,
+      "transliteration": "prawRTvaTSvawRs<ymat! pué;}anm!",
+      "translation": "sattva puruṣayoḥ atyantāsaṃkīrṇayoḥ pratyaya aviśeṣaḥ bhogaḥ parārthatvāt svārthasaṃyamāt puruṣajñānam Experience results from the inability to distinguish between the individual spirit and the intelligence energy of material nature, even though they are very distinct. By complete restraint of the mento-emotional energy while focusing on self-interest distinct from the other interest, a yogi gets knowledge of the individual spirit.",
+      "keywords": [
+        "prawrtvatsvawrs",
+        "ymat",
+        "pué",
+        "anm",
+        "sattva",
+        "puruṣayoḥ"
+      ]
+    },
+    {
+      "sutra_id": "3.37",
+      "book": 3,
+      "verse": 37,
+      "transliteration": "tataḥ prātibha śrāvaṇa vedana",
+      "translation": "ādarśa āsvāda vārtāḥ jāyante From that focus is produced smelling, tasting, seeing, touching and hearing, through the shining organ of divination.",
+      "keywords": [
+        "tataḥ",
+        "prātibha",
+        "śrāvaṇa",
+        "vedana",
+        "ādarśa",
+        "āsvāda"
+      ]
+    },
+    {
+      "sutra_id": "3.38",
+      "book": 3,
+      "verse": 38,
+      "transliteration": "te samādhau upasargāḥ vyutthāne siddhayaḥ",
+      "translation": "Those divination skills are obstacles in the practice of continuous effortless linkage of the attention to a higher concentration force, object or person. But in expressing, they are considered as mystic perfectional skills.",
+      "keywords": [
+        "te",
+        "samādhau",
+        "upasargāḥ",
+        "vyutthāne",
+        "siddhayaḥ",
+        "divination"
+      ]
+    },
+    {
+      "sutra_id": "3.39",
+      "book": 3,
+      "verse": 39,
+      "transliteration": "bandhakāraṇa śaithilyāt pracāra",
+      "translation": "saṃvedanāt ca cittasya paraśarīrāveśaḥ The entrance into another body is possible by slackening the cause of bondage and by knowing the channels of the mento-emotional energy.",
+      "keywords": [
+        "bandhakāraṇa",
+        "śaithilyāt",
+        "pracāra",
+        "saṃvedanāt",
+        "ca",
+        "cittasya"
+      ]
+    },
+    {
+      "sutra_id": "3.40",
+      "book": 3,
+      "verse": 40,
+      "transliteration": "udānajayāt jala paṇka kaṇṭakādiṣu asaṇgaḥ utkrāntiḥ ca",
+      "translation": "By mastery over the air which rises from the throat into the head, a yogi can rise over or not have contact with water, mud or sharp objects.",
+      "keywords": [
+        "udānajayāt",
+        "jala",
+        "paṇka",
+        "kaṇṭakādiṣu",
+        "asaṇgaḥ",
+        "utkrāntiḥ"
+      ]
+    },
+    {
+      "sutra_id": "3.41",
+      "book": 3,
+      "verse": 41,
+      "transliteration": "samānajayāt jvalanam",
+      "translation": "By conquest of the samana digestive force, a yogi’s psyche blazes or shines with a fiery glow.",
+      "keywords": [
+        "samānajayāt",
+        "jvalanam",
+        "conquest",
+        "samana",
+        "digestive",
+        "force"
+      ]
+    },
+    {
+      "sutra_id": "3.42",
+      "book": 3,
+      "verse": 42,
+      "transliteration": "śrotra ākāśayoḥ saṃbandha saṁyamāt divyaṁ śrotram",
+      "translation": "By the complete restraint of the mento-emotional energy, while focusing on the hearing sense and space, a yogin develops supernatural and divine hearing.",
+      "keywords": [
+        "śrotra",
+        "ākāśayoḥ",
+        "saṃbandha",
+        "saṁyamāt",
+        "divyaṁ",
+        "śrotram"
+      ]
+    },
+    {
+      "sutra_id": "3.43",
+      "book": 3,
+      "verse": 43,
+      "transliteration": "kāya ākāśayoḥ saṁbandha saṁyamāt",
+      "translation": "laghutūlasamāpatteḥ ca ākāśagamanam By the complete restraint of the mento-emotional energy, while linking the mind to the relationship between the body and the sky and linking the attention to being as light as cotton fluff, a yogi acquires the ability to pass through the atmosphere.",
+      "keywords": [
+        "kāya",
+        "ākāśayoḥ",
+        "saṁbandha",
+        "saṁyamāt",
+        "laghutūlasamāpatteḥ",
+        "ca"
+      ]
+    },
+    {
+      "sutra_id": "3.44",
+      "book": 3,
+      "verse": 44,
+      "transliteration": "bahiḥ akalpitā vṛttiḥ mahāvidehā",
+      "translation": "tataḥ prakāśa āvaraṇakṣayaḥ By the complete restraint of the mento-emotional energy which is external, which is not formed, a yogi achieves the great bodiless state. From that, the great mental darkness which veils the light, is dissipated.",
+      "keywords": [
+        "bahiḥ",
+        "akalpitā",
+        "vṛttiḥ",
+        "mahāvidehā",
+        "tataḥ",
+        "prakāśa"
+      ]
+    },
+    {
+      "sutra_id": "3.45",
+      "book": 3,
+      "verse": 45,
+      "transliteration": "sthūla svarūpa sūkṣma anvaya",
+      "translation": "arthavatva saṁyamāt bhūtajayaḥ By the complete restraint of the mento-emotional energy, while linking the attention to the gross forms, real nature, subtle distribution and value of states of matter, a yogi gets conquest over them.",
+      "keywords": [
+        "sthūla",
+        "svarūpa",
+        "sūkṣma",
+        "anvaya",
+        "arthavatva",
+        "saṁyamāt"
+      ]
+    },
+    {
+      "sutra_id": "3.46",
+      "book": 3,
+      "verse": 46,
+      "transliteration": "tataḥ aṇimādi prādurbhāvaḥ kāyasaṁpat",
+      "translation": "taddharma anabhighātaḥ ca From minuteness and other related mystic skills come the perfection of the subtle body and the non-obstructions of its functions.",
+      "keywords": [
+        "tataḥ",
+        "aṇimādi",
+        "prādurbhāvaḥ",
+        "kāyasaṁpat",
+        "taddharma",
+        "anabhighātaḥ"
+      ]
+    },
+    {
+      "sutra_id": "3.47",
+      "book": 3,
+      "verse": 47,
+      "transliteration": "rūpa lāvaṇya bala vajra saṁhananatvāni kāyasaṁpat",
+      "translation": "Beautiful form, charm, mystic force and diamond-like definition come from the perfection of the subtle body.",
+      "keywords": [
+        "rūpa",
+        "lāvaṇya",
+        "bala",
+        "vajra",
+        "saṁhananatvāni",
+        "kāyasaṁpat"
+      ]
+    },
+    {
+      "sutra_id": "3.48",
+      "book": 3,
+      "verse": 48,
+      "transliteration": "grahaṇa svarūpa asmitā anvaya",
+      "translation": "arthavattva saṁyamāt indriyajayaḥ From the continuous effortless linkage of the attention to sensual grasping, to the form of the sensual energy, to its identifying powers, to its connection instinct and to its actual worth, a yogi acquires conquest over his relationship with it.",
+      "keywords": [
+        "grahaṇa",
+        "svarūpa",
+        "asmitā",
+        "anvaya",
+        "arthavattva",
+        "saṁyamāt"
+      ]
+    },
+    {
+      "sutra_id": "3.49",
+      "book": 3,
+      "verse": 49,
+      "transliteration": "tataḥ manojavitvaṁ vikaraṇabhāvaḥ pradhānajayaḥ ca",
+      "translation": "Subsequently, there is conquest over the influence of subtle matter and over the parting away or dispersion of the mento-emotional energy, with the required swiftness of mind.",
+      "keywords": [
+        "tataḥ",
+        "manojavitvaṁ",
+        "vikaraṇabhāvaḥ",
+        "pradhānajayaḥ",
+        "ca",
+        "subsequently"
+      ]
+    },
+    {
+      "sutra_id": "3.50",
+      "book": 3,
+      "verse": 50,
+      "transliteration": "sattva puruṣa anyatā khyātimātrasya",
+      "translation": "sarvabhāva adhiṣṭhātṛtvaṁ sarvajñātṛtvaṁ ca Only when there is distinct discrimination between the clarifying perception of material nature and the spiritual personality, does the yogi attain complete disaffection and all-applicative intuition.",
+      "keywords": [
+        "sattva",
+        "puruṣa",
+        "anyatā",
+        "khyātimātrasya",
+        "sarvabhāva",
+        "adhiṣṭhātṛtvaṁ"
+      ]
+    },
+    {
+      "sutra_id": "3.51",
+      "book": 3,
+      "verse": 51,
+      "transliteration": "tadvairāgyāt api doṣabījakṣaye kaivalyam",
+      "translation": "By a lack of interest, even to that (discrimination between the clarifying mundane energy and the self) when the cause of that defect is eliminated, the absolute isolation of the self from the lower psyche of itself, is achieved.",
+      "keywords": [
+        "tadvairāgyāt",
+        "api",
+        "doṣabījakṣaye",
+        "kaivalyam",
+        "lack",
+        "interest"
+      ]
+    },
+    {
+      "sutra_id": "3.52",
+      "book": 3,
+      "verse": 52,
+      "transliteration": "sthānyupanimantraṇe saṅgasmayākaraṇaṁ",
+      "translation": "punaraniṣṭa prasaṅgāt On being invited by a person from the place one would attain if his body died, a yogi should be non-responsive, not desiring their association and not being fascinated, otherwise that would cause unwanted features of existence to arise again.",
+      "keywords": [
+        "sthānyupanimantraṇe",
+        "saṅgasmayākaraṇaṁ",
+        "punaraniṣṭa",
+        "prasaṅgāt",
+        "invited",
+        "person"
+      ]
+    },
+    {
+      "sutra_id": "3.53",
+      "book": 3,
+      "verse": 53,
+      "transliteration": "kṣaṇa tatkramayoḥ samyamāt vivekajam jñānam",
+      "translation": "By the continuous effortless linkage of the attention to the moment and to the sequence of the moments, the yogi has knowledge caused by the subtle discrimination.",
+      "keywords": [
+        "kṣaṇa",
+        "tatkramayoḥ",
+        "samyamāt",
+        "vivekajam",
+        "jñānam",
+        "continuous"
+      ]
+    },
+    {
+      "sutra_id": "3.54",
+      "book": 3,
+      "verse": 54,
+      "transliteration": "jāti lakṣaṇa deśaiḥ anyatā anavacchedāt",
+      "translation": "tulyayoḥ tataḥ pratipattiḥ Subsequently, the yogi has perception of two similar realties which otherwise could not be sorted due to a lack of definition in terms of their general category, individual characteristic and location.",
+      "keywords": [
+        "jāti",
+        "lakṣaṇa",
+        "deśaiḥ",
+        "anyatā",
+        "anavacchedāt",
+        "tulyayoḥ"
+      ]
+    },
+    {
+      "sutra_id": "3.55",
+      "book": 3,
+      "verse": 55,
+      "transliteration": "tārakaṁ sarvaviṣayaṁ sarvathāviṣayaṁ",
+      "translation": "akramaṁ ca iti vivekajaṁ jñānam The distinction caused by subtle discrimination is the crossing over or transcending of all subtle and gross mundane objects in all ways they are presented, without the yogi taking recourse to any other sequential perceptions of mind reliance.",
+      "keywords": [
+        "tārakaṁ",
+        "sarvaviṣayaṁ",
+        "sarvathāviṣayaṁ",
+        "akramaṁ",
+        "ca",
+        "iti"
+      ]
+    },
+    {
+      "sutra_id": "3.56",
+      "book": 3,
+      "verse": 56,
+      "transliteration": "sattva puruṣayoḥ śuddhi sāmye kaivalyam iti",
+      "translation": "When there is equal purity between the intelligence energy of material nature and the spirit, then there is total separation from the mundane psychology.",
+      "keywords": [
+        "sattva",
+        "puruṣayoḥ",
+        "śuddhi",
+        "sāmye",
+        "kaivalyam",
+        "iti"
+      ]
+    },
+    {
+      "sutra_id": "4.1",
+      "book": 4,
+      "verse": 1,
+      "transliteration": "janma auṣadhi mantra tapaḥ samādhijāḥ siddhayaḥ",
+      "translation": "The mystic skills are produced through taking birth in particular species, or by taking drugs, or by reciting special sounds, or by physical bodily austerities or by the continuous effortless linkage of the attention to a higher concentration force, object or person.",
+      "keywords": [
+        "janma",
+        "auṣadhi",
+        "mantra",
+        "tapaḥ",
+        "samādhijāḥ",
+        "siddhayaḥ"
+      ]
+    },
+    {
+      "sutra_id": "4.2",
+      "book": 4,
+      "verse": 2,
+      "transliteration": "jātyantara pariṇāmaḥ prakṛtyāpūrāt",
+      "translation": "The transformation from one category to another is by the saturation of the subtle material nature.",
+      "keywords": [
+        "jātyantara",
+        "pariṇāmaḥ",
+        "prakṛtyāpūrāt",
+        "transformation",
+        "category",
+        "another"
+      ]
+    },
+    {
+      "sutra_id": "4.3",
+      "book": 4,
+      "verse": 3,
+      "transliteration": "nimittaṁ aprayojakaṁ prakṛtīnāṁ",
+      "translation": "varaṇabhedaḥ tu tataḥ kṣetrikavat The motivating force of the subtle material energy is not used except for the disintegration of impediments, hence it is compared to a farmer.",
+      "keywords": [
+        "nimittaṁ",
+        "aprayojakaṁ",
+        "prakṛtīnāṁ",
+        "varaṇabhedaḥ",
+        "tu",
+        "tataḥ"
+      ]
+    },
+    {
+      "sutra_id": "4.4",
+      "book": 4,
+      "verse": 4,
+      "transliteration": "nirmāṇacittāni asmitāmātrāt",
+      "translation": "The formation of regions within the mento-emotional energy, arises only from the sense of identity which is developed in relation to material nature.",
+      "keywords": [
+        "nirmāṇacittāni",
+        "asmitāmātrāt",
+        "formation",
+        "regions",
+        "within",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "4.5",
+      "book": 4,
+      "verse": 5,
+      "transliteration": "pravṛtti bhede prayojakaṁ cittam ekam anekeṣām",
+      "translation": "The one mento-emotional energy is that which is very much used in numberless different dispersals of energy.",
+      "keywords": [
+        "pravṛtti",
+        "bhede",
+        "prayojakaṁ",
+        "cittam",
+        "ekam",
+        "anekeṣām"
+      ]
+    },
+    {
+      "sutra_id": "4.6",
+      "book": 4,
+      "verse": 6,
+      "transliteration": "tatra dhyānajam anāśayam",
+      "translation": "In that case only subtle activities which are produced from the effortless linkage of the attention to a higher reality are without harmful emotions.",
+      "keywords": [
+        "tatra",
+        "dhyānajam",
+        "anāśayam",
+        "case",
+        "only",
+        "subtle"
+      ]
+    },
+    {
+      "sutra_id": "4.7",
+      "book": 4,
+      "verse": 7,
+      "transliteration": "u ak«:[< yaeigniöivximtre;am!",
+      "translation": "karma aśukla akṛṣnaṁ yoginaḥ trividham itareṣām The cultural activity of the yogis is neither rewarding nor penalizing, but others have three types of such action.",
+      "keywords": [
+        "ak",
+        "yaeigniöivximtre",
+        "am",
+        "karma",
+        "aśukla",
+        "akṛṣnaṁ"
+      ]
+    },
+    {
+      "sutra_id": "4.8",
+      "book": 4,
+      "verse": 8,
+      "transliteration": "tataḥ tadvipāka anuguṇānām eva abhivyaktiḥ vāsanānām",
+      "translation": "Subsequently from those cultural activities there is development according to corresponding features only, bringing about the manifestation of the tendencies within the mento-emotional energy.",
+      "keywords": [
+        "tataḥ",
+        "tadvipāka",
+        "anuguṇānām",
+        "eva",
+        "abhivyaktiḥ",
+        "vāsanānām"
+      ]
+    },
+    {
+      "sutra_id": "4.9",
+      "book": 4,
+      "verse": 9,
+      "transliteration": "jāti deśa kāla vyavahitānām api",
+      "translation": "ānantaryaṁ smṛti saṁskārayoḥ ekarūpatvāt Even though circumstances are separated by status, location and time, still the impressions which form cultural activities and the resulting memories, are of one form and operate on a timeful sequence.",
+      "keywords": [
+        "jāti",
+        "deśa",
+        "kāla",
+        "vyavahitānām",
+        "api",
+        "ānantaryaṁ"
+      ]
+    },
+    {
+      "sutra_id": "4.10",
+      "book": 4,
+      "verse": 10,
+      "transliteration": "tāsām anāditvaṁ ca āśiṣaḥ nityatvāt",
+      "translation": "Those memories and impressions are primeval, without a beginning. Hope and desire energies are eternal as well.",
+      "keywords": [
+        "tāsām",
+        "anāditvaṁ",
+        "ca",
+        "āśiṣaḥ",
+        "nityatvāt",
+        "memories"
+      ]
+    },
+    {
+      "sutra_id": "4.11",
+      "book": 4,
+      "verse": 11,
+      "transliteration": "u laïyalMbnE> s¼¯hItTvade;amÉave tdÉav>",
+      "translation": "hetu phala āśraya ālambanaiḥ saṅgṛhītatvāt eṣām abhāve tad abhāvaḥ They exist by what holds them together in terms of cause and effect, supportive base and lifting influence. Otherwise if their causes are not there, they have no existence.",
+      "keywords": [
+        "laïyalmbne",
+        "s¼",
+        "hittvade",
+        "améave",
+        "tdéav",
+        "hetu"
+      ]
+    },
+    {
+      "sutra_id": "4.12",
+      "book": 4,
+      "verse": 12,
+      "transliteration": "atīta anāgataṁ svarūpataḥ asti adhvabhedāt dharmāṇām",
+      "translation": "There is a true form of the past and future denoted by the different courses of their characteristics.",
+      "keywords": [
+        "atīta",
+        "anāgataṁ",
+        "svarūpataḥ",
+        "asti",
+        "adhvabhedāt",
+        "dharmāṇām"
+      ]
+    },
+    {
+      "sutra_id": "4.13",
+      "book": 4,
+      "verse": 13,
+      "transliteration": "te vyakta sūkṣmāḥ guṇātmānaḥ",
+      "translation": "They are gross or subtle, all depending on their inherent nature.",
+      "keywords": [
+        "te",
+        "vyakta",
+        "sūkṣmāḥ",
+        "guṇātmānaḥ",
+        "gross",
+        "subtle"
+      ]
+    },
+    {
+      "sutra_id": "4.14",
+      "book": 4,
+      "verse": 14,
+      "transliteration": "pariṇāma ekatvāt vastutattvam",
+      "translation": "The actual composition of an object is based on the uniqueness of the transformation.",
+      "keywords": [
+        "pariṇāma",
+        "ekatvāt",
+        "vastutattvam",
+        "actual",
+        "composition",
+        "object"
+      ]
+    },
+    {
+      "sutra_id": "4.15",
+      "book": 4,
+      "verse": 15,
+      "transliteration": "vastusāmye cittabhedāt tayoḥ vibhaktaḥ panthāḥ",
+      "translation": "Because of a difference in the mento-emotional energy of two persons, separate prejudices manifest in their viewing of the very same object.",
+      "keywords": [
+        "vastusāmye",
+        "cittabhedāt",
+        "tayoḥ",
+        "vibhaktaḥ",
+        "panthāḥ",
+        "because"
+      ]
+    },
+    {
+      "sutra_id": "4.16",
+      "book": 4,
+      "verse": 16,
+      "transliteration": "na ca ekacitta tantraṁ ced vastu",
+      "translation": "tat apramāṇakaṁ tadā kiṁ syāt An object is not dependent on one person’s mento-emotional perception. Otherwise, what would happen if it were not being perceived by that person?",
+      "keywords": [
+        "na",
+        "ca",
+        "ekacitta",
+        "tantraṁ",
+        "ced",
+        "vastu"
+      ]
+    },
+    {
+      "sutra_id": "4.17",
+      "book": 4,
+      "verse": 17,
+      "transliteration": "taduparāga apekṣitvāt cittasya vastu jñāta ajñātam",
+      "translation": "An object is known or unknown, all depending on the mood and expectation of the particular mento-emotional energy of the person in reference to it.",
+      "keywords": [
+        "taduparāga",
+        "apekṣitvāt",
+        "cittasya",
+        "vastu",
+        "jñāta",
+        "ajñātam"
+      ]
+    },
+    {
+      "sutra_id": "4.18",
+      "book": 4,
+      "verse": 18,
+      "transliteration": "sadā jñātāḥ cittavṛttayaḥ",
+      "translation": "tatprabhoḥ puruṣasya apariṇāmitvāt The operations of the mento-emotional energy are always known to that governor because of the changelessness of that spirit.",
+      "keywords": [
+        "sadā",
+        "jñātāḥ",
+        "cittavṛttayaḥ",
+        "tatprabhoḥ",
+        "puruṣasya",
+        "apariṇāmitvāt"
+      ]
+    },
+    {
+      "sutra_id": "4.19",
+      "book": 4,
+      "verse": 19,
+      "transliteration": "na tat svābhāsaṁ dṛśyatvāt",
+      "translation": "That mento-emotional energy is not self-illuminative for it is rather only capable of being perceived.",
+      "keywords": [
+        "na",
+        "tat",
+        "svābhāsaṁ",
+        "dṛśyatvāt",
+        "mento",
+        "emotional"
+      ]
+    },
+    {
+      "sutra_id": "4.20",
+      "book": 4,
+      "verse": 20,
+      "transliteration": "ekasamaye ca ubhaya anavadhāraṇam",
+      "translation": "It cannot execute the focus of both at the same time.",
+      "keywords": [
+        "ekasamaye",
+        "ca",
+        "ubhaya",
+        "anavadhāraṇam",
+        "cannot",
+        "execute"
+      ]
+    },
+    {
+      "sutra_id": "4.21",
+      "book": 4,
+      "verse": 21,
+      "transliteration": "cittāntaradṛśye buddhibuddheḥ",
+      "translation": "atiprasaṅgaḥ smṛtisaṅkaraḥ ca In the perception of mento-emotional energy by another such energy, there would be an intellect perceiving another intellect independently. That would cause absurdity and confusion of memory.",
+      "keywords": [
+        "cittāntaradṛśye",
+        "buddhibuddheḥ",
+        "atiprasaṅgaḥ",
+        "smṛtisaṅkaraḥ",
+        "ca",
+        "perception"
+      ]
+    },
+    {
+      "sutra_id": "4.22",
+      "book": 4,
+      "verse": 22,
+      "transliteration": "e nm!",
+      "translation": "citeḥ apratisaṁkramāyāḥ tadākārāpattau svabuddhisaṁvedanam The perception of its own intellect occurs when it assumes that form in which there is no movement from one operation to another.",
+      "keywords": [
+        "nm",
+        "citeḥ",
+        "apratisaṁkramāyāḥ",
+        "tadākārāpattau",
+        "svabuddhisaṁvedanam",
+        "perception"
+      ]
+    },
+    {
+      "sutra_id": "4.23",
+      "book": 4,
+      "verse": 23,
+      "transliteration": "R !",
+      "translation": "draṣṭṛ dṛśya uparaktaṁ cittaṁ sarvārtham The mento-emotional energy which is prejudiced by the perceiver and the perceived, is all-evaluating.",
+      "keywords": [
+        "draṣṭṛ",
+        "dṛśya",
+        "uparaktaṁ",
+        "cittaṁ",
+        "sarvārtham",
+        "mento"
+      ]
+    },
+    {
+      "sutra_id": "4.24",
+      "book": 4,
+      "verse": 24,
+      "transliteration": "tat asaṅkhyeya vāsanābhiḥ citram",
+      "translation": "api parārthaṁ saṁhatyakāritvāt Although the mento-emotional energy is diverse by innumerable subtle impressions, it acts for the sake of another power because of its proximity to that other force.",
+      "keywords": [
+        "tat",
+        "asaṅkhyeya",
+        "vāsanābhiḥ",
+        "citram",
+        "api",
+        "parārthaṁ"
+      ]
+    },
+    {
+      "sutra_id": "4.25",
+      "book": 4,
+      "verse": 25,
+      "transliteration": "viśeṣadarśinaḥ ātmabhāva bhāvanānivṛttiḥ",
+      "translation": "There is total stopping of the operations of the mento-emotional energy for the person who perceives the distinction between feelings and the spirit itself.",
+      "keywords": [
+        "viśeṣadarśinaḥ",
+        "ātmabhāva",
+        "bhāvanānivṛttiḥ",
+        "total",
+        "stopping",
+        "operations"
+      ]
+    },
+    {
+      "sutra_id": "4.26",
+      "book": 4,
+      "verse": 26,
+      "transliteration": "tadā hi vivekanimnaṁ kaivalya prāgbhāraṁ cittam",
+      "translation": "Then, indeed, the mento-emotional force is inclined towards discrimination and gravitates towards the total separation from the mundane psychology.",
+      "keywords": [
+        "tadā",
+        "hi",
+        "vivekanimnaṁ",
+        "kaivalya",
+        "prāgbhāraṁ",
+        "cittam"
+      ]
+    },
+    {
+      "sutra_id": "4.27",
+      "book": 4,
+      "verse": 27,
+      "transliteration": "tat cchidreṣu pratyayāntarāṇi saṁskārebhyaḥ",
+      "translation": "Besides that, in the relaxation of the focus, other mind contents arise in the intervals. These are based on subtle impressions.",
+      "keywords": [
+        "tat",
+        "cchidreṣu",
+        "pratyayāntarāṇi",
+        "saṁskārebhyaḥ",
+        "besides",
+        "relaxation"
+      ]
+    },
+    {
+      "sutra_id": "4.28",
+      "book": 4,
+      "verse": 28,
+      "transliteration": "hānam eṣāṁ kleśavat uktam",
+      "translation": "As authoritatively stated, the complete removal of these is like the elimination of the mento-emotional afflictions.",
+      "keywords": [
+        "hānam",
+        "eṣāṁ",
+        "kleśavat",
+        "uktam",
+        "authoritatively",
+        "stated"
+      ]
+    },
+    {
+      "sutra_id": "4.29",
+      "book": 4,
+      "verse": 29,
+      "transliteration": "prasaṁkhyāne api akusīdasya sarvathā",
+      "translation": "vivekakhyāteḥ dharmameghaḥ samādhiḥ For one who sees no gains in material nature, even while perceiving it in abstract meditation, he has the super discrimination. He attained the continuous effortless linkage of the attention to higher reality which is described as knowing the mento-emotional clouds of energy which compel a person to perform according to nature’s way of acting for beneficial results.",
+      "keywords": [
+        "prasaṁkhyāne",
+        "api",
+        "akusīdasya",
+        "sarvathā",
+        "vivekakhyāteḥ",
+        "dharmameghaḥ"
+      ]
+    },
+    {
+      "sutra_id": "4.30",
+      "book": 4,
+      "verse": 30,
+      "transliteration": "tataḥ kleśa karma nivṛttiḥ",
+      "translation": "Subsequently there is stoppage of the operation of the mento-emotional energy in terms of generation of cultural activities and their resulting afflictions.",
+      "keywords": [
+        "tataḥ",
+        "kleśa",
+        "karma",
+        "nivṛttiḥ",
+        "subsequently",
+        "stoppage"
+      ]
+    },
+    {
+      "sutra_id": "4.31",
+      "book": 4,
+      "verse": 31,
+      "transliteration": "tadā sarva āvaraṇa malāpetasya",
+      "translation": "jñānasya ānantyāt jñeyam alpam Then, because of the removal of all mental darkness and psychological impurities, that which can be known through the mento-emotional energy, seems trivial in comparison to the unlimited knowledge available when separated from it.",
+      "keywords": [
+        "tadā",
+        "sarva",
+        "āvaraṇa",
+        "malāpetasya",
+        "jñānasya",
+        "ānantyāt"
+      ]
+    },
+    {
+      "sutra_id": "4.32",
+      "book": 4,
+      "verse": 32,
+      "transliteration": "tataḥ kṛtārthānāṁ pariṇāmakrama samāptir guṇānām",
+      "translation": "Thus, the subtle material nature, having fulfilled its purpose, its progressive alterations end.",
+      "keywords": [
+        "tataḥ",
+        "kṛtārthānāṁ",
+        "pariṇāmakrama",
+        "samāptir",
+        "guṇānām",
+        "thus"
+      ]
+    },
+    {
+      "sutra_id": "4.33",
+      "book": 4,
+      "verse": 33,
+      "transliteration": "kṣaṇa pratiyogī pariṇāma aparānta nirgrāhyaḥ kramaḥ",
+      "translation": "The process, of which moments are a counterpart, and which causes the alterations, comes to an end and is clearly perceived.",
+      "keywords": [
+        "kṣaṇa",
+        "pratiyogī",
+        "pariṇāma",
+        "aparānta",
+        "nirgrāhyaḥ",
+        "kramaḥ"
+      ]
+    },
+    {
+      "sutra_id": "4.34",
+      "book": 4,
+      "verse": 34,
+      "transliteration": "kEvLy< Svêpàitóa va icitziKtirit—",
+      "translation": "Puruṣārthaśūnyānāṁ guṇānāṁ pratiprasavaḥ kaivalyaṁ svarūpapratiṣṭhā vā citiśaktiritiṁ Separation of the spirit from the mento-emotional energy (kaivalyam), occurs when there is neutrality in respect to the influence of material nature, when the yogi’s psyche becomes devoid of the general aims of a human being. Thus at last, the spirit is established in its own form as the force empowering the mento-emotional energy. END.",
+      "keywords": [
+        "kevly",
+        "svêpàitóa",
+        "va",
+        "icitziktirit",
+        "puruṣārthaśūnyānāṁ",
+        "guṇānāṁ"
+      ]
+    }
+  ]

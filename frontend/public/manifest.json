@@ -1,0 +1,16 @@
+{
+    "name": "Digital Sangha",
+    "short_name": "Sangha",
+    "description": "AI Yoga Companion",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FAF8F5",
+    "theme_color": "#2D5A47",
+    "icons": [
+      {
+        "src": "/favicon.svg",
+        "sizes": "any",
+        "type": "image/svg+xml"
+      }
+    ]
+  }

@@ -1,0 +1,46 @@
+# Digital Sangha — example configuration.
+# Copy this file to config.yaml and edit, or leave it untouched and rely on
+# environment variables and the in-app /settings wizard. The real config.yaml
+# is gitignored.
+
+# Local-relative paths resolve against the project root.
+db_path: data/sangha.db
+vector_db_path: data/vectors
+
+# LLM provider: local, openai, anthropic, google, deepseek
+# Override with env: LLM_PROVIDER
+llm_provider: local
+
+# Local Ollama model tags (used when llm_provider is "local").
+# Override with env: FAST_MODEL / POWER_MODEL
+fast_model: ""
+power_model: ""
+
+# Cloud provider API keys. Leave blank and set the matching environment
+# variable instead:
+#   OPENAI_API_KEY, ANTHROPIC_API_KEY, GOOGLE_API_KEY, DEEPSEEK_API_KEY
+openai_api_key: ""
+anthropic_api_key: ""
+google_api_key: ""
+deepseek_api_key: ""
+custom_api_base: ""
+
+# Spotify integration (optional).
+# Override with env: SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET / SPOTIFY_REDIRECT_URI
+spotify_client_id: ""
+spotify_client_secret: ""
+spotify_redirect_uri: http://localhost:8000/api/spotify/callback
+
+# Frontend URL the backend trusts for CORS / redirect.
+# Override with env: FRONTEND_URL
+frontend_url: http://localhost:5173
+
+# Encryption key is auto-generated on first run and stored in
+# data/encryption.key (gitignored). Do not set it here.
+
+# Discord bot token (optional).
+# Override with env: DISCORD_TOKEN
+discord_token: ""
+
+configured: false
+data_loaded: false

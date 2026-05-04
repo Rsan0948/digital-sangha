@@ -1,0 +1,5 @@
+track_id,track_name,artists,album_name,duration_ms,explicit,popularity,danceability,energy,key,mode,loudness,speechiness,acousticness,instrumentalness,liveness,valence,tempo,time_signature,track_genre,uri
+track001,Ocean Breath,Calm Collective,Quiet Seas,180000,false,45,0.58,0.22,5,1,-12.5,0.04,0.88,0.72,0.09,0.18,68.0,4,ambient,spotify:track:track001
+track002,Sunrise Flow,Lotus Beats,Morning Light,210000,false,52,0.64,0.38,0,1,-10.0,0.05,0.65,0.30,0.12,0.32,92.0,4,downtempo,spotify:track:track002
+track003,Peak Pose,Elevation Trio,Ascend,240000,false,60,0.70,0.75,2,1,-6.5,0.06,0.22,0.10,0.15,0.65,118.0,4,indie,spotify:track:track003
+track004,Savasana Drift,Deep Rest Ensemble,Stillness,300000,false,40,0.40,0.15,7,0,-18.0,0.03,0.95,0.85,0.08,0.10,56.0,4,ambient,spotify:track:track004

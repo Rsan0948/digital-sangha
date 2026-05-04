@@ -1,0 +1,152 @@
+[
+    {
+      "theme_id": "T01",
+      "title": "Still the Noise (Chitta Vritti Nirodhah)",
+      "core_intention": "Practice settling mental agitation and returning to inner quiet.",
+      "sutra_anchors": ["1.2", "1.3", "1.4"],
+      "keywords": ["mind", "stillness", "thought patterns", "awareness", "inner calm"],
+      "class_focus": ["slow flow", "long exhale breathing", "quiet holds", "simple repetition"],
+      "suggested_peak_pose": "Child’s Pose (Balasana)",
+      "closing_prompt": "Notice what changes when you stop chasing every thought."
+    },
+    {
+      "theme_id": "T02",
+      "title": "Steady Effort Over Time (Abhyasa)",
+      "core_intention": "Build trust in consistent practice, not perfection.",
+      "sutra_anchors": ["1.12", "1.13", "1.14"],
+      "keywords": ["discipline", "consistency", "practice", "patience", "devotion"],
+      "class_focus": ["progressive warm-up", "foundation alignment", "repeatable flows", "strength + breath"],
+      "suggested_peak_pose": "Plank Hold (Phalakasana)",
+      "closing_prompt": "Progress happens when you show up again and again."
+    },
+    {
+      "theme_id": "T03",
+      "title": "Letting Go of Grasping (Vairagya)",
+      "core_intention": "Practice non-attachment to outcomes, sensations, and performance.",
+      "sutra_anchors": ["1.15", "1.16"],
+      "keywords": ["non-attachment", "release", "freedom", "desire", "contentment"],
+      "class_focus": ["soft pacing", "choice-based options", "slow transitions", "yin-inspired holds"],
+      "suggested_peak_pose": "Reclined Twist (Supta Matsyendrasana)",
+      "closing_prompt": "You don’t have to hold tightly to feel safe."
+    },
+    {
+      "theme_id": "T04",
+      "title": "Reality vs. Story (Pramana + Viparyaya + Vikalpa)",
+      "core_intention": "See clearly what is true, what is distorted, and what is imagined.",
+      "sutra_anchors": ["1.6", "1.7", "1.8", "1.9"],
+      "keywords": ["clarity", "perception", "thought distortion", "truth", "discernment"],
+      "class_focus": ["balance work", "slow standing poses", "focused drishti", "stable transitions"],
+      "suggested_peak_pose": "Tree Pose (Vrksasana)",
+      "closing_prompt": "Can you feel the difference between facts and fear?"
+    },
+    {
+      "theme_id": "T05",
+      "title": "Skillful Rest (Yoga Nidra + Conscious Recovery)",
+      "core_intention": "Honor rest as a practice that supports clarity and healing.",
+      "sutra_anchors": ["1.10", "1.11"],
+      "keywords": ["sleep", "rest", "recovery", "memory", "nervous system"],
+      "class_focus": ["deep stretch", "gentle mobility", "supported poses", "long savasana"],
+      "suggested_peak_pose": "Legs Up The Wall (Viparita Karani)",
+      "closing_prompt": "Rest is not laziness. It’s wisdom."
+    },
+    {
+      "theme_id": "T06",
+      "title": "The Observer Within (Drashtu / Witness Consciousness)",
+      "core_intention": "Strengthen the ability to witness experiences without becoming them.",
+      "sutra_anchors": ["1.3", "2.17", "2.20"],
+      "keywords": ["witness", "observer", "self-awareness", "inner clarity", "detachment"],
+      "class_focus": ["mindful flow", "pause + breathe moments", "slow holds", "body scanning"],
+      "suggested_peak_pose": "Warrior II (Virabhadrasana II)",
+      "closing_prompt": "You are not the storm—you are the sky noticing it."
+    },
+    {
+      "theme_id": "T07",
+      "title": "Purifying the System (Kriya Yoga)",
+      "core_intention": "Use heat, study, and surrender to clean out what blocks growth.",
+      "sutra_anchors": ["2.1"],
+      "keywords": ["tapas", "svadhyaya", "surrender", "discipline", "purification"],
+      "class_focus": ["heat-building flow", "core engagement", "steady breath", "empowered transitions"],
+      "suggested_peak_pose": "Chair Pose (Utkatasana)",
+      "closing_prompt": "What if your effort is cleansing, not punishing?"
+    },
+    {
+      "theme_id": "T08",
+      "title": "Working With the Kleshas (The Roots of Suffering)",
+      "core_intention": "Recognize the inner patterns that generate stress and reactivity.",
+      "sutra_anchors": ["2.3"],
+      "keywords": ["ego", "fear", "aversion", "craving", "ignorance"],
+      "class_focus": ["slow strength", "intentional pauses", "breath awareness", "compassion cues"],
+      "suggested_peak_pose": "Low Lunge (Anjaneyasana)",
+      "closing_prompt": "We can’t heal what we refuse to notice."
+    },
+    {
+      "theme_id": "T09",
+      "title": "The Ethics of Freedom (Yamas)",
+      "core_intention": "Build inner peace through how you treat others and yourself.",
+      "sutra_anchors": ["2.29", "2.30"],
+      "keywords": ["ahimsa", "truth", "restraint", "integrity", "non-grasping"],
+      "class_focus": ["gentle flow", "heart openers", "steady pacing", "reflective pauses"],
+      "suggested_peak_pose": "Camel Pose (Ustrasana)",
+      "closing_prompt": "Peace isn’t just what you feel—it’s what you practice."
+    },
+    {
+      "theme_id": "T10",
+      "title": "Inner Habits That Heal (Niyamas)",
+      "core_intention": "Strengthen inner steadiness through daily self-care + devotion.",
+      "sutra_anchors": ["2.29", "2.32"],
+      "keywords": ["purity", "contentment", "self-study", "discipline", "faith"],
+      "class_focus": ["moderate flow", "structured sequencing", "balance between effort and ease"],
+      "suggested_peak_pose": "Half Moon Pose (Ardha Chandrasana)",
+      "closing_prompt": "Your habits shape your nervous system—and your destiny."
+    },
+    {
+      "theme_id": "T11",
+      "title": "Energy Mastery (Pranayama)",
+      "core_intention": "Practice regulating life force through breath rhythm and control.",
+      "sutra_anchors": ["2.49"],
+      "keywords": ["breath", "energy", "prana", "regulation", "control"],
+      "class_focus": ["breath-led pacing", "slow vinyasa", "hip openers", "long exhales"],
+      "suggested_peak_pose": "Bridge Pose (Setu Bandhasana)",
+      "closing_prompt": "Your breath is the remote control for your nervous system."
+    },
+    {
+      "theme_id": "T12",
+      "title": "Turning Inward (Pratyahara)",
+      "core_intention": "Withdraw attention from external noise and reclaim inner space.",
+      "sutra_anchors": ["2.54"],
+      "keywords": ["inward", "sensory withdrawal", "focus", "quiet", "reclamation"],
+      "class_focus": ["minimal cues", "long holds", "reduced stimulation", "eyes closed options"],
+      "suggested_peak_pose": "Forward Fold (Uttanasana)",
+      "closing_prompt": "Your inner world is a sanctuary you can return to anytime."
+    },
+    {
+      "theme_id": "T13",
+      "title": "One-Pointed Mind (Dharana)",
+      "core_intention": "Train the attention to hold steady on one object, anchor, or feeling.",
+      "sutra_anchors": ["3.1"],
+      "keywords": ["concentration", "focus", "attention", "steadiness", "training"],
+      "class_focus": ["static holds", "drishti practice", "balance challenges", "slow pace"],
+      "suggested_peak_pose": "Eagle Pose (Garudasana)",
+      "closing_prompt": "The mind becomes powerful when it stops scattering."
+    },
+    {
+      "theme_id": "T14",
+      "title": "Meditation as a Skill (Dhyana)",
+      "core_intention": "Move from doing yoga to becoming absorbed in awareness itself.",
+      "sutra_anchors": ["3.2"],
+      "keywords": ["meditation", "absorption", "presence", "flow state", "still awareness"],
+      "class_focus": ["slow flow", "breath + movement sync", "long savasana", "seated meditation"],
+      "suggested_peak_pose": "Seated Meditation (Sukhasana)",
+      "closing_prompt": "Meditation isn’t emptying the mind—it’s meeting it with steadiness."
+    },
+    {
+      "theme_id": "T15",
+      "title": "Liberation Through Non-Identification (Kaivalya)",
+      "core_intention": "Practice freeing the self from being controlled by mental/emotional forces.",
+      "sutra_anchors": ["4.34"],
+      "keywords": ["liberation", "freedom", "identity", "separation", "awakening"],
+      "class_focus": ["gentle + deep", "intentional endings", "spacious pacing", "integration"],
+      "suggested_peak_pose": "Savasana (Corpse Pose)",
+      "closing_prompt": "What remains when you stop clinging to who you think you are?"
+    }
+  ]

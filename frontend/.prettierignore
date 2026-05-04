@@ -1,0 +1,7 @@
+dist/
+node_modules/
+public/
+tests-e2e/
+svelte.config.js
+vite.config.ts
+vite.config.ts.timestamp-*.mjs

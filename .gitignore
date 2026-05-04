@@ -1,0 +1,54 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+
+# Node
+node_modules/
+
+# Frontend build artifacts
+frontend/dist/
+frontend/test-results/
+frontend/vite.config.ts.timestamp-*.mjs
+
+# OS
+.DS_Store
+
+# iCloud sync conflict copies ("filename 2.ext", "filename 3.ext", etc.)
+* [2-9].*
+* [2-9]
+
+# Local config & secrets
+config.yaml
+config.local.yaml
+data/encryption.key
+.env
+.env.*
+
+# Local runtime data
+data/sangha.db
+data/sangha*.db
+data/vectors/
+data/transition_guides.json
+data/sangha.log
+data/sangha.log.*
+
+# Local working files
+bugs.txt
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# Local AI tooling (not committed)
+.claude/
+.mcp.json
+AGENTS.md
+CLAUDE.md
+docs/handoffs/
+
+# Misc build
+build/
+desktop/dist-electron/
