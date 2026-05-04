@@ -2,6 +2,10 @@ import { defineConfig, devices } from '@playwright/test';
 
 const PORT = Number(process.env.YOGA_E2E_PORT ?? 8002);
 const BASE_URL = `http://127.0.0.1:${PORT}`;
+// CI installs deps system-wide via setup-python; locally we expect a project
+// venv at ../.venv. Override with YOGA_PYTHON if neither matches.
+const PYTHON =
+  process.env.YOGA_PYTHON ?? (process.env.CI ? 'python' : '.venv/bin/python');
 
 export default defineConfig({
   testDir: './tests-e2e',
@@ -24,7 +28,7 @@ export default defineConfig({
   ],
   webServer: {
     // Run from project root so backend.* imports resolve.
-    command: `.venv/bin/python -m uvicorn backend.main:app --host 127.0.0.1 --port ${PORT}`,
+    command: `${PYTHON} -m uvicorn backend.main:app --host 127.0.0.1 --port ${PORT}`,
     cwd: '..',
     url: `${BASE_URL}/api/health`,
     timeout: 300_000,

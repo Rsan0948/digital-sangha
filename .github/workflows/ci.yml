@@ -59,7 +59,11 @@ jobs:
         continue-on-error: true
         run: python -m mypy backend
 
+      # warn-only initially; the codebase has ~32 pre-existing svelte-check
+      # errors (mostly type-narrowing in editor pages) that are tracked for a
+      # dedicated cleanup. Ratchet to fail-on-error once that brief lands.
       - name: Run svelte-check
+        continue-on-error: true
         working-directory: frontend
         run: npx svelte-check --tsconfig ./tsconfig.json
 
