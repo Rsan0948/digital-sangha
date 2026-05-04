@@ -9,7 +9,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -92,7 +92,7 @@ jobs:
     # Audit signals are warn-only: a CVE in a transitive dep should not block
     # PRs, but the report should be visible in the run log.
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
