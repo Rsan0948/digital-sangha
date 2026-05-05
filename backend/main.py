@@ -187,8 +187,12 @@ app.include_router(poses.router)
 app.include_router(sessions.router)
 app.include_router(chat.router)
 app.include_router(library.router)
-if not _DEMO_MODE:
-    app.include_router(spotify.router)
+# Spotify router is always registered. The /auth endpoint refuses to start
+# the OAuth flow when SPOTIFY_CLIENT_ID is unset (HTTPException 400), and
+# /status returns {connected: false} when no auth row exists. That's the
+# response shape the Settings page expects, so we don't need a DEMO_MODE
+# skip here -- skipping caused 404s that the frontend treated as a crash.
+app.include_router(spotify.router)
 app.include_router(schedule.router)
 app.include_router(admin.router)
 
