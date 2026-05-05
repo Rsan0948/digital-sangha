@@ -25,23 +25,35 @@ FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 # inline styles (Vite ships a few), data: images, and the local websocket
 # endpoints used by the desktop app. Tighten further only if the frontend
 # stops needing one of these sources.
-_SECURITY_HEADERS: tuple[tuple[bytes, bytes], ...] = (
-    (
-        b"content-security-policy",
-        (
-            b"default-src 'self'; img-src 'self' data: https:; "
-            b"style-src 'self' 'unsafe-inline'; script-src 'self'; "
-            b"connect-src 'self' ws: wss:"
-        ),
-    ),
-    (b"x-content-type-options", b"nosniff"),
-    (b"x-frame-options", b"DENY"),
-    (b"referrer-policy", b"no-referrer"),
-    (
-        b"permissions-policy",
-        b"geolocation=(), microphone=(), camera=()",
-    ),
-)
+#
+# Framing posture is environment-aware:
+#   * Default (desktop / self-hosted): frame-ancestors 'none' (no embeds).
+#   * DEMO_MODE=1: also allow huggingface.co + *.hf.space so the HF Space
+#     UI can wrap the running container in its standard iframe.
+# We use CSP's frame-ancestors directive instead of X-Frame-Options so the
+# DEMO_MODE override doesn't conflict with a stale legacy header (modern
+# browsers prefer frame-ancestors when both are set, but older proxies can
+# trip on the mismatch).
+def _build_security_headers() -> tuple[tuple[bytes, bytes], ...]:
+    demo = os.getenv("DEMO_MODE", "0") == "1"
+    if demo:
+        frame_ancestors = b"frame-ancestors 'self' https://huggingface.co https://*.hf.space"
+    else:
+        frame_ancestors = b"frame-ancestors 'none'"
+    csp = (
+        b"default-src 'self'; img-src 'self' data: https:; "
+        b"style-src 'self' 'unsafe-inline'; script-src 'self'; "
+        b"connect-src 'self' ws: wss:; " + frame_ancestors
+    )
+    return (
+        (b"content-security-policy", csp),
+        (b"x-content-type-options", b"nosniff"),
+        (b"referrer-policy", b"no-referrer"),
+        (b"permissions-policy", b"geolocation=(), microphone=(), camera=()"),
+    )
+
+
+_SECURITY_HEADERS: tuple[tuple[bytes, bytes], ...] = _build_security_headers()
 
 
 class PayloadSizeLimitMiddleware:
