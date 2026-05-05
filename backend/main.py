@@ -162,13 +162,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# DEMO_MODE is set by the Hugging Face Space image (Dockerfile) and any
+# other public single-tenant deployment. It strips integrations that
+# require persistent state or a public OAuth callback URL — Spotify is
+# the obvious one. Local desktop / self-hosted launches leave it unset
+# and get the full router stack.
+_DEMO_MODE = os.getenv("DEMO_MODE", "0") == "1"
+
 app.include_router(config_wizard.router)
 app.include_router(flows.router)
 app.include_router(poses.router)
 app.include_router(sessions.router)
 app.include_router(chat.router)
 app.include_router(library.router)
-app.include_router(spotify.router)
+if not _DEMO_MODE:
+    app.include_router(spotify.router)
 app.include_router(schedule.router)
 app.include_router(admin.router)
 

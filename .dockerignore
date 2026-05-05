@@ -1,0 +1,72 @@
+# Git
+.git
+.gitignore
+.gitattributes
+.github
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+.Python
+*.egg
+*.egg-info
+.ruff_cache
+.mypy_cache
+.pytest_cache
+
+# Virtual envs
+.venv
+venv
+env
+
+# Frontend build artifacts (rebuilt in the Node stage)
+frontend/node_modules
+frontend/dist
+frontend/test-results
+frontend/playwright-report
+
+# Desktop bundle — 500MB+ of Electron binaries with no business in the
+# Space image; the image is the web/server slice only.
+desktop/
+
+# Tests are not exercised inside the container.
+tests/
+
+# Documentation that doesn't need to ship inside the image.
+docs/handoffs/
+.docs-private/
+
+# Local runtime / private state — built fresh inside the image.
+data/sangha.db
+data/sangha*.db
+data/sangha.log
+data/sangha.log.*
+data/transition_guides.json
+data/encryption.key
+data/vectors/
+
+# OS / IDE
+.DS_Store
+.vscode
+.idea
+*.swp
+
+# Coverage outputs
+.coverage
+coverage.xml
+htmlcov/
+
+# Local AI tooling
+.claude
+.mcp.json
+AGENTS.md
+CLAUDE.md
+
+# Pre-commit cache
+.pre-commit-config.yaml.local
+
+# Docs/build outputs
+build/
+dist/
+desktop/dist-electron/

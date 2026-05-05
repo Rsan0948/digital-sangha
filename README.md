@@ -1,3 +1,13 @@
+---
+title: Digital Sangha
+emoji: 🧘
+colorFrom: green
+colorTo: yellow
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Digital Sangha
 
 [![CI](https://github.com/Rsan0948/digital-sangha/actions/workflows/ci.yml/badge.svg)](https://github.com/Rsan0948/digital-sangha/actions/workflows/ci.yml)
