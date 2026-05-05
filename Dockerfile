@@ -33,7 +33,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     HF_HOME=/app/.cache/huggingface \
     SENTENCE_TRANSFORMERS_HOME=/app/.cache/sentence-transformers \
     DEMO_MODE=1 \
-    CONFIGURED=true
+    CONFIGURED=true \
+    YOGA_WS_ALLOWED_ORIGINS="https://rsan0948-digital-sangha.hf.space,https://huggingface.co"
 
 WORKDIR /app
 
