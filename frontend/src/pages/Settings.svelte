@@ -397,4 +397,48 @@
       grid-template-columns: 1fr;
     }
   }
+  @media (max-width: 768px) {
+    .settings-section h2 {
+      font-size: 1.1rem;
+    }
+
+    .spotify-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .spotify-actions :global(button) {
+      width: 100%;
+      min-height: 44px;
+    }
+
+    .data-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .data-actions :global(button) {
+      width: 100%;
+      min-height: 44px;
+    }
+
+    .status-item {
+      min-height: 44px;
+    }
+
+    .import-instructions code {
+      word-break: break-all;
+      font-size: 0.75rem;
+    }
+
+    .button-row {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button-row :global(button) {
+      width: 100%;
+      min-height: 44px;
+    }
+  }
 </style>
