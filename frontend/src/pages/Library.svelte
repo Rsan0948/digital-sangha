@@ -927,4 +927,92 @@
     justify-content: flex-end;
     margin-top: 8px;
   }
+  @media (max-width: 768px) {
+    .library-header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .tabs {
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      flex: 1 1 auto;
+      min-width: 0;
+      padding: 10px 12px;
+      font-size: 0.85rem;
+    }
+
+    .search-bar {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .search-bar .input,
+    .search-bar .select {
+      width: 100%;
+      min-height: 44px;
+    }
+
+    .items-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .favorite-button {
+      width: 44px;
+      height: 44px;
+    }
+
+    .pose-name {
+      min-height: 44px;
+      padding: 8px 0;
+    }
+
+    .edit-name {
+      min-height: 44px;
+      padding: 4px 0;
+    }
+
+    .mini-btn {
+      min-height: 44px;
+      padding: 8px 12px;
+    }
+
+    .list-item {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .flow-link {
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .flow-actions {
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .guide-flow,
+    .delete-flow {
+      min-height: 44px;
+      padding: 10px 16px;
+    }
+
+    .name-edit-actions {
+      margin-top: 10px;
+    }
+
+    .button-row {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button-row :global(button) {
+      width: 100%;
+      min-height: 44px;
+    }
+  }
 </style>
