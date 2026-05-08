@@ -90,4 +90,20 @@
   .modal-body {
     padding: 24px;
   }
+
+  /* On phones the small centered modal floats with the dimmed navbar
+     and page chrome visible at the edges, which made the schedule-new-
+     class modal feel ungrounded and let users tap the navbar through
+     the overlay. Round-2: take the full screen on <=768px. */
+  @media (max-width: 768px) {
+    .modal-overlay {
+      padding: 0;
+    }
+    .modal-content {
+      max-width: 100%;
+      max-height: 100vh;
+      height: 100vh;
+      border-radius: 0;
+    }
+  }
 </style>
