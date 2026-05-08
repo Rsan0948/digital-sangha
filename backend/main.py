@@ -4,7 +4,10 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
+from starlette.types import Scope
 from backend.database import init_db
 from backend.routers import (
     admin,
@@ -202,8 +205,30 @@ def health_check():
     return {"status": "healthy", "app": "Digital Sangha"}
 
 
+class SPAStaticFiles(StaticFiles):
+    """StaticFiles with SPA fallback: a 404 on a path with no file extension
+    serves index.html instead so client-side routes (/library, /chat, etc.)
+    survive a direct visit or refresh on the HF Space. Asset 404s
+    (anything with a file extension) still return a real 404 so missing
+    files surface as bugs instead of HTML."""
+
+    async def get_response(self, path: str, scope: Scope):
+        try:
+            return await super().get_response(path, scope)
+        except StarletteHTTPException as exc:
+            if exc.status_code != 404:
+                raise
+            last_segment = path.rsplit("/", 1)[-1]
+            if "." in last_segment:
+                raise
+            index = Path(self.directory) / "index.html"
+            if index.exists():
+                return FileResponse(str(index))
+            raise
+
+
 if FRONTEND_DIST.exists():
-    app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="frontend")
+    app.mount("/", SPAStaticFiles(directory=FRONTEND_DIST, html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn
