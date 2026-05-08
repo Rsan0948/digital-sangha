@@ -512,7 +512,7 @@
       class="chat-input"
       bind:value={inputValue}
       on:keydown={handleKeydown}
-      placeholder="Ask about poses, themes, sequences..."
+      placeholder="Ask anything…"
       disabled={streaming || !$configStatus?.configured}
     ></textarea>
     <BubbleButton on:click={sendMessage}>Send</BubbleButton>
