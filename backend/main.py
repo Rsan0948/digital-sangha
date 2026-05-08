@@ -221,6 +221,10 @@ class SPAStaticFiles(StaticFiles):
             last_segment = path.rsplit("/", 1)[-1]
             if "." in last_segment:
                 raise
+            if path == "api" or path.startswith("api/"):
+                # /api/* lives on FastAPI's own routers; an unmatched
+                # /api/foo is a real 404, not a SPA route.
+                raise
             index = Path(self.directory) / "index.html"
             if index.exists():
                 return FileResponse(str(index))
