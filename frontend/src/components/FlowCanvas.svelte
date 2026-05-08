@@ -128,4 +128,15 @@
     padding: 60px 20px;
     color: var(--color-text-light);
   }
+
+  /* Below ~600px the "Total Duration: 5m 20s" + "+ Add Section" row
+     starts cramping — duration value wraps to two lines and the
+     Add Section label collapses. Stack vertically. (Round-2 audit fix.) */
+  @media (max-width: 600px) {
+    .canvas-header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+  }
 </style>
