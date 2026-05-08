@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Mobile retrofit pass for the Svelte frontend using a single 768px breakpoint:
+  - `frontend/src/lib/isMobile.ts` — SSR-safe reactive store backed by `window.matchMedia('(max-width: 768px)')` with change-event subscription.
+  - `Navbar.svelte` — hamburger drawer at <768px containing all nav destinations as full-width ≥44px tappable rows; closes on link tap or backdrop tap.
+  - Home, Library, Schedule, Chat, Settings, and Session Review pages — each received an additive `@media (max-width: 768px)` block applying the FencePro retrofit pattern: single-column grids, hidden chrome, ~30% heading shrink, ≥44px tap targets, and stacked card layouts where needed.
+  - `FlowEditor.svelte` — inline desktop-only banner visible at <768px; the drag-and-drop canvas is intentionally left unretrofitted.
+
+### Changed
+
+- `app.css` already contained partial 768px rules for `.page-container` padding, `.page-title` size, and `.bubble-button` sizing; the new page-level blocks layer on top without replacement.
+
 ## [0.1.0] - 2026-05-04
 
 ### Added
