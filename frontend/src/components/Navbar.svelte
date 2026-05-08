@@ -2,8 +2,16 @@
   import { link } from 'svelte-routing';
   import { contextType } from '../lib/stores';
   import { isMobile } from '../lib/isMobile';
+  import { apiHealth } from '../lib/apiHealth';
 
   let drawerOpen = false;
+
+  $: healthLabel =
+    $apiHealth === 'healthy'
+      ? 'API reachable'
+      : $apiHealth === 'unreachable'
+        ? 'API offline — backend unreachable'
+        : 'API status checking…';
 
   function openDrawer() {
     drawerOpen = true;
@@ -45,6 +53,12 @@
         <option value="IRL">In-Person</option>
         <option value="Online">Online</option>
       </select>
+      <span
+        class="api-health-dot api-health-{$apiHealth}"
+        title={healthLabel}
+        aria-label={healthLabel}
+        role="status"
+      ></span>
       <a href="/settings" use:link class="settings-link" aria-label="Settings">
         <span aria-hidden="true">⚙️</span>
       </a>
@@ -154,6 +168,28 @@
     font-size: 1.25rem;
     text-decoration: none;
     padding: 8px;
+  }
+
+  /* 30s /api/health heartbeat indicator. Default gray = first ping
+     in flight or unknown; green = backend reachable; red = ping
+     failed or aborted on 5s timeout. */
+  .api-health-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    transition: background 0.3s, border-color 0.3s;
+    flex-shrink: 0;
+  }
+  .api-health-dot.api-health-healthy {
+    background: #4ade80;
+    border-color: #22c55e;
+  }
+  .api-health-dot.api-health-unreachable {
+    background: #f87171;
+    border-color: #ef4444;
   }
 
   .visually-hidden {
