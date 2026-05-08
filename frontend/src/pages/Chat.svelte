@@ -261,4 +261,51 @@
       order: 1;
     }
   }
+  @media (max-width: 768px) {
+    .chat-layout {
+      padding: 12px;
+      gap: 12px;
+    }
+
+    .chat-sidebar {
+      padding: 8px;
+    }
+
+    .sidebar-header {
+      margin-bottom: 8px;
+    }
+
+    .title-toggle {
+      min-height: 44px;
+      padding: 0 8px;
+    }
+
+    .collapse-btn {
+      width: 44px;
+      height: 44px;
+    }
+
+    .sidebar-controls {
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .sidebar-controls .search {
+      min-height: 44px;
+    }
+
+    .chat-item {
+      min-height: 44px;
+      padding: 12px;
+      gap: 6px;
+    }
+
+    .chat-delete {
+      opacity: 1;
+      width: 44px;
+      height: 44px;
+      top: 4px;
+      right: 4px;
+    }
+  }
 </style>
