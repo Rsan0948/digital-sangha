@@ -227,4 +227,37 @@
     background: linear-gradient(135deg, #fff3cd, #ffecb5);
     border-color: #ffecb5;
   }
+
+  @media (max-width: 768px) {
+    .welcome-section h1 {
+      font-size: 1.5rem;
+    }
+
+    .welcome-section p {
+      font-size: 1rem;
+    }
+
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .session-list li,
+    .flow-list li {
+      min-height: 44px;
+      padding: 12px 0;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    .action-buttons a {
+      width: 100%;
+    }
+
+  }
 </style>
