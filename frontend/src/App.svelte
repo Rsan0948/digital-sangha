@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
-  import { Router, Route } from 'svelte-routing';
+  import { Router, Route, link } from 'svelte-routing';
   import { api } from './lib/api';
   import { configStatus, showConfigWizard } from './lib/stores';
   import Navbar from './components/Navbar.svelte';
@@ -91,6 +91,11 @@
         <Route path="/review/:sessionId" let:params>
           <SessionReview sessionId={params.sessionId} />
         </Route>
+        <Route path="/review">
+          <div class="review-empty">
+            <p>Pick a session from the <a href="/schedule" use:link>Schedule</a> to review.</p>
+          </div>
+        </Route>
         <Route path="/settings" component={Settings} />
       </main>
     {/if}
@@ -101,6 +106,17 @@
   main {
     padding-top: 70px;
     min-height: 100vh;
+  }
+
+  .review-empty {
+    padding: 60px 24px;
+    text-align: center;
+    color: var(--color-text-light);
+  }
+
+  .review-empty a {
+    color: var(--color-primary);
+    font-weight: 600;
   }
 
   .loading-screen {
