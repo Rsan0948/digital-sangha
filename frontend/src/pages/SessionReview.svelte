@@ -209,4 +209,35 @@
     padding: 60px;
     color: var(--color-text-light);
   }
+  @media (max-width: 768px) {
+    .review-page {
+      padding-top: 20px;
+    }
+
+    .review-card {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .score-value {
+      font-size: 1.25rem;
+    }
+
+    .score-slider {
+      gap: 10px;
+    }
+
+    .button-row {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button-row :global(button) {
+      width: 100%;
+      min-height: 44px;
+    }
+  }
 </style>
