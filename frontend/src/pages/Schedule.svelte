@@ -333,4 +333,57 @@
     gap: 12px;
     margin-top: 8px;
   }
+  @media (max-width: 768px) {
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .schedule-section h2 {
+      font-size: 1.1rem;
+    }
+
+    .session-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+    }
+
+    .session-date-block {
+      flex-direction: row;
+      gap: 6px;
+      min-width: auto;
+    }
+
+    .session-date-block .day {
+      font-size: 1.2rem;
+    }
+
+    .assessment-scores {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .review-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .button-row {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button-row :global(button) {
+      width: 100%;
+      min-height: 44px;
+    }
+  }
 </style>
