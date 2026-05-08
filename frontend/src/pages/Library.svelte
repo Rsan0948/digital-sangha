@@ -110,6 +110,19 @@
     await loadData();
   }
 
+  // Live-filter debounce: re-runs search() ~200ms after the last keystroke
+  // so the user doesn't have to tap the explicit Search button. The button
+  // still works as a fallback for users who want immediate results without
+  // waiting for the debounce.
+  let searchDebounceTimer: ReturnType<typeof setTimeout> | null = null;
+  function debouncedSearch() {
+    if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => {
+      searchDebounceTimer = null;
+      search();
+    }, 200);
+  }
+
   async function createTheme() {
     if (!newThemeName.trim()) return;
     try {
@@ -371,6 +384,7 @@
         class="input"
         placeholder="Search..."
         bind:value={searchQuery}
+        on:input={debouncedSearch}
         on:keydown={(e) => e.key === 'Enter' && search()}
       />
       <BubbleButton small on:click={search}>Search</BubbleButton>
