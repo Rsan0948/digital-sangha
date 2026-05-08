@@ -387,7 +387,16 @@
         </div>
       {:else}
         {#each filteredPoses as pose}
-          <div class="item-card pose-card" on:click={() => (selectedPose = pose)}>
+          <div
+            class="item-card pose-card"
+            on:click={() => {
+              if (!displayPoseName(pose).trim()) {
+                startEditName(pose);
+              } else {
+                selectedPose = pose;
+              }
+            }}
+          >
             {#if pose.image_url}
               <img src={pose.image_url} alt={pose.name} class="pose-image" />
             {/if}
