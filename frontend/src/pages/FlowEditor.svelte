@@ -11,6 +11,7 @@
   import PlaylistPreview from '../components/PlaylistPreview.svelte';
   import EnergyChart from '../components/EnergyChart.svelte';
   import BubbleButton from '../components/BubbleButton.svelte';
+  import { isMobile } from '../lib/isMobile';
   import Modal from '../components/Modal.svelte';
 
   export let flowId: string | null = null;
@@ -761,6 +762,12 @@
   }
 </script>
 
+{#if $isMobile}
+  <div class="mobile-banner">
+    FlowEditor is best experienced on a laptop — try the rest of the app on your phone.
+  </div>
+{/if}
+
 <div class="editor-layout">
   <div class="editor-main">
     <div class="editor-header">
@@ -1149,6 +1156,16 @@
     gap: 10px;
     justify-content: flex-end;
     margin-top: 8px;
+  }
+
+  .mobile-banner {
+    padding: 12px 16px;
+    background: var(--color-accent);
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
   }
 
   @media (max-width: 1024px) {
