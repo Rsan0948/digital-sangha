@@ -66,7 +66,7 @@
 </nav>
 
 {#if $isMobile && drawerOpen}
-  <div class="mobile-drawer-backdrop" on:click={closeDrawer} role="button" tabindex="0" aria-label="Close navigation"></div>
+  <div class="mobile-drawer-backdrop" on:click={closeDrawer} on:keydown={(e) => e.key === 'Enter' && closeDrawer()} role="button" tabindex="0" aria-label="Close navigation"></div>
   <div class="mobile-drawer">
     {#each navItems as item}
       <a href={item.href} use:link class="mobile-drawer-link" on:click={closeDrawer}>

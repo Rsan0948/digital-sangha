@@ -431,14 +431,5 @@
       font-size: 0.75rem;
     }
 
-    .button-row {
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .button-row :global(button) {
-      width: 100%;
-      min-height: 44px;
-    }
   }
 </style>
