@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, onDestroy, createEventDispatcher } from 'svelte';
+  import { onMount, onDestroy, createEventDispatcher, tick } from 'svelte';
   import { createChatSocket } from '../lib/api';
   import {
     chatThreads,
@@ -396,12 +396,16 @@
     socket?.send({ type: 'set_mode', mode });
   }
 
-  function scrollToBottom() {
-    setTimeout(() => {
-      if (messagesContainer) {
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      }
-    }, 10);
+  async function scrollToBottom() {
+    // setTimeout(10) was racing Svelte's reactivity on slower devices —
+    // the DOM hadn't reflected the new message before we read scrollHeight,
+    // so the conversation didn't follow the latest user/assistant turn and
+    // it looked like the response wasn't being rendered inline. tick()
+    // waits for the pending render to flush before we measure.
+    await tick();
+    if (messagesContainer) {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
   }
 
   function handleKeydown(e: KeyboardEvent) {
