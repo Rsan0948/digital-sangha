@@ -1,6 +1,26 @@
 <script lang="ts">
   import { link } from 'svelte-routing';
   import { contextType } from '../lib/stores';
+  import { isMobile } from '../lib/isMobile';
+
+  let drawerOpen = false;
+
+  function openDrawer() {
+    drawerOpen = true;
+  }
+
+  function closeDrawer() {
+    drawerOpen = false;
+  }
+
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/editor', label: 'Flow Editor' },
+    { href: '/library', label: 'Library' },
+    { href: '/schedule', label: 'Schedule' },
+    { href: '/chat', label: 'Chat' },
+    { href: '/settings', label: 'Settings' },
+  ];
 </script>
 
 <nav class="navbar" aria-label="Primary">
@@ -28,9 +48,33 @@
       <a href="/settings" use:link class="settings-link" aria-label="Settings">
         <span aria-hidden="true">⚙️</span>
       </a>
+      {#if $isMobile}
+        <button
+          class="hamburger"
+          aria-label="Open navigation"
+          aria-expanded={drawerOpen}
+          on:click={openDrawer}
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+      {/if}
     </div>
   </div>
 </nav>
+
+{#if $isMobile && drawerOpen}
+  <div class="mobile-drawer-backdrop" on:click={closeDrawer} role="button" tabindex="0" aria-label="Close navigation"></div>
+  <div class="mobile-drawer">
+    {#each navItems as item}
+      <a href={item.href} use:link class="mobile-drawer-link" on:click={closeDrawer}>
+        {item.label}
+      </a>
+    {/each}
+  </div>
+{/if}
 
 <style>
   .navbar {
@@ -124,6 +168,68 @@
     border: 0;
   }
 
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 2px;
+  }
+
+  .mobile-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 99;
+  }
+
+  .mobile-drawer {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-drawer-link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-drawer-link:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-drawer-link:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
   @media (max-width: 768px) {
     .nav-links {
       display: none;
@@ -131,6 +237,10 @@
 
     .logo-text {
       display: none;
+    }
+
+    .hamburger {
+      display: flex;
     }
   }
 </style>
