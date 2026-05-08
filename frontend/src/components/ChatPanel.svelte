@@ -809,4 +809,14 @@
     white-space: nowrap;
     border: 0;
   }
+
+  /* On phones the green chat-header sits flush above .messages and the
+     welcome greeting's wave emoji visually butts up against the header's
+     bottom edge. Push the greeting down so it has clear breathing room
+     from the header. (Round-2 audit fix.) */
+  @media (max-width: 768px) {
+    .welcome-message {
+      padding-top: 72px;
+    }
+  }
 </style>
