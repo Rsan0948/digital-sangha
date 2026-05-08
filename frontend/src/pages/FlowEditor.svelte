@@ -1178,4 +1178,25 @@
       background: var(--color-surface);
     }
   }
+
+  /* On phones the header's left side (flow name + undo + context-select)
+     and right side (AI + Save) won't both fit on one row — context-select
+     and the entire editor-actions group get pushed past the viewport.
+     Stack the header so each row is full-width and visible. */
+  @media (max-width: 768px) {
+    .editor-header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      padding: 12px 16px;
+    }
+    .flow-info {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .editor-actions {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
 </style>
