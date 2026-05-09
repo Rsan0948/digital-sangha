@@ -743,7 +743,10 @@
     resizingChat = true;
     const startX = event.clientX;
     const startWidth = chatSidebarWidth;
-    const minWidth = 260;
+    // Lowered floor from 260 → 200 so users can shrink the chat further
+    // when they want more space for the editor canvas. 200px still keeps
+    // the message bubbles + Send button readable.
+    const minWidth = 200;
     const maxWidth = Math.max(400, Math.floor(window.innerWidth * 0.5));
 
     function onMove(e: MouseEvent) {
@@ -759,6 +762,19 @@
 
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', onUp);
+  }
+
+  // Click on the editor canvas while the chat is open closes the chat,
+  // so the user can refocus on editing without hunting for the AI toggle.
+  // Gates on a closest() check so taps on buttons / inputs / drag handles
+  // inside the canvas don't trigger an unwanted close — only "background"
+  // taps (canvas padding, empty space) dismiss.
+  function handleEditorContentClick(e: MouseEvent) {
+    if (!showChat) return;
+    const target = e.target as HTMLElement | null;
+    if (!target) return;
+    if (target.closest('button, input, select, textarea, a, [role="button"], [contenteditable="true"]')) return;
+    showChat = false;
   }
 </script>
 
@@ -792,7 +808,7 @@
       </div>
     </div>
 
-    <div class="editor-content">
+    <div class="editor-content" on:click={handleEditorContentClick}>
       <FlowCanvas bind:sections {poses} {posesLoading} on:change={handleCanvasChange} />
     </div>
   </div>
