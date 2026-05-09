@@ -31,7 +31,13 @@
   let pendingAiOps: any[] | null = null;
   let isRestoring = false;
   let showSpotifyPanel = false;
-  let chatSidebarWidth = 380;
+  // Initial width — clamped to 90vw on phones so the rendered chat
+  // matches the inline-style width on first paint (no visual jump
+  // when the user first drags the resize handle on mobile).
+  let chatSidebarWidth =
+    (typeof window !== 'undefined' && window.innerWidth < 768)
+      ? Math.min(380, Math.floor(window.innerWidth * 0.9))
+      : 380;
   let resizingChat = false;
   let showGuidePrompt = false;
   let showGuideModal = false;
@@ -739,29 +745,51 @@
     saving = false;
   }
 
-  function startChatResize(event: MouseEvent) {
+  function startChatResize(event: MouseEvent | TouchEvent) {
     resizingChat = true;
-    const startX = event.clientX;
+    const isTouch = event.type === 'touchstart';
+    const startX = isTouch
+      ? (event as TouchEvent).touches[0].clientX
+      : (event as MouseEvent).clientX;
     const startWidth = chatSidebarWidth;
-    // Lowered floor from 260 → 200 so users can shrink the chat further
-    // when they want more space for the editor canvas. 200px still keeps
-    // the message bubbles + Send button readable.
-    const minWidth = 200;
-    const maxWidth = Math.max(400, Math.floor(window.innerWidth * 0.5));
+    // Detect mobile so we can use a tighter min and a viewport-relative
+    // max — on a 375px phone, a 200px floor still eats > 50% of the
+    // screen, and a 50% maxWidth (= 187.5px) is below the desktop floor.
+    const isMobile =
+      typeof window !== 'undefined'
+        && typeof window.matchMedia === 'function'
+        && window.matchMedia('(max-width: 768px)').matches;
+    const minWidth = isMobile ? 120 : 200;
+    const maxWidth = isMobile
+      ? Math.floor(window.innerWidth * 0.9)
+      : Math.max(400, Math.floor(window.innerWidth * 0.5));
 
-    function onMove(e: MouseEvent) {
-      const delta = startX - e.clientX;
+    function onMove(e: MouseEvent | TouchEvent) {
+      const clientX = (e as TouchEvent).touches?.[0]?.clientX
+        ?? (e as MouseEvent).clientX;
+      if (clientX === undefined) return;
+      const delta = startX - clientX;
       chatSidebarWidth = Math.max(minWidth, Math.min(maxWidth, startWidth + delta));
+      // Prevent the page from scrolling under the finger while dragging.
+      if (e.cancelable && (e as TouchEvent).touches) e.preventDefault();
     }
 
     function onUp() {
       resizingChat = false;
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseup', onUp);
+      window.removeEventListener('touchmove', onMove);
+      window.removeEventListener('touchend', onUp);
+      window.removeEventListener('touchcancel', onUp);
     }
 
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', onUp);
+    // touchmove must be non-passive so onMove can preventDefault() to
+    // stop the underlying page from scrolling while the user resizes.
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('touchend', onUp);
+    window.addEventListener('touchcancel', onUp);
   }
 
   // Click on the editor canvas while the chat is open closes the chat,
@@ -837,7 +865,14 @@
 
   {#if showChat}
     <div class="chat-sidebar" style={`width: ${chatSidebarWidth}px;`}>
-      <div class="chat-resize-handle" on:mousedown={startChatResize} />
+      <div
+        class="chat-resize-handle"
+        on:mousedown={startChatResize}
+        on:touchstart={startChatResize}
+        role="separator"
+        aria-orientation="vertical"
+        aria-label="Resize chat"
+      ></div>
       <ChatPanel
         docked
         allowFlowEdits
@@ -1102,6 +1137,30 @@
     width: 8px;
     cursor: col-resize;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+    /* prevent the browser from interpreting the handle drag as a scroll
+       gesture on touch devices — without this, a finger drag goes to
+       page scroll and never reaches our handler. */
+    touch-action: none;
+  }
+
+  /* Visible grip dots so the handle is discoverable, especially on touch
+     where there's no cursor:col-resize hint. */
+  .chat-resize-handle::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 36px;
+    border-radius: 2px;
+    background: var(--color-text-light);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .chat-resize-handle:hover::after,
+  .chat-resize-handle:active::after {
+    opacity: 0.7;
   }
 
   .save-form {
@@ -1192,6 +1251,31 @@
       bottom: 0;
       z-index: 50;
       background: var(--color-surface);
+    }
+  }
+
+  /* Mobile-only: cap the chat at 90vw so an editor strip on the left
+     remains visible and tappable. The .editor-content click handler
+     wired in handleEditorContentClick uses that strip as the
+     "click-off-to-close" surface — without the cap, the chat covered
+     the full viewport at 380px on a 375px screen, leaving nowhere to
+     tap. Also widen the resize handle to 16px (real touch target),
+     beef up the visible grip, and let the handle escape the chat's
+     border-radius/border so the user can grab it from JUST outside
+     the chat too if they want. */
+  @media (max-width: 768px) {
+    .chat-sidebar {
+      max-width: 90vw;
+      box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+    }
+    .chat-resize-handle {
+      width: 16px;
+      left: -8px;
+    }
+    .chat-resize-handle::after {
+      width: 5px;
+      height: 48px;
+      opacity: 0.55;
     }
   }
 
