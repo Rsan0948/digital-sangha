@@ -38,7 +38,7 @@ def test_cleanup_removes_orphaned_entries(
 def test_vector_stats_returns_counts(client, test_engine, monkeypatch: pytest.MonkeyPatch) -> None:
     from backend.services import vector_store
 
-    counts = {"poses": 3, "themes": 1, "sutras": 0, "talking_points": 2}
+    counts = {"poses": 3, "themes": 1, "sutras": 0, "talking_points": 2, "assessments": 1}
 
     def _fake_get_or_create(name: str):
         col = MagicMock()

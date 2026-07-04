@@ -41,7 +41,7 @@ def get_config_status():
         "data_loaded": {
             "poses": collection_exists("poses"),
             "themes": collection_exists("themes"),
-            "tracks": collection_exists("tracks") if collection_exists("tracks") else False,
+            "tracks": collection_exists("tracks"),
         },
     }
 

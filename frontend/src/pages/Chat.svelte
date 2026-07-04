@@ -67,12 +67,23 @@
     </div>
 
     <div class="chat-list" class:hidden={sidebarCollapsed}>
-      {#each filteredThreads as thread}
-        <button
+      {#each filteredThreads as thread (thread.id)}
+        <!-- A <button> can't legally contain the delete <button>; the browser
+             would split the DOM and break click/keyboard handling. Use a
+             focusable row div with its own keyboard handling instead. -->
+        <div
           class="chat-item"
           class:active={thread.id === $activeChatId}
+          role="button"
+          tabindex="0"
+          aria-label={`Open chat ${thread.title || 'New chat'}`}
           on:click={() => setActiveThread(thread.id)}
-          on:contextmenu|preventDefault={() => handleDeleteChat(thread)}
+          on:keydown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setActiveThread(thread.id);
+            }
+          }}
         >
           <div class="chat-title">{thread.title || 'New chat'}</div>
           <div class="chat-snippet">{snippetFromMessages(thread.messages)}</div>
@@ -84,7 +95,7 @@
           >
             ✕
           </button>
-        </button>
+        </div>
       {/each}
       {#if filteredThreads.length === 0}
         <div class="empty">No chats found.</div>
@@ -233,8 +244,15 @@
     transition: opacity 0.2s;
   }
 
-  .chat-item:hover .chat-delete {
+  .chat-item:hover .chat-delete,
+  .chat-item:focus-within .chat-delete,
+  .chat-delete:focus-visible {
     opacity: 1;
+  }
+
+  .chat-item:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
   }
 
   .empty {

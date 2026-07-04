@@ -306,9 +306,15 @@
     return posesCopy;
   }
 
-  $: if (showPosePicker) {
+  // Runs once per picker open (from the click handlers below) instead of as a
+  // reactive statement: the old `$: if (showPosePicker)` re-fetched overrides
+  // and rebuilt the pose list on every dependency invalidation while the
+  // picker was open, because ensureSpecialPoses reassigns `poses` (its own
+  // dependency) with a fresh array each pass.
+  function openPosePicker() {
     loadPoseNameOverrides();
     poses = ensureSpecialPoses(poses);
+    showPosePicker = true;
   }
 </script>
 
@@ -346,11 +352,8 @@
       </span>
     </div>
     <div class="section-actions">
-      <button
-        class="icon-button"
-        on:click={() => (showPosePicker = true)}
-        title="Add pose"
-        aria-label="Add pose">+</button
+      <button class="icon-button" on:click={openPosePicker} title="Add pose" aria-label="Add pose"
+        >+</button
       >
       <button
         class="icon-button danger"
@@ -387,7 +390,7 @@
     <button
       class="empty-blocks"
       aria-label="Add the first pose to this section"
-      on:click={() => (showPosePicker = true)}
+      on:click={openPosePicker}
     >
       <p>Drag poses here or click + to add blocks</p>
     </button>
@@ -396,7 +399,7 @@
   <button
     class="section-add"
     aria-label="Add another pose to this section"
-    on:click={() => (showPosePicker = true)}
+    on:click={openPosePicker}
   >
     + Add Pose
   </button>

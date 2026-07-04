@@ -80,7 +80,14 @@
 </nav>
 
 {#if $isMobile && drawerOpen}
-  <div class="mobile-drawer-backdrop" on:click={closeDrawer} on:keydown={(e) => e.key === 'Enter' && closeDrawer()} role="button" tabindex="0" aria-label="Close navigation"></div>
+  <div
+    class="mobile-drawer-backdrop"
+    on:click={closeDrawer}
+    on:keydown={(e) => e.key === 'Enter' && closeDrawer()}
+    role="button"
+    tabindex="0"
+    aria-label="Close navigation"
+  ></div>
   <div class="mobile-drawer">
     {#each navItems as item}
       <a href={item.href} use:link class="mobile-drawer-link" on:click={closeDrawer}>
@@ -180,7 +187,9 @@
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.18);
     border: 1px solid rgba(0, 0, 0, 0.12);
-    transition: background 0.3s, border-color 0.3s;
+    transition:
+      background 0.3s,
+      border-color 0.3s;
     flex-shrink: 0;
   }
   .api-health-dot.api-health-healthy {

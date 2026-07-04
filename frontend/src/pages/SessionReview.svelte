@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { navigate } from 'svelte-routing';
   import { api } from '../lib/api';
+  import { toastError, toastSuccess } from '../lib/toast';
   import { formatDate } from '../lib/utils';
   import BubbleButton from '../components/BubbleButton.svelte';
 
@@ -27,6 +28,7 @@
       }
     } catch (e) {
       console.error('Failed to load session:', e);
+      toastError('Failed to load session', e);
     }
     loading = false;
   });
@@ -40,9 +42,11 @@
         playlist_score: playlistScore,
         comment_text: comment,
       });
+      toastSuccess('Review saved');
       navigate('/schedule');
     } catch (e) {
       console.error('Failed to submit review:', e);
+      toastError('Failed to submit review', e);
     }
     saving = false;
   }

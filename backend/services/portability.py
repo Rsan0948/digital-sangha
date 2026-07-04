@@ -13,6 +13,7 @@ The bundle is meant to be kept private by the user, same as ``data/``.
 from __future__ import annotations
 
 import base64
+import contextlib
 import io
 import json
 import os
@@ -265,39 +266,57 @@ def apply_import(zip_bytes: bytes, session: Session) -> dict:
         raise ValueError("data.json is not a JSON object")
 
     # Replace encryption.key BEFORE re-encrypting Spotify tokens, so any tokens
-    # in the bundle are interpreted with the bundle's key on the way in.
+    # in the bundle are interpreted with the bundle's key on the way in. Keep
+    # the previous key so a failed restore can roll it back — otherwise a DB
+    # error would leave the old rows encrypted under a key we just discarded.
+    previous_key: bytes | None = KEY_PATH.read_bytes() if KEY_PATH.exists() else None
+    key_replaced = False
     if "encryption.key" in names:
         key_bytes = zf.read("encryption.key")
         KEY_PATH.parent.mkdir(parents=True, exist_ok=True)
         KEY_PATH.write_bytes(key_bytes)
         os.chmod(KEY_PATH, 0o600)
+        key_replaced = True
 
-    # Wipe existing rows in reverse FK order, then insert new ones in forward order.
-    for model in reversed(_TABLES):
-        session.execute(delete(model))
-    session.flush()
+    try:
+        # Wipe existing rows in reverse FK order, then insert in forward order.
+        for model in reversed(_TABLES):
+            session.execute(delete(model))
+        session.flush()
 
-    applied: dict[str, int] = {}
-    for model in _TABLES:
-        table_name = model.__tablename__
-        rows = data.get(table_name, [])
-        if not isinstance(rows, list):
-            warnings.append(f"{table_name}: skipped (expected list, got {type(rows).__name__})")
-            applied[table_name] = 0
-            continue
-        instances = []
-        for row_data in rows:
-            if not isinstance(row_data, dict):
-                warnings.append(f"{table_name}: row skipped (not a dict)")
+        applied: dict[str, int] = {}
+        for model in _TABLES:
+            table_name = model.__tablename__
+            rows = data.get(table_name, [])
+            if not isinstance(rows, list):
+                warnings.append(
+                    f"{table_name}: skipped (expected list, got {type(rows).__name__})"
+                )
+                applied[table_name] = 0
                 continue
-            try:
-                kwargs = _deserialize_row(dict(row_data), model)
-                instances.append(model(**kwargs))
-            except (TypeError, ValueError) as exc:
-                warnings.append(f"{table_name}: row skipped ({exc})")
-        session.add_all(instances)
-        applied[table_name] = len(instances)
-    session.commit()
+            instances = []
+            for row_data in rows:
+                if not isinstance(row_data, dict):
+                    warnings.append(f"{table_name}: row skipped (not a dict)")
+                    continue
+                try:
+                    kwargs = _deserialize_row(dict(row_data), model)
+                    instances.append(model(**kwargs))
+                except (TypeError, ValueError) as exc:
+                    warnings.append(f"{table_name}: row skipped ({exc})")
+            session.add_all(instances)
+            applied[table_name] = len(instances)
+        session.commit()
+    except BaseException:
+        session.rollback()
+        if key_replaced:
+            if previous_key is not None:
+                KEY_PATH.write_bytes(previous_key)
+                os.chmod(KEY_PATH, 0o600)
+            else:
+                with contextlib.suppress(FileNotFoundError):
+                    KEY_PATH.unlink()
+        raise
 
     if "transition_guides.json" in names:
         try:

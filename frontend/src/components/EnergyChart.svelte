@@ -39,8 +39,17 @@
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const width = canvas.width;
-    const height = canvas.height;
+    // Match the backing store to the CSS-rendered size × devicePixelRatio so
+    // the chart stays crisp instead of a stretched fixed-size bitmap.
+    const dpr = window.devicePixelRatio || 1;
+    const cssWidth = canvas.clientWidth || (compact ? 260 : 400);
+    const cssHeight = cssWidth * (compact ? 90 / 260 : 150 / 400);
+    canvas.width = Math.round(cssWidth * dpr);
+    canvas.height = Math.round(cssHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const width = cssWidth;
+    const height = cssHeight;
     const padding = 30;
 
     ctx.clearRect(0, 0, width, height);

@@ -13,7 +13,6 @@ from __future__ import annotations
 _EXPECTED_HEADERS = {
     "content-security-policy",
     "x-content-type-options",
-    "x-frame-options",
     "referrer-policy",
     "permissions-policy",
 }
@@ -24,11 +23,14 @@ def _assert_security_headers(headers) -> None:
     missing = _EXPECTED_HEADERS - lower.keys()
     assert not missing, f"missing security headers: {sorted(missing)}"
     assert lower["x-content-type-options"] == "nosniff"
-    assert lower["x-frame-options"] == "DENY"
     assert lower["referrer-policy"] == "no-referrer"
     csp = lower["content-security-policy"]
     assert "default-src 'self'" in csp
     assert "script-src 'self'" in csp
+    # Framing protection ships via CSP frame-ancestors (not X-Frame-Options)
+    # so the DEMO_MODE embed override can't conflict with a stale legacy
+    # header; see _build_security_headers in backend/main.py.
+    assert "frame-ancestors" in csp
     perms = lower["permissions-policy"]
     assert "geolocation=()" in perms
     assert "camera=()" in perms

@@ -7,6 +7,7 @@
   import ConfigWizard from './components/ConfigWizard.svelte';
   import DataBanner from './components/DataBanner.svelte';
   import ErrorBoundary from './components/ErrorBoundary.svelte';
+  import ToastHost from './components/ToastHost.svelte';
   import Home from './pages/Home.svelte';
   import FlowEditor from './pages/FlowEditor.svelte';
   import Library from './pages/Library.svelte';
@@ -100,6 +101,7 @@
       </main>
     {/if}
   </Router>
+  <ToastHost />
 {/if}
 
 <style>

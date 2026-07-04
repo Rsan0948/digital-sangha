@@ -78,7 +78,10 @@ def _post_with_retry(
             breaker.record_failure()
             retryable = True
         else:
-            if resp.status_code >= 500:
+            if resp.status_code >= 500 or resp.status_code == 429:
+                # 429 is the provider telling us to back off — retry with
+                # backoff and count it toward opening the circuit, same as an
+                # outage, instead of failing the request on the first hit.
                 last_reason = f"http_{resp.status_code}"
                 breaker.record_failure()
                 retryable = True
@@ -332,7 +335,7 @@ def _stream_with_retry(
         retryable = False
         try:
             with _client.stream("POST", url, headers=headers, json=body) as resp:
-                if resp.status_code >= 500:
+                if resp.status_code >= 500 or resp.status_code == 429:
                     last_reason = f"http_{resp.status_code}"
                     breaker.record_failure()
                     retryable = True
@@ -537,8 +540,17 @@ def generate_stream(
 
 
 def models_configured() -> bool:
+    # Mirror the config wizard's definition of "configured": an explicit model
+    # choice OR any cloud API key (get_model falls back to sane per-provider
+    # defaults when fast_model is unset, so a key alone is fully usable).
     cfg = load_config()
-    return bool(cfg.fast_model)
+    return bool(
+        cfg.fast_model
+        or cfg.openai_api_key
+        or cfg.anthropic_api_key
+        or cfg.google_api_key
+        or cfg.deepseek_api_key
+    )
 
 
 def list_available_models() -> List[str]:

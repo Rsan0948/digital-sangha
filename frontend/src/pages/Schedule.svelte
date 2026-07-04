@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { link } from 'svelte-routing';
   import { api } from '../lib/api';
+  import { toastError, toastSuccess } from '../lib/toast';
   import { formatDate, formatTime } from '../lib/utils';
   import BubbleButton from '../components/BubbleButton.svelte';
   import Modal from '../components/Modal.svelte';
@@ -31,6 +32,7 @@
       [sessions, flows] = await Promise.all([api.sessions.list(), api.flows.list()]);
     } catch (e) {
       console.error('Failed to load schedule:', e);
+      toastError('Failed to load schedule', e);
     }
     loading = false;
   }
@@ -42,10 +44,12 @@
         flow_version_id: newSession.flow_version_id || null,
       });
       await loadData();
+      toastSuccess('Class scheduled');
       showNewModal = false;
       resetForm();
     } catch (e) {
       console.error('Failed to create session:', e);
+      toastError('Failed to create session', e);
     }
   }
 

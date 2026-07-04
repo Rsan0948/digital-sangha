@@ -52,13 +52,17 @@
         streaming = true;
         currentResponse = '';
         pendingThinking = true;
-        armStreamTimeout();
+        armStreamTimeout(FIRST_TOKEN_TIMEOUT_MS);
       } else if (data.type === 'chunk') {
+        // Late chunk after a client-side timeout already gave up on this
+        // response — dropping it beats corrupting the next transcript entry.
+        if (!streaming) return;
         pendingThinking = false;
         currentResponse += data.content;
-        armStreamTimeout();
+        armStreamTimeout(STALL_TIMEOUT_MS);
         scrollToBottom();
       } else if (data.type === 'end') {
+        if (!streaming) return;
         const parsed =
           extractFlowChanges(currentResponse) || extractFlowChangesFallback(currentResponse);
         const cleaned = stripFlowChanges(currentResponse);
@@ -112,8 +116,10 @@
     });
     if (socket?.ws) {
       socket.ws.onopen = () => {
+        // The reactive `$: if (socket)` block already queued the current
+        // flow-edit-mode via safeSend; flushing here delivers it without
+        // sending a duplicate frame.
         flushPendingSends();
-        safeSend({ type: 'set_flow_edit_mode', allow: allowFlowEdits });
         sendFlowContext();
         sendHistoryToBackend();
       };
@@ -149,14 +155,40 @@
     scrollToBottom();
   }
 
-  function armStreamTimeout() {
+  // Time-to-first-token can legitimately be long (local models in Power
+  // mode); the old 12s cutoff aborted responses that were still generating.
+  const FIRST_TOKEN_TIMEOUT_MS = 90000;
+  const STALL_TIMEOUT_MS = 120000;
+
+  function armStreamTimeout(ms: number) {
     clearStreamTimeout();
     streamTimeout = setTimeout(() => {
+      const partial = currentResponse;
+      const targetThreadId = activeResponseThreadId;
       streaming = false;
       pendingThinking = false;
       currentResponse = '';
-      messages = [...messages, { role: 'error', content: 'Response timed out. Please try again.' }];
-    }, 12000);
+      activeResponseThreadId = '';
+      const newEntries: { role: string; content: string }[] = [];
+      // Keep whatever already streamed in instead of throwing it away.
+      if (partial.trim()) {
+        newEntries.push({ role: 'assistant', content: stripFlowChanges(partial) });
+      }
+      newEntries.push({ role: 'error', content: 'Response timed out. Please try again.' });
+      // Route to the thread that originated the request, same as the
+      // end/error handlers — the user may have switched threads mid-stream.
+      if (historyEnabled && targetThreadId && targetThreadId !== $activeChatId) {
+        const thread = $chatThreads.find((t) => t.id === targetThreadId);
+        if (thread) {
+          updateThreadMessages(targetThreadId, [...thread.messages, ...newEntries]);
+        }
+      } else {
+        messages = [...messages, ...newEntries];
+        if (historyEnabled) {
+          updateThreadMessages($activeChatId, messages);
+        }
+      }
+    }, ms);
   }
 
   function clearStreamTimeout() {
@@ -393,7 +425,9 @@
 
   function setMode(mode: 'fast' | 'power') {
     chatMode.set(mode);
-    socket?.send({ type: 'set_mode', mode });
+    // safeSend queues (and reconnects) if the socket isn't open yet; a raw
+    // send would throw and the mode change would be silently lost.
+    safeSend({ type: 'set_mode', mode });
   }
 
   async function scrollToBottom() {

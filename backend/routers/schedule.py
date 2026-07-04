@@ -27,13 +27,10 @@ def get_sessions_needing_assessment(session: Session = Depends(get_session)):
         .where(ClassSession.session_date < date.today())
         .order_by(ClassSession.session_date.desc())
     ).all()
-    needs_assessment = []
-    for s in past_sessions:
-        assessment = session.exec(
-            select(Assessment).where(Assessment.session_id == s.session_id)
-        ).first()
-        if not assessment:
-            needs_assessment.append(s.model_dump())
+    assessed_ids = set(session.exec(select(Assessment.session_id)).all())
+    needs_assessment = [
+        s.model_dump() for s in past_sessions if s.session_id not in assessed_ids
+    ]
     return needs_assessment[:10]
 
 

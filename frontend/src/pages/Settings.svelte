@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { api, downloadExport, uploadImport } from '../lib/api';
+  import { toastError, toastSuccess } from '../lib/toast';
   import { configStatus } from '../lib/stores';
   import BubbleButton from '../components/BubbleButton.svelte';
 
@@ -40,8 +41,10 @@
       await api.config.update({ fast_model: fastModel, power_model: powerModel });
       const status = await api.config.getStatus();
       configStatus.set(status);
+      toastSuccess('Settings saved');
     } catch (e) {
       console.error('Failed to save:', e);
+      toastError('Failed to save settings', e);
     }
     saving = false;
   }
@@ -52,6 +55,7 @@
       window.location.href = auth_url;
     } catch (e) {
       console.error('Failed to get auth URL:', e);
+      toastError('Failed to start Spotify authorization', e);
     }
   }
 
@@ -61,6 +65,7 @@
       spotifyStatus = { connected: false };
     } catch (e) {
       console.error('Failed to disconnect:', e);
+      toastError('Failed to disconnect Spotify', e);
     }
   }
 
@@ -430,6 +435,5 @@
       word-break: break-all;
       font-size: 0.75rem;
     }
-
   }
 </style>

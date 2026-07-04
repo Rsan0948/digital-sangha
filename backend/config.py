@@ -1,6 +1,7 @@
 from pydantic_settings import BaseSettings
 from pydantic import Field
 from pathlib import Path
+import threading
 import yaml
 
 CONFIG_PATH = Path(__file__).parent.parent / "config.yaml"
@@ -58,14 +59,20 @@ def load_config() -> Settings:
     return Settings()
 
 
+_save_lock = threading.Lock()
+
+
 def save_config(settings: dict):
-    existing = {}
-    if CONFIG_PATH.exists():
-        with open(CONFIG_PATH) as f:
-            existing = yaml.safe_load(f) or {}
-    existing.update(settings)
-    with open(CONFIG_PATH, "w") as f:
-        yaml.dump(existing, f)
+    # Serialize the read-modify-write so two concurrent config updates can't
+    # silently drop each other's keys.
+    with _save_lock:
+        existing = {}
+        if CONFIG_PATH.exists():
+            with open(CONFIG_PATH) as f:
+                existing = yaml.safe_load(f) or {}
+        existing.update(settings)
+        with open(CONFIG_PATH, "w") as f:
+            yaml.dump(existing, f)
 
 
 settings = load_config()
