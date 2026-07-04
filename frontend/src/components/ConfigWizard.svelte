@@ -136,8 +136,10 @@
         </div>
 
         <p class="hint">
-          Get credentials at <a href="https://developer.spotify.com/dashboard" target="_blank"
-            >developer.spotify.com</a
+          Get credentials at <a
+            href="https://developer.spotify.com/dashboard"
+            target="_blank"
+            rel="noopener noreferrer">developer.spotify.com</a
           >
         </p>
 

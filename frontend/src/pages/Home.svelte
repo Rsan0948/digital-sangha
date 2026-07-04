@@ -86,11 +86,11 @@
             <span class="stat-label">Total Classes</span>
           </div>
           <div class="stat">
-            <span class="stat-value">{stats.average_scores.vibe.toFixed(1)}</span>
+            <span class="stat-value">{(stats.average_scores?.vibe ?? 0).toFixed(1)}</span>
             <span class="stat-label">Avg Vibe</span>
           </div>
           <div class="stat">
-            <span class="stat-value">{stats.average_scores.flow.toFixed(1)}</span>
+            <span class="stat-value">{(stats.average_scores?.flow ?? 0).toFixed(1)}</span>
             <span class="stat-label">Avg Flow</span>
           </div>
         </div>
@@ -258,6 +258,5 @@
     .action-buttons a {
       width: 100%;
     }
-
   }
 </style>

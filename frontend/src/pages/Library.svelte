@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { api } from '../lib/api';
   import { stripPoseSuffix } from '../lib/utils';
   import {
@@ -52,6 +52,13 @@
     loadPoseNameOverrides();
   });
 
+  onDestroy(() => {
+    // Stop timers on navigation; otherwise the guide progress interval keeps
+    // mutating state on a destroyed component.
+    if (guideTimer) clearInterval(guideTimer);
+    if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+  });
+
   function ensureSpecialPoses(list: any[]): any[] {
     const posesCopy = [...list];
     const meditationId = 'special_meditation';
@@ -90,20 +97,30 @@
     return posesCopy;
   }
 
+  // Monotonic id so a slow, stale response can't overwrite the results of a
+  // newer search that resolved first.
+  let loadSeq = 0;
+
   async function loadData() {
+    const seq = ++loadSeq;
     loading = true;
     try {
-      [poses, themes, talkingPoints, flows] = await Promise.all([
+      const [posesRes, themesRes, talkingPointsRes, flowsRes] = await Promise.all([
         api.poses.list({ search_query: searchQuery || undefined, limit: 500 }),
         api.library.getThemes(searchQuery || undefined),
         api.library.getTalkingPoints(),
         api.flows.list(),
       ]);
-      poses = ensureSpecialPoses(poses);
+      if (seq !== loadSeq) return;
+      poses = ensureSpecialPoses(posesRes);
+      themes = themesRes;
+      talkingPoints = talkingPointsRes;
+      flows = flowsRes;
     } catch (e) {
       console.error('Failed to load library:', e);
+    } finally {
+      if (seq === loadSeq) loading = false;
     }
-    loading = false;
   }
 
   async function search() {
@@ -400,14 +417,27 @@
           <p>No poses loaded. Import pose data in Settings.</p>
         </div>
       {:else}
-        {#each filteredPoses as pose}
+        {#each filteredPoses as pose (getPoseKey(pose))}
           <div
             class="item-card pose-card"
+            role="button"
+            tabindex="0"
+            aria-label={`View details for ${displayPoseName(pose) || 'unnamed pose'}`}
             on:click={() => {
               if (!displayPoseName(pose).trim()) {
                 startEditName(pose);
               } else {
                 selectedPose = pose;
+              }
+            }}
+            on:keydown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                if (!displayPoseName(pose).trim()) {
+                  startEditName(pose);
+                } else {
+                  selectedPose = pose;
+                }
               }
             }}
           >

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { navigate } from 'svelte-routing';
   import { api } from '../lib/api';
   import type { Flow, FlowSection, Pose, FlowBlock } from '../lib/types';
@@ -35,7 +35,7 @@
   // matches the inline-style width on first paint (no visual jump
   // when the user first drags the resize handle on mobile).
   let chatSidebarWidth =
-    (typeof window !== 'undefined' && window.innerWidth < 768)
+    typeof window !== 'undefined' && window.innerWidth < 768
       ? Math.min(380, Math.floor(window.innerWidth * 0.9))
       : 380;
   let resizingChat = false;
@@ -633,6 +633,11 @@
     }, 0);
   }
 
+  onDestroy(() => {
+    // Don't leave the progress interval mutating state after navigation.
+    if (guideTimer) clearInterval(guideTimer);
+  });
+
   function beginGuideProgress() {
     guideLoading = true;
     guideProgress = 6;
@@ -756,17 +761,16 @@
     // max — on a 375px phone, a 200px floor still eats > 50% of the
     // screen, and a 50% maxWidth (= 187.5px) is below the desktop floor.
     const isMobile =
-      typeof window !== 'undefined'
-        && typeof window.matchMedia === 'function'
-        && window.matchMedia('(max-width: 768px)').matches;
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(max-width: 768px)').matches;
     const minWidth = isMobile ? 120 : 200;
     const maxWidth = isMobile
       ? Math.floor(window.innerWidth * 0.9)
       : Math.max(400, Math.floor(window.innerWidth * 0.5));
 
     function onMove(e: MouseEvent | TouchEvent) {
-      const clientX = (e as TouchEvent).touches?.[0]?.clientX
-        ?? (e as MouseEvent).clientX;
+      const clientX = (e as TouchEvent).touches?.[0]?.clientX ?? (e as MouseEvent).clientX;
       if (clientX === undefined) return;
       const delta = startX - clientX;
       chatSidebarWidth = Math.max(minWidth, Math.min(maxWidth, startWidth + delta));
@@ -801,7 +805,12 @@
     if (!showChat) return;
     const target = e.target as HTMLElement | null;
     if (!target) return;
-    if (target.closest('button, input, select, textarea, a, [role="button"], [contenteditable="true"]')) return;
+    if (
+      target.closest(
+        'button, input, select, textarea, a, [role="button"], [contenteditable="true"]',
+      )
+    )
+      return;
     showChat = false;
   }
 </script>
@@ -1146,7 +1155,7 @@
   /* Visible grip dots so the handle is discoverable, especially on touch
      where there's no cursor:col-resize hint. */
   .chat-resize-handle::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 2px;
     top: 50%;

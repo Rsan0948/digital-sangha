@@ -52,13 +52,17 @@
         streaming = true;
         currentResponse = '';
         pendingThinking = true;
-        armStreamTimeout();
+        armStreamTimeout(FIRST_TOKEN_TIMEOUT_MS);
       } else if (data.type === 'chunk') {
+        // Late chunk after a client-side timeout already gave up on this
+        // response — dropping it beats corrupting the next transcript entry.
+        if (!streaming) return;
         pendingThinking = false;
         currentResponse += data.content;
-        armStreamTimeout();
+        armStreamTimeout(STALL_TIMEOUT_MS);
         scrollToBottom();
       } else if (data.type === 'end') {
+        if (!streaming) return;
         const parsed =
           extractFlowChanges(currentResponse) || extractFlowChangesFallback(currentResponse);
         const cleaned = stripFlowChanges(currentResponse);
@@ -112,8 +116,10 @@
     });
     if (socket?.ws) {
       socket.ws.onopen = () => {
+        // The reactive `$: if (socket)` block already queued the current
+        // flow-edit-mode via safeSend; flushing here delivers it without
+        // sending a duplicate frame.
         flushPendingSends();
-        safeSend({ type: 'set_flow_edit_mode', allow: allowFlowEdits });
         sendFlowContext();
         sendHistoryToBackend();
       };
@@ -149,14 +155,28 @@
     scrollToBottom();
   }
 
-  function armStreamTimeout() {
+  // Time-to-first-token can legitimately be long (local models in Power
+  // mode); the old 12s cutoff aborted responses that were still generating.
+  const FIRST_TOKEN_TIMEOUT_MS = 90000;
+  const STALL_TIMEOUT_MS = 120000;
+
+  function armStreamTimeout(ms: number) {
     clearStreamTimeout();
     streamTimeout = setTimeout(() => {
+      const partial = currentResponse;
       streaming = false;
       pendingThinking = false;
       currentResponse = '';
+      activeResponseThreadId = '';
+      // Keep whatever already streamed in instead of throwing it away.
+      if (partial.trim()) {
+        messages = [...messages, { role: 'assistant', content: stripFlowChanges(partial) }];
+      }
       messages = [...messages, { role: 'error', content: 'Response timed out. Please try again.' }];
-    }, 12000);
+      if (historyEnabled) {
+        updateThreadMessages($activeChatId, messages);
+      }
+    }, ms);
   }
 
   function clearStreamTimeout() {
@@ -393,7 +413,9 @@
 
   function setMode(mode: 'fast' | 'power') {
     chatMode.set(mode);
-    socket?.send({ type: 'set_mode', mode });
+    // safeSend queues (and reconnects) if the socket isn't open yet; a raw
+    // send would throw and the mode change would be silently lost.
+    safeSend({ type: 'set_mode', mode });
   }
 
   async function scrollToBottom() {

@@ -9,9 +9,33 @@ async function fetchJSON<T>(url: string, options?: RequestInit): Promise<T> {
     },
   });
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    let detail = `HTTP error! status: ${response.status}`;
+    try {
+      const body = await response.json();
+      if (body && typeof body.detail === 'string') detail = body.detail;
+    } catch {
+      // Error body wasn't JSON; keep the status-based message.
+    }
+    throw new Error(detail);
   }
-  return response.json();
+  // DELETE endpoints and 204s have no body; response.json() would throw and
+  // make the caller treat a successful operation as a failure.
+  if (response.status === 204) return null as T;
+  const text = await response.text();
+  return text ? JSON.parse(text) : (null as T);
+}
+
+// Build a query string, dropping null/undefined/empty values so we never send
+// literal "undefined" as a parameter value.
+function buildQuery(params: Record<string, unknown> | undefined): string {
+  if (!params) return '';
+  const search = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value === undefined || value === null || value === '') continue;
+    search.set(key, String(value));
+  }
+  const query = search.toString();
+  return query ? `?${query}` : '';
 }
 
 export const api = {
@@ -39,15 +63,8 @@ export const api = {
       fetchJSON(`/flows/${id}/transition-guide`, { method: 'DELETE' }),
   },
   poses: {
-    list: (params?: {
-      category?: string;
-      level?: string;
-      search_query?: string;
-      limit?: number;
-    }) => {
-      const query = new URLSearchParams(params as any).toString();
-      return fetchJSON<any[]>(`/poses${query ? `?${query}` : ''}`);
-    },
+    list: (params?: { category?: string; level?: string; search_query?: string; limit?: number }) =>
+      fetchJSON<any[]>(`/poses${buildQuery(params)}`),
     get: (id: string) => fetchJSON<any>(`/poses/${id}`),
     getCategories: () => fetchJSON<string[]>('/poses/categories'),
     getNameOverrides: () =>
@@ -65,7 +82,7 @@ export const api = {
   },
   library: {
     getThemes: (search?: string) =>
-      fetchJSON<any[]>(`/library/themes${search ? `?search_query=${search}` : ''}`),
+      fetchJSON<any[]>(`/library/themes${buildQuery({ search_query: search })}`),
     createTheme: (data: any) =>
       fetchJSON('/library/themes', { method: 'POST', body: JSON.stringify(data) }),
     getTalkingPoints: (themeId?: string) =>
