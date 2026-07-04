@@ -53,6 +53,7 @@ export const api = {
     update: (id: string, data: any) =>
       fetchJSON(`/flows/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
     delete: (id: string) => fetchJSON(`/flows/${id}`, { method: 'DELETE' }),
+    duplicate: (id: string) => fetchJSON<any>(`/flows/${id}/duplicate`, { method: 'POST' }),
     createVersion: (id: string, data: any) =>
       fetchJSON(`/flows/${id}/versions`, { method: 'POST', body: JSON.stringify(data) }),
     getTransitionGuide: (id: string, versionId?: string) =>

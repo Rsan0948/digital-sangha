@@ -198,6 +198,48 @@ def update_flow(flow_id: str, update: FlowUpdate, session: Session = Depends(get
     return flow
 
 
+@router.post("/{flow_id}/duplicate")
+def duplicate_flow(flow_id: str, session: Session = Depends(get_session)):
+    """Copy a flow (and its latest version, if any) so it can be iterated on
+    without touching the original."""
+    source = session.get(Flow, flow_id)
+    if not source:
+        raise HTTPException(status_code=404, detail="Flow not found")
+    copy = Flow(
+        flow_name=f"{source.flow_name} (copy)"[:200],
+        description=source.description,
+        context_type=source.context_type,
+        tags=source.tags,
+    )
+    session.add(copy)
+    session.flush()  # assigns copy.flow_id before the version references it
+
+    latest = session.exec(
+        select(FlowVersion)
+        .where(FlowVersion.flow_id == flow_id)
+        .order_by(FlowVersion.version_number.desc())
+    ).first()
+    copied_version = None
+    if latest:
+        copied_version = FlowVersion(
+            flow_id=copy.flow_id,
+            version_number=1,
+            blocks_json=latest.blocks_json,
+            vibe_profile=latest.vibe_profile,
+            duration_minutes=latest.duration_minutes,
+        )
+        session.add(copied_version)
+    session.commit()
+    session.refresh(copy)
+    if copied_version is not None:
+        session.refresh(copied_version)
+    return {
+        **copy.model_dump(),
+        "versions": [copied_version.model_dump()] if copied_version else [],
+        "tags": json.loads(copy.tags) if copy.tags else [],
+    }
+
+
 @router.delete("/{flow_id}")
 def delete_flow(flow_id: str, session: Session = Depends(get_session)):
     flow = session.get(Flow, flow_id)

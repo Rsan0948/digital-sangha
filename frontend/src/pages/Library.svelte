@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import { api } from '../lib/api';
+  import { toastError, toastSuccess } from '../lib/toast';
   import { stripPoseSuffix } from '../lib/utils';
   import {
     favoritePoses,
@@ -118,6 +119,7 @@
       flows = flowsRes;
     } catch (e) {
       console.error('Failed to load library:', e);
+      toastError('Failed to load library', e);
     } finally {
       if (seq === loadSeq) loading = false;
     }
@@ -148,11 +150,25 @@
         description: newThemeDescription,
       });
       themes = await api.library.getThemes();
+      toastSuccess('Theme created');
       showNewThemeModal = false;
       newThemeName = '';
       newThemeDescription = '';
     } catch (e) {
       console.error('Failed to create theme:', e);
+      toastError('Failed to create theme', e);
+    }
+  }
+
+  async function duplicateFlow(flowId: string) {
+    if (!flowId) return;
+    try {
+      const copy = await api.flows.duplicate(flowId);
+      flows = [...flows, copy];
+      toastSuccess(`Duplicated as "${copy.flow_name}"`);
+    } catch (e) {
+      console.error('Failed to duplicate flow:', e);
+      toastError('Failed to duplicate flow', e);
     }
   }
 
@@ -163,8 +179,10 @@
     try {
       await api.flows.delete(flowId);
       flows = flows.filter((f) => f.flow_id !== flowId);
+      toastSuccess('Flow deleted');
     } catch (e) {
       console.error('Failed to delete flow:', e);
+      toastError('Failed to delete flow', e);
     }
   }
 
@@ -547,6 +565,9 @@
             </a>
             <div class="flow-actions">
               <button class="guide-flow" on:click={() => openGuide(flow)}>Guide</button>
+              <button class="duplicate-flow" on:click={() => duplicateFlow(flow.flow_id)}>
+                Duplicate
+              </button>
               <button class="delete-flow" on:click={() => deleteFlow(flow.flow_id)}>Delete</button>
             </div>
           </div>
@@ -867,7 +888,8 @@
     align-items: center;
   }
 
-  .guide-flow {
+  .guide-flow,
+  .duplicate-flow {
     border: none;
     background: var(--color-accent);
     color: var(--color-primary);
@@ -1049,6 +1071,7 @@
     }
 
     .guide-flow,
+    .duplicate-flow,
     .delete-flow {
       min-height: 44px;
       padding: 10px 16px;

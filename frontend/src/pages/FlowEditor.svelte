@@ -2,6 +2,7 @@
   import { onMount, onDestroy } from 'svelte';
   import { navigate } from 'svelte-routing';
   import { api } from '../lib/api';
+  import { toastError, toastSuccess } from '../lib/toast';
   import type { Flow, FlowSection, Pose, FlowBlock } from '../lib/types';
   import { generateId, stripPoseSuffix } from '../lib/utils';
   import { loadPoseNameOverrides, poseNameOverrides } from '../lib/poseOverrides';
@@ -151,6 +152,7 @@
       loadPoseNameOverrides();
     } catch (e) {
       console.error('Failed to load poses:', e);
+      toastError('Failed to load poses', e);
     } finally {
       posesLoading = false;
     }
@@ -171,6 +173,7 @@
         }
       } catch (e) {
         console.error('Failed to load flow:', e);
+        toastError('Failed to load flow', e);
         sections = createDefaultSections();
         sections = ensureShavasanaDefault(sections);
       }
@@ -743,9 +746,11 @@
         pendingNavigateId = newFlow.flow_id;
       }
       showSaveModal = false;
+      toastSuccess('Flow saved');
       showGuidePrompt = true;
     } catch (e) {
       console.error('Failed to save flow:', e);
+      toastError('Failed to save flow', e);
     }
     saving = false;
   }

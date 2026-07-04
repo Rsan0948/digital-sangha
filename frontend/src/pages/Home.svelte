@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { link } from 'svelte-routing';
   import { api } from '../lib/api';
+  import { toastError } from '../lib/toast';
   import { configStatus } from '../lib/stores';
   import BubbleButton from '../components/BubbleButton.svelte';
   import { formatDate, formatTime } from '../lib/utils';
@@ -22,6 +23,7 @@
       recentFlows = recentFlows.slice(0, 5);
     } catch (e) {
       console.error('Failed to load home data:', e);
+      toastError('Failed to load dashboard data', e);
     }
   });
 </script>
