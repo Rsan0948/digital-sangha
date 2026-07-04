@@ -380,3 +380,77 @@ def test_google_streaming_yields_chunks(monkeypatch: pytest.MonkeyPatch) -> None
 
     chunks = list(generate_stream("hi"))
     assert chunks == ["Hello", " world"]
+
+
+def test_429_is_retried_not_fatal(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Rate limiting must back off and retry instead of aborting on the
+    first response like other 4xx errors."""
+    _set_provider(monkeypatch, "openai", "openai_api_key")
+    payload_ok = {"choices": [{"message": {"content": "recovered"}}]}
+    counter = _patch_post_sequence(
+        monkeypatch,
+        [
+            make_response(429, {"error": "rate limited"}),
+            make_response(429, {"error": "rate limited"}),
+            make_response(200, payload_ok),
+        ],
+    )
+    from backend.services.llm_router import generate
+
+    assert generate("hi") == "recovered"
+    assert counter["n"] == 3
+
+
+def test_429_exhaustion_counts_toward_breaker(monkeypatch: pytest.MonkeyPatch) -> None:
+    _set_provider(monkeypatch, "openai", "openai_api_key")
+    patch_client_post(monkeypatch, make_response(429, {"error": "rate limited"}))
+    from backend.services.llm_router import generate
+    from backend.utils.circuit_breaker import _breakers
+
+    result = generate("hi")
+    assert result.startswith("[Cloud Call Failed]")
+    assert "http_429" in result
+    assert _breakers["openai"]._failures == 3  # every attempt recorded
+
+
+def test_streaming_429_is_retried(monkeypatch: pytest.MonkeyPatch) -> None:
+    _set_provider(monkeypatch, "openai", "openai_api_key")
+    responses = iter(
+        [
+            _FakeStreamResp(429, []),
+            _FakeStreamResp(200, ['data: {"choices": [{"delta": {"content": "ok"}}]}']),
+        ]
+    )
+    counter = {"n": 0}
+
+    def _fake_stream(self, method, url, **kwargs):
+        counter["n"] += 1
+        return next(responses)
+
+    monkeypatch.setattr(httpx.Client, "stream", _fake_stream)
+    from backend.services.llm_router import generate_stream
+
+    assert list(generate_stream("hi")) == ["ok"]
+    assert counter["n"] == 2
+
+
+def test_models_configured_true_with_api_key_only(monkeypatch: pytest.MonkeyPatch) -> None:
+    """A cloud key without an explicit fast_model is a working setup
+    (get_model falls back to provider defaults) and must unlock chat."""
+    from backend import config as config_module
+
+    cfg = config_module.Settings(llm_provider="openai", openai_api_key="fake-key")
+    monkeypatch.setattr("backend.services.llm_router.load_config", lambda: cfg)
+    from backend.services.llm_router import models_configured
+
+    assert models_configured() is True
+
+
+def test_models_configured_false_when_nothing_set(monkeypatch: pytest.MonkeyPatch) -> None:
+    from backend import config as config_module
+
+    cfg = config_module.Settings(llm_provider="local")
+    monkeypatch.setattr("backend.services.llm_router.load_config", lambda: cfg)
+    from backend.services.llm_router import models_configured
+
+    assert models_configured() is False

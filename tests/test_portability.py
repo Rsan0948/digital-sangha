@@ -236,3 +236,81 @@ def test_import_rejects_oversized_bundle(
     payload = b"\0" * (portability.MAX_IMPORT_BUNDLE_BYTES + 1)
     with Session(test_engine) as session, pytest.raises(ValueError, match="exceeds"):
         portability.apply_import(payload, session)
+
+
+def test_import_failure_rolls_back_encryption_key(
+    tmp_data_dir: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """If the DB restore fails after the bundle's key was written, the old
+    key must be restored — otherwise existing encrypted rows become
+    permanently undecryptable."""
+    _setup_paths(monkeypatch, tmp_data_dir)
+    from backend.services import portability
+
+    key_path = tmp_data_dir / "encryption.key"
+
+    # Build a bundle that carries its own key.
+    key_path.write_bytes(b"bundle-key")
+    src_engine = _fresh_engine()
+    with Session(src_engine) as session:
+        zip_bytes = portability.build_export(session)
+
+    # The destination machine has a different pre-existing key.
+    key_path.write_bytes(b"old-key")
+
+    dst_engine = _fresh_engine()
+    with Session(dst_engine) as session:
+        def _failing_commit() -> None:
+            raise RuntimeError("simulated disk full")
+
+        monkeypatch.setattr(session, "commit", _failing_commit)
+        with pytest.raises(RuntimeError, match="disk full"):
+            portability.apply_import(zip_bytes, session)
+
+    assert key_path.read_bytes() == b"old-key"
+
+
+def test_import_failure_removes_key_when_none_existed(
+    tmp_data_dir: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _setup_paths(monkeypatch, tmp_data_dir)
+    from backend.services import portability
+
+    key_path = tmp_data_dir / "encryption.key"
+    key_path.write_bytes(b"bundle-key")
+    src_engine = _fresh_engine()
+    with Session(src_engine) as session:
+        zip_bytes = portability.build_export(session)
+
+    key_path.unlink()  # destination has no key at all
+
+    dst_engine = _fresh_engine()
+    with Session(dst_engine) as session:
+        def _failing_commit() -> None:
+            raise RuntimeError("boom")
+
+        monkeypatch.setattr(session, "commit", _failing_commit)
+        with pytest.raises(RuntimeError):
+            portability.apply_import(zip_bytes, session)
+
+    assert not key_path.exists()
+
+
+def test_import_success_keeps_bundle_key(
+    tmp_data_dir: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _setup_paths(monkeypatch, tmp_data_dir)
+    from backend.services import portability
+
+    key_path = tmp_data_dir / "encryption.key"
+    key_path.write_bytes(b"bundle-key")
+    src_engine = _fresh_engine()
+    with Session(src_engine) as session:
+        zip_bytes = portability.build_export(session)
+
+    key_path.write_bytes(b"old-key")
+    dst_engine = _fresh_engine()
+    with Session(dst_engine) as session:
+        portability.apply_import(zip_bytes, session)
+
+    assert key_path.read_bytes() == b"bundle-key"
