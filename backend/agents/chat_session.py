@@ -29,7 +29,7 @@ class ChatSession:
     def set_mode(self, mode: str):
         self.mode = mode
 
-    def set_flow(self, flow: dict):
+    def set_flow(self, flow: dict | None):
         self.current_flow = flow
 
     def set_flow_edit_mode(self, allow: bool):

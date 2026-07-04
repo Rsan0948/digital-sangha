@@ -164,17 +164,29 @@
     clearStreamTimeout();
     streamTimeout = setTimeout(() => {
       const partial = currentResponse;
+      const targetThreadId = activeResponseThreadId;
       streaming = false;
       pendingThinking = false;
       currentResponse = '';
       activeResponseThreadId = '';
+      const newEntries: { role: string; content: string }[] = [];
       // Keep whatever already streamed in instead of throwing it away.
       if (partial.trim()) {
-        messages = [...messages, { role: 'assistant', content: stripFlowChanges(partial) }];
+        newEntries.push({ role: 'assistant', content: stripFlowChanges(partial) });
       }
-      messages = [...messages, { role: 'error', content: 'Response timed out. Please try again.' }];
-      if (historyEnabled) {
-        updateThreadMessages($activeChatId, messages);
+      newEntries.push({ role: 'error', content: 'Response timed out. Please try again.' });
+      // Route to the thread that originated the request, same as the
+      // end/error handlers — the user may have switched threads mid-stream.
+      if (historyEnabled && targetThreadId && targetThreadId !== $activeChatId) {
+        const thread = $chatThreads.find((t) => t.id === targetThreadId);
+        if (thread) {
+          updateThreadMessages(targetThreadId, [...thread.messages, ...newEntries]);
+        }
+      } else {
+        messages = [...messages, ...newEntries];
+        if (historyEnabled) {
+          updateThreadMessages($activeChatId, messages);
+        }
       }
     }, ms);
   }

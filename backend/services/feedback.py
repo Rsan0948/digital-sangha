@@ -1,4 +1,4 @@
-from sqlmodel import Session, select
+from sqlmodel import Session, col, select
 from backend.database import engine
 from backend.models import Assessment, ClassSession
 from backend.services.llm_router import generate
@@ -33,7 +33,7 @@ def get_average_scores(context_type: Optional[str] = None) -> dict:
         stmt = select(Assessment)
         if context_type:
             stmt = stmt.join(
-                ClassSession, ClassSession.session_id == Assessment.session_id
+                ClassSession, col(ClassSession.session_id) == col(Assessment.session_id)
             ).where(ClassSession.context_type == context_type)
         assessments = session.exec(stmt).all()
     if not assessments:

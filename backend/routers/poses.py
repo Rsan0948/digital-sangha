@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from sqlmodel import Session, select
+from sqlmodel import Session, col, select
 from backend.config import CONFIG_PATH
 from backend.database import get_session
 from backend.models import Pose, PoseFollowup
@@ -29,7 +29,7 @@ def list_poses(
     if search_query and collection_exists("poses"):
         results = search("poses", search_query, n_results=limit)
         pose_ids = [r["id"] for r in results]
-        rows = session.exec(select(Pose).where(Pose.pose_id.in_(pose_ids))).all()
+        rows = session.exec(select(Pose).where(col(Pose.pose_id).in_(pose_ids))).all()
         by_id = {p.pose_id: p for p in rows}
         # Re-emit in vector-search relevance order; SQL IN does not preserve it.
         poses = [by_id[pid] for pid in pose_ids if pid in by_id]
@@ -40,7 +40,7 @@ def list_poses(
     if category:
         # Filter in SQL so the limit applies after filtering; otherwise poses
         # in the requested category beyond the first `limit` rows vanish.
-        stmt = stmt.where(Pose.pose_categories.ilike(f"%{category}%"))
+        stmt = stmt.where(col(Pose.pose_categories).ilike(f"%{category}%"))
     poses = session.exec(stmt.limit(limit)).all()
     return [_format_pose(p) for p in poses]
 

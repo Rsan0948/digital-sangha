@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends
-from sqlmodel import Session, select
+from sqlmodel import Session, col, select
 from backend.database import get_session
 from backend.models import ClassSession, Assessment, FlowVersion, Flow
 from pydantic import BaseModel, Field
@@ -44,23 +44,23 @@ def list_sessions(
     # Batch the lookups instead of three queries per session row.
     version_ids = {s.flow_version_id for s in sessions if s.flow_version_id}
     versions = (
-        session.exec(select(FlowVersion).where(FlowVersion.version_id.in_(version_ids))).all()
+        session.exec(select(FlowVersion).where(col(FlowVersion.version_id).in_(version_ids))).all()
         if version_ids
         else []
     )
     versions_by_id = {v.version_id: v for v in versions}
     flow_ids = {v.flow_id for v in versions}
     flows = (
-        session.exec(select(Flow).where(Flow.flow_id.in_(flow_ids))).all() if flow_ids else []
+        session.exec(select(Flow).where(col(Flow.flow_id).in_(flow_ids))).all() if flow_ids else []
     )
     flows_by_id = {f.flow_id: f for f in flows}
     session_ids = [s.session_id for s in sessions]
     assessments = (
-        session.exec(select(Assessment).where(Assessment.session_id.in_(session_ids))).all()
+        session.exec(select(Assessment).where(col(Assessment.session_id).in_(session_ids))).all()
         if session_ids
         else []
     )
-    assessments_by_session = {}
+    assessments_by_session: dict[str, Assessment] = {}
     for a in assessments:
         assessments_by_session.setdefault(a.session_id, a)
 

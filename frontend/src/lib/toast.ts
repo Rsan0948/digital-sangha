@@ -33,8 +33,15 @@ export function showToast(message: string, type: ToastType = 'info', durationMs?
   toasts.update((list) => {
     // Collapse exact duplicates (e.g. a retry loop failing repeatedly)
     // instead of stacking identical banners.
-    const deduped = list.filter((t) => !(t.message === message && t.type === type));
-    return [...deduped, { id, type, message }];
+    const duplicates = list.filter((t) => t.message === message && t.type === type);
+    for (const dup of duplicates) {
+      const timer = timers.get(dup.id);
+      if (timer) {
+        clearTimeout(timer);
+        timers.delete(dup.id);
+      }
+    }
+    return [...list.filter((t) => !duplicates.includes(t)), { id, type, message }];
   });
   const duration = durationMs ?? DEFAULT_DURATION_MS[type];
   timers.set(

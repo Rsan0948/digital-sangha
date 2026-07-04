@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Toast notifications (`frontend/src/lib/toast.ts` + `ToastHost.svelte`): error/success/info banners with auto-dismiss, manual dismiss, and de-duplication, wired into every key user action (loads, saves, deletes, review submission, Spotify connect/disconnect). Failures previously only logged to the browser console.
+- Duplicate flow: `POST /api/flows/{flow_id}/duplicate` copies a flow's metadata and latest version (renumbered to 1); Duplicate button on Library flow rows.
+- Regression test suite: 62 new backend tests (chat WebSocket lifecycle, ChatSession history handling, circuit breaker HALF_OPEN semantics, 429 retry, poses/library/sessions routers, payload-limit overrides, portability key rollback, vector-store guards, feedback averages) and 14 new frontend tests (`fetchJSON` hardening, toast store).
 - Mobile retrofit pass for the Svelte frontend using a single 768px breakpoint:
   - `frontend/src/lib/isMobile.ts` — SSR-safe reactive store backed by `window.matchMedia('(max-width: 768px)')` with change-event subscription.
   - `Navbar.svelte` — hamburger drawer at <768px containing all nav destinations as full-width ≥44px tappable rows; closes on link tap or backdrop tap.
@@ -18,6 +21,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - `app.css` already contained partial 768px rules for `.page-container` padding, `.page-title` size, and `.bubble-button` sizing; the new page-level blocks layer on top without replacement.
+
+### Fixed
+
+- Chat WebSocket: blocking LLM streaming no longer stalls the event loop (chunks are pulled on a worker thread); malformed frames get an error reply instead of crashing the connection and leaking the session entry; session ids use UUIDs instead of reusable `id(websocket)` values.
+- Chat: provider failure sentinels (`[Cloud Call Failed]` …) are no longer persisted into conversation history; in-memory history is capped at 50 turns; the 12s client-side stream timeout that aborted slow-but-working responses was replaced with 90s-to-first-token / 120s-stall limits that preserve partial output and ignore late frames.
+- Circuit breaker: HALF_OPEN now admits exactly one recovery probe instead of stampeding a recovering provider (with a 120s stale-probe escape hatch); HTTP 429 is retried with backoff and counted toward opening the circuit instead of failing on the first response.
+- `models_configured()` matches the config wizard: a cloud API key without an explicit `fast_model` no longer blocks chat.
+- Poses router: `GET /api/poses/data-status` and `/name-overrides` were shadowed by the `/{pose_id}` catch-all and unreachable; missing pose/theme now return 404 instead of 200 error bodies; the category filter applies in SQL before the row limit; vector-search results keep relevance order; the name-overrides path is anchored to the data dir instead of the process CWD.
+- Assessments: editing an assessment re-summarizes and re-indexes its embedding (semantic feedback search previously served the pre-edit text forever); vector upserts replace stale entries; the `assessments` collection is registered for orphan cleanup.
+- Data import: the global 5 MB request cap made the documented 50 MB import bundles impossible to upload; a failed import now rolls back the encryption key instead of leaving existing tokens undecryptable.
+- Frontend API layer: DELETE/204 responses no longer throw after succeeding (deleted items stayed visible); backend error details surface in messages; `undefined` query params are dropped (the Library sent `search_query=undefined` on every initial load) and values are URL-encoded.
+- Assorted frontend state/a11y fixes: stale-response guard on Library search, timers cleaned up on navigation, keyboard-accessible pose cards and chat rows (previously an invalid button-in-button), guarded Home stats against empty payloads, DPI-scaled energy chart, pose-picker prep no longer re-runs as a self-invalidating reactive loop.
+- `run_sangha.py` reaps child processes on shutdown and polls `/api/health` instead of sleeping blindly.
+- CI hygiene: prettier failures on four files fixed; security-header tests updated for the intentional CSP `frame-ancestors` design; the save-flow e2e spec updated for the transition-guide prompt (it predated the feature and could never pass).
 
 ## [0.1.0] - 2026-05-04
 
