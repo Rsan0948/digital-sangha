@@ -40,17 +40,38 @@ def list_sessions(
     if context_type:
         stmt = stmt.where(ClassSession.context_type == context_type)
     sessions = session.exec(stmt).all()
+
+    # Batch the lookups instead of three queries per session row.
+    version_ids = {s.flow_version_id for s in sessions if s.flow_version_id}
+    versions = (
+        session.exec(select(FlowVersion).where(FlowVersion.version_id.in_(version_ids))).all()
+        if version_ids
+        else []
+    )
+    versions_by_id = {v.version_id: v for v in versions}
+    flow_ids = {v.flow_id for v in versions}
+    flows = (
+        session.exec(select(Flow).where(Flow.flow_id.in_(flow_ids))).all() if flow_ids else []
+    )
+    flows_by_id = {f.flow_id: f for f in flows}
+    session_ids = [s.session_id for s in sessions]
+    assessments = (
+        session.exec(select(Assessment).where(Assessment.session_id.in_(session_ids))).all()
+        if session_ids
+        else []
+    )
+    assessments_by_session = {}
+    for a in assessments:
+        assessments_by_session.setdefault(a.session_id, a)
+
     result = []
     for s in sessions:
         flow_name = None
-        if s.flow_version_id:
-            version = session.get(FlowVersion, s.flow_version_id)
-            if version:
-                flow = session.get(Flow, version.flow_id)
-                flow_name = flow.flow_name if flow else None
-        assessment = session.exec(
-            select(Assessment).where(Assessment.session_id == s.session_id)
-        ).first()
+        version = versions_by_id.get(s.flow_version_id) if s.flow_version_id else None
+        if version:
+            flow = flows_by_id.get(version.flow_id)
+            flow_name = flow.flow_name if flow else None
+        assessment = assessments_by_session.get(s.session_id)
         result.append(
             {
                 **s.model_dump(),
@@ -99,6 +120,8 @@ def submit_assessment(
     sess = session.get(ClassSession, session_id)
     if not sess:
         raise HTTPException(status_code=404, detail="Session not found")
+    from backend.services.feedback import summarize_assessment, store_assessment_embedding
+
     existing = session.exec(select(Assessment).where(Assessment.session_id == session_id)).first()
     if existing:
         existing.vibe_score = assessment.vibe_score
@@ -108,6 +131,13 @@ def submit_assessment(
         existing.tags = json.dumps(assessment.tags) if assessment.tags else None
         session.add(existing)
         session.commit()
+        # Re-index like the create path, or semantic feedback search keeps
+        # returning the pre-edit text forever.
+        if existing.comment_text:
+            existing.embed_text = summarize_assessment(existing)
+            session.add(existing)
+            session.commit()
+            store_assessment_embedding(existing)
         return existing
     db_assessment = Assessment(
         session_id=session_id,
@@ -120,8 +150,6 @@ def submit_assessment(
     session.add(db_assessment)
     session.commit()
     session.refresh(db_assessment)
-    from backend.services.feedback import summarize_assessment, store_assessment_embedding
-
     if db_assessment.comment_text:
         db_assessment.embed_text = summarize_assessment(db_assessment)
         session.add(db_assessment)

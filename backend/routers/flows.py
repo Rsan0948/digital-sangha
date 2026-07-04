@@ -1,5 +1,6 @@
 import json
 import os
+import threading
 import uuid
 from datetime import datetime
 from pathlib import Path
@@ -16,6 +17,9 @@ from backend.services.llm_router import generate
 
 router = APIRouter(prefix="/api/flows", tags=["flows"])
 GUIDE_PATH = CONFIG_PATH.parent / "data" / "transition_guides.json"
+# Serializes read-modify-write of the guides file so two concurrent guide
+# generations for different flows can't clobber each other's entries.
+_guides_write_lock = threading.Lock()
 
 
 class FlowCreate(BaseModel):
@@ -292,21 +296,23 @@ def generate_transition_guide(
     system, user = _build_transition_prompt(flow_name, poses)
     guide = generate(user, mode="power", system=system)
 
-    guides = _load_guides()
-    guides[flow_id] = {
-        "flow_name": flow_name,
-        "version_id": version_id,
-        "guide": guide.strip(),
-        "updated_at": datetime.utcnow().isoformat(),
-    }
-    _save_guides(guides)
+    with _guides_write_lock:
+        guides = _load_guides()
+        guides[flow_id] = {
+            "flow_name": flow_name,
+            "version_id": version_id,
+            "guide": guide.strip(),
+            "updated_at": datetime.utcnow().isoformat(),
+        }
+        _save_guides(guides)
     return {"guide": guide.strip(), "version_id": version_id}
 
 
 @router.delete("/{flow_id}/transition-guide")
 def delete_transition_guide(flow_id: str):
-    guides = _load_guides()
-    if flow_id in guides:
-        del guides[flow_id]
-        _save_guides(guides)
+    with _guides_write_lock:
+        guides = _load_guides()
+        if flow_id in guides:
+            del guides[flow_id]
+            _save_guides(guides)
     return {"status": "deleted"}

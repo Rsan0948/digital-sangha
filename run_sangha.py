@@ -16,6 +16,8 @@ import sys
 import subprocess
 import time
 import argparse
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).parent.absolute()
@@ -59,6 +61,20 @@ def run_desktop():
     print("🖥️ Launching Desktop Shell...")
     subprocess.run(["npm", "start"], cwd=DESKTOP_DIR)
 
+def wait_for_backend(port: int, timeout_seconds: float = 20.0) -> bool:
+    """Poll /api/health until the backend answers or the timeout elapses."""
+    url = f"http://127.0.0.1:{port}/api/health"
+    deadline = time.monotonic() + timeout_seconds
+    while time.monotonic() < deadline:
+        try:
+            with urllib.request.urlopen(url, timeout=2) as resp:
+                if resp.status == 200:
+                    return True
+        except (urllib.error.URLError, OSError):
+            pass
+        time.sleep(0.5)
+    return False
+
 def main():
     parser = argparse.ArgumentParser(description="ZDS Digital Sangha Orchestrator")
     parser.add_argument("--mode", choices=["dev", "desktop", "server"], default="desktop")
@@ -83,8 +99,8 @@ def main():
 
         elif args.mode == "desktop":
             processes.append(run_backend(args.port))
-            # Wait for backend health check
-            time.sleep(2)
+            if not wait_for_backend(args.port):
+                print("⚠️  Backend did not report healthy in time; launching desktop anyway.")
             run_desktop()
 
         elif args.mode == "server":
@@ -97,6 +113,12 @@ def main():
     finally:
         for p in processes:
             p.terminate()
+        for p in processes:
+            try:
+                p.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                p.kill()
+                p.wait()
 
 if __name__ == "__main__":
     main()

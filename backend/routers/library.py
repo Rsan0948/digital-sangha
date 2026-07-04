@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 from backend.database import get_session
 from backend.models import Theme, TalkingPoint, Sutra
@@ -28,7 +28,10 @@ def list_themes(search_query: Optional[str] = None, session: Session = Depends(g
     if search_query and collection_exists("themes"):
         results = search("themes", search_query, n_results=20)
         theme_ids = [r["id"] for r in results]
-        themes = session.exec(select(Theme).where(Theme.theme_id.in_(theme_ids))).all()
+        rows = session.exec(select(Theme).where(Theme.theme_id.in_(theme_ids))).all()
+        by_id = {t.theme_id: t for t in rows}
+        # Preserve vector-search relevance order; SQL IN does not.
+        themes = [by_id[tid] for tid in theme_ids if tid in by_id]
     else:
         themes = session.exec(select(Theme)).all()
     return [
@@ -60,7 +63,7 @@ def create_theme(theme: ThemeCreate, session: Session = Depends(get_session)):
 def get_theme(theme_id: str, session: Session = Depends(get_session)):
     theme = session.get(Theme, theme_id)
     if not theme:
-        return {"error": "Theme not found"}
+        raise HTTPException(status_code=404, detail="Theme not found")
     talking_points = session.exec(
         select(TalkingPoint).where(TalkingPoint.theme_id == theme_id)
     ).all()
@@ -115,7 +118,9 @@ def list_sutras(
     if search_query and collection_exists("sutras"):
         results = search("sutras", search_query, n_results=20)
         sutra_ids = [r["id"] for r in results]
-        sutras = session.exec(select(Sutra).where(Sutra.sutra_id.in_(sutra_ids))).all()
+        rows = session.exec(select(Sutra).where(Sutra.sutra_id.in_(sutra_ids))).all()
+        by_id = {s.sutra_id: s for s in rows}
+        sutras = [by_id[sid] for sid in sutra_ids if sid in by_id]
     else:
         stmt = select(Sutra)
         if book:

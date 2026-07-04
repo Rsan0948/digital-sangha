@@ -8,6 +8,10 @@ FAILURE_THRESHOLD = 5
 INITIAL_COOLDOWN_SECONDS = 30
 MAX_COOLDOWN_SECONDS = 300
 BACKOFF_MULTIPLIER = 2.0
+# If a HALF_OPEN trial neither succeeds nor fails within this window (e.g. the
+# probing thread died before recording an outcome), allow a fresh trial rather
+# than staying wedged in HALF_OPEN forever.
+HALF_OPEN_PROBE_TIMEOUT_SECONDS = 120.0
 
 
 class CircuitOpenError(RuntimeError):
@@ -21,19 +25,32 @@ class CircuitBreaker:
         self._failures = 0
         self._opened_at = 0.0
         self._cooldown: float = float(INITIAL_COOLDOWN_SECONDS)
+        self._half_open_since = 0.0
         self._lock = threading.Lock()
 
     def before_call(self) -> None:
         with self._lock:
-            if self.state != "OPEN":
+            if self.state == "CLOSED":
                 return
-            elapsed = time.monotonic() - self._opened_at
+            now = time.monotonic()
+            if self.state == "HALF_OPEN":
+                # Exactly one trial request may probe a recovering provider;
+                # everyone else keeps failing fast until it reports back.
+                if now - self._half_open_since < HALF_OPEN_PROBE_TIMEOUT_SECONDS:
+                    raise CircuitOpenError(
+                        f"circuit open for {self.name} (recovery trial in flight)"
+                    )
+                self._half_open_since = now
+                logger.info("cloud_circuit_half_open_trial provider=%s stale_probe=1", self.name)
+                return
+            elapsed = now - self._opened_at
             if elapsed < self._cooldown:
                 remaining = self._cooldown - elapsed
                 raise CircuitOpenError(
                     f"circuit open for {self.name} ({remaining:.1f}s cooldown remaining)"
                 )
             self.state = "HALF_OPEN"
+            self._half_open_since = now
             logger.info("cloud_circuit_half_open_trial provider=%s", self.name)
 
     def record_success(self) -> None:

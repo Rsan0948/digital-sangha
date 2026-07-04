@@ -68,30 +68,40 @@ class PayloadSizeLimitMiddleware:
       arrive; once the cap is exceeded the wrapped receive() returns an
       ``http.disconnect`` so the downstream handler aborts mid-stream rather
       than buffering the entire payload first.
+    - ``path_overrides`` maps exact paths to a different cap; the data-import
+      endpoint legitimately accepts bundles far larger than a normal request.
     Configure via the ``YOGA_MAX_REQUEST_BYTES`` env var (default 5_000_000).
     """
 
-    def __init__(self, app, max_bytes: int = 5_000_000) -> None:
+    def __init__(
+        self,
+        app,
+        max_bytes: int = 5_000_000,
+        path_overrides: dict[str, int] | None = None,
+    ) -> None:
         self.app = app
         self.max_bytes = max_bytes
+        self.path_overrides = path_overrides or {}
 
     async def __call__(self, scope, receive, send):
         if scope["type"] != "http":
             await self.app(scope, receive, send)
             return
 
+        limit = self.path_overrides.get(scope.get("path", ""), self.max_bytes)
+
         headers = dict(scope.get("headers") or [])
         content_length = headers.get(b"content-length")
         if content_length is not None:
             try:
-                if int(content_length) > self.max_bytes:
-                    await self._send_413(send)
+                if int(content_length) > limit:
+                    await self._send_413(send, limit)
                     return
             except ValueError:
                 pass
 
         bytes_seen = 0
-        max_bytes = self.max_bytes
+        max_bytes = limit
 
         async def counting_receive():
             nonlocal bytes_seen
@@ -105,8 +115,9 @@ class PayloadSizeLimitMiddleware:
 
         await self.app(scope, counting_receive, send)
 
-    async def _send_413(self, send) -> None:
-        body = (f'{{"detail":"Request entity too large; maximum {self.max_bytes} bytes"}}').encode()
+    async def _send_413(self, send, limit: int | None = None) -> None:
+        limit = self.max_bytes if limit is None else limit
+        body = (f'{{"detail":"Request entity too large; maximum {limit} bytes"}}').encode()
         await send(
             {
                 "type": "http.response.start",
@@ -160,7 +171,19 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="Digital Sangha", version="1.0.0", lifespan=lifespan)
 
 _max_request_bytes = int(os.getenv("YOGA_MAX_REQUEST_BYTES", "5000000"))
-app.add_middleware(PayloadSizeLimitMiddleware, max_bytes=_max_request_bytes)
+# The import endpoint enforces its own MAX_IMPORT_BUNDLE_BYTES cap; without an
+# override here the global 5 MB limit would 413 legitimate export bundles long
+# before that check runs.
+from backend.services.portability import MAX_IMPORT_BUNDLE_BYTES  # noqa: E402
+
+app.add_middleware(
+    PayloadSizeLimitMiddleware,
+    max_bytes=_max_request_bytes,
+    path_overrides={
+        # +1 MiB headroom for multipart framing around the bundle itself.
+        "/api/admin/import": max(_max_request_bytes, MAX_IMPORT_BUNDLE_BYTES + 1024 * 1024)
+    },
+)
 
 app.add_middleware(SecurityHeadersMiddleware)
 

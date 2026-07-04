@@ -15,6 +15,7 @@ _COLLECTION_SOURCES: dict[str, tuple[str, str]] = {
     "themes": ("Theme", "theme_id"),
     "sutras": ("Sutra", "sutra_id"),
     "talking_points": ("TalkingPoint", "talking_point_id"),
+    "assessments": ("Assessment", "assessment_id"),
 }
 
 
@@ -49,8 +50,13 @@ def add_documents(
 ):
     collection = get_or_create_collection(collection_name)
     embeddings = [embed_text(t) for t in texts]
-    collection.add(
-        ids=ids, embeddings=embeddings, documents=texts, metadatas=metadatas or [{}] * len(ids)
+    # upsert (not add) so re-indexing an existing id — e.g. an edited
+    # assessment — replaces the stale vector instead of being skipped.
+    collection.upsert(
+        ids=ids,
+        embeddings=embeddings,
+        documents=texts,
+        metadatas=metadatas or [{} for _ in ids],
     )
 
 
@@ -58,14 +64,13 @@ def search(collection_name: str, query: str, n_results: int = 5) -> list[dict]:
     collection = get_or_create_collection(collection_name)
     query_embedding = embed_text(query)
     results = collection.query(query_embeddings=[query_embedding], n_results=n_results)
+    ids = (results.get("ids") or [[]])[0]
+    docs = (results.get("documents") or [[]])[0] or [None] * len(ids)
+    metas = (results.get("metadatas") or [[]])[0] or [{}] * len(ids)
+    dists = (results.get("distances") or [[]])[0] or [None] * len(ids)
     return [
         {"id": id, "document": doc, "metadata": meta, "distance": dist}
-        for id, doc, meta, dist in zip(
-            results["ids"][0],
-            results["documents"][0],
-            results["metadatas"][0],
-            results["distances"][0],
-        )
+        for id, doc, meta, dist in zip(ids, docs, metas, dists)
     ]
 
 

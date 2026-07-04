@@ -8,6 +8,15 @@ from backend.services.archivist import (
 from backend.prompts.theme_explanation import THEME_SYSTEM_PROMPT
 from typing import Generator
 
+# Cap on retained conversation turns. Only the last few are ever sent to the
+# model, so anything beyond this is pure memory growth on long-lived sockets.
+MAX_HISTORY_MESSAGES = 50
+
+# Failure sentinels emitted by llm_router when a provider call fails. These
+# are shown to the user but must not be persisted as assistant turns, or they
+# poison the context of every subsequent prompt.
+_ERROR_PREFIXES = ("[Local LLM Offline]", "[Cloud Call Failed]", "[Cloud Stream Failed]")
+
 
 class ChatSession:
     def __init__(self):
@@ -40,7 +49,12 @@ class ChatSession:
             if not isinstance(content, str):
                 continue
             sanitized.append({"role": role, "content": content})
-        self.history = sanitized
+        self.history = sanitized[-MAX_HISTORY_MESSAGES:]
+
+    def _append_history(self, role: str, content: str) -> None:
+        self.history.append({"role": role, "content": content})
+        if len(self.history) > MAX_HISTORY_MESSAGES:
+            del self.history[: len(self.history) - MAX_HISTORY_MESSAGES]
 
     def _is_flow_edit_request(self, message: str) -> bool:
         msg = (message or "").lower()
@@ -140,7 +154,7 @@ class ChatSession:
         return "\n\n".join(context_parts)
 
     def chat(self, message: str) -> str:
-        self.history.append({"role": "user", "content": message})
+        self._append_history("user", message)
         context = self.build_context(message)
         system = THEME_SYSTEM_PROMPT
         if self.allow_flow_edits:
@@ -162,11 +176,12 @@ class ChatSession:
             system += f"\n\nContext:\n{context}"
         full_prompt = "\n".join(f"{m['role']}: {m['content']}" for m in self.history[-6:])
         response = generate(full_prompt, mode=self.mode, system=system)
-        self.history.append({"role": "assistant", "content": response})
+        if not response.startswith(_ERROR_PREFIXES):
+            self._append_history("assistant", response)
         return response
 
     def chat_stream(self, message: str) -> Generator[str, None, None]:
-        self.history.append({"role": "user", "content": message})
+        self._append_history("user", message)
         context = self.build_context(message)
         system = THEME_SYSTEM_PROMPT
         if self.allow_flow_edits:
@@ -191,4 +206,5 @@ class ChatSession:
         for chunk in generate_stream(full_prompt, mode=self.mode, system=system):
             full_response += chunk
             yield chunk
-        self.history.append({"role": "assistant", "content": full_response})
+        if full_response and not full_response.startswith(_ERROR_PREFIXES):
+            self._append_history("assistant", full_response)
