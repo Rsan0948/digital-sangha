@@ -203,8 +203,19 @@ class ChatSession:
             system += f"\n\nContext:\n{context}"
         full_prompt = "\n".join(f"{m['role']}: {m['content']}" for m in self.history[-6:])
         full_response = ""
+        stream_failed = False
         for chunk in generate_stream(full_prompt, mode=self.mode, system=system):
+            if chunk.startswith(_ERROR_PREFIXES):
+                stream_failed = True
             full_response += chunk
             yield chunk
+        if stream_failed:
+            # A mid-stream failure appended an error sentinel after valid content.
+            # Strip the sentinel so only the legitimate partial output is persisted.
+            for prefix in _ERROR_PREFIXES:
+                idx = full_response.find(prefix)
+                if idx != -1:
+                    full_response = full_response[:idx]
+                    break
         if full_response and not full_response.startswith(_ERROR_PREFIXES):
             self._append_history("assistant", full_response)
